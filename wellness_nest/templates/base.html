@@ -46,6 +46,12 @@
         <div class="message-container"></div>
     {% endif %}
 
+    <main>
+      {% block content %}
+      <!-- Default content can go here -->
+      {% endblock %}
+    </main>
+
     {% block postloadjs %}
     {% endblock %}
 
