@@ -41,17 +41,30 @@
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-light bg-dark py-4 sticky-top">
         <div class="container">
-          <a class="navbar-brand" href="">
+          <a class="navbar-brand d-flex justify-content-between align-items-center order-lg-0" href="">
             <img src="{% static 'wellness_nest/images/favicon/favicon-32x32.png' %}" alt="site icon">
             <span class="logo-font text-uppercase text-light ms-2"> <strong>Wellness Nest</strong></span>
           </a>
         </div>
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-          <ul class="list-inline list-unstyled text-center text-lg-right my-0">
-              <li class="list-inline-item dropdown">
-                  <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+        <div class = "collapse navbar-collapse order-lg-1" id = "navbarNav">
+          <ul class="navbar-nav mx-auto text-center">
+              <li class="nav-item px-2 py-2">
+                <a class="nav-link text-uppercase text-light" href="">home</a>
+              </li>
+              <li class="nav-item px-2 py-2">
+                <a class="nav-link text-uppercase text-light" href="">Products</a>
+              </li>
+              <li class="nav-item px-2 py-2">
+                <a class="nav-link text-uppercase text-light" href="">Testimonials</a>
+              </li>
+              <li class="nav-item px-2 py-2">
+                <a class="nav-link text-uppercase text-light" href="">Contact us</a>
+              </li>
+              <li class="nav-item px-2 py-2 dropdown text-uppercase">
+                  <a class="text-light nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <div class="text-center">
                           <div><i class="fas fa-user fa-lg"></i></div>
                           <p class="my-0">My Account</p>
@@ -70,22 +83,22 @@
                       {% endif %}
                   </div>
               </li>
-              <li class="list-inline-item">
-                  <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
-                      <div class="text-center">
-                          <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-                          <p class="my-0">
-                              {% if grand_total %}
-                                  ${{ grand_total|floatformat:2 }}
-                              {% else %}
-                                  $0.00
-                              {% endif %}
-                          </p>
-                      </div>
-                  </a>
-              </li>
+              <li class="nav-item px-2 py-2">
+                <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-light{% endif %} nav-link" href="">
+                    <div class="text-center">
+                        <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                        <p class="my-0">
+                            {% if grand_total %}
+                                ${{ grand_total|floatformat:2 }}
+                            {% else %}
+                                $0.00
+                            {% endif %}
+                        </p>
+                    </div>
+                </a>
+            </li>
           </ul>
-      </div>
+        </div>
       </nav>
     </header>
 
