@@ -1,9 +1,16 @@
+
+
 html{
     height:100%;
 }
 
 body{
-    background:url_()
+    background: url("..media/pink-794507_1280.jpg") no-repeat center center fixed;
+    background-size: cover;
+    height:calc(100vh-164px);
+    color:#555;
+    font-family:'Arima';
+
 }
 
 .navbar{
