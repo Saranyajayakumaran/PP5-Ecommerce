@@ -20,6 +20,7 @@
     {% endblock %}
 
     {% block extra_css %}
+
     {% endblock %}
     
     {% block js %}
@@ -40,64 +41,112 @@
     <title>Wellness Nest {% block extra_title %}{% endblock %}</title>
   </head>
   <body>
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-dark py-4 sticky-top">
-        <div class="container">
-          <a class="navbar-brand d-flex justify-content-between align-items-center order-lg-0" href="">
-            <img src="{% static 'wellness_nest/images/favicon/favicon-32x32.png' %}" alt="site icon">
-            <span class="logo-font text-uppercase text-light ms-2"> <strong>Wellness Nest</strong></span>
-          </a>
-        </div>
-        
-        <div class = "collapse navbar-collapse order-lg-1" id = "navbarNav">
-          <ul class="navbar-nav mx-auto text-center">
-              <li class="nav-item px-2 py-2">
-                <a class="nav-link text-uppercase text-light" href="">home</a>
-              </li>
-              <li class="nav-item px-2 py-2">
-                <a class="nav-link text-uppercase text-light" href="">Products</a>
-              </li>
-              <li class="nav-item px-2 py-2">
-                <a class="nav-link text-uppercase text-light" href="">Testimonials</a>
-              </li>
-              <li class="nav-item px-2 py-2">
-                <a class="nav-link text-uppercase text-light" href="">Contact us</a>
-              </li>
-              <li class="nav-item px-2 py-2 dropdown text-uppercase">
-                  <a class="text-light nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <div class="text-center">
-                          <div><i class="fas fa-user fa-lg"></i></div>
-                          <p class="my-0">My Account</p>
-                      </div>
-                  </a>
-                  <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                      {% if request.user.is_authenticated %}
-                          {% if request.user.is_superuser %}
-                              <a href="" class="dropdown-item">Product Management</a>
-                          {% endif %}
-                          <a href="" class="dropdown-item">My Profile</a>
-                          <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                      {% else %}
-                          <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                          <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                      {% endif %}
-                  </div>
-              </li>
-              <li class="nav-item px-2 py-2">
-                <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-light{% endif %} nav-link" href="">
-                    <div class="text-center">
-                        <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-                        <p class="my-0">
-                            {% if grand_total %}
-                                ${{ grand_total|floatformat:2 }}
-                            {% else %}
-                                $0.00
-                            {% endif %}
-                        </p>
-                    </div>
-                </a>
+    <header class="fixed-top">
+      <nav class="navbar navbar-expand-lg navbar-light py-1 py-lg-0 text-center text-lg-left" style="background-color: #f38c82;">
+        <a class="navbar-brand google_font" href=""><img src="{% static 'wellness_nest/images/favicon/favicon-32x32.png' %}" alt="site icon">Wellness Nest</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="">New*</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href=""
+                >Home <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+               Products
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="">All products</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="">Beauty</a>
+                <a class="dropdown-item" href="">Haircare</a>
+                <a class="dropdown-item" href="">Health and wellness</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="">By Price</a>
+                <a class="dropdown-item" href="">By Rating</a>
+                <a class="dropdown-item" href="">By Category</a>
+              </div>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="">Testimonials</a>
             </li>
           </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown mr-2">
+              <a
+                class="nav-link dropdown-toggle my_account_padding"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+               My Account
+              </a>
+              <div class="dropdown-menu" aria-labelledby="user-options">
+                {% if request.user.is_authenticated %} 
+                {% if request.user.is_superuser %}
+                <a href="" class="dropdown-item">Product Management</a>
+                {% endif %}
+                <a href="" class="dropdown-item">My Profile</a>
+                <div class="dropdown-divider"></div>
+                <a href="" class="dropdown-item"
+                  >Logout</a
+                >
+                {% else %}
+                <a href="" class="dropdown-item"
+                  >Register</a
+                >
+                <a href="" class="dropdown-item"
+                  >Login</a
+                >
+                {% endif %}
+              </div>
+            </li>
+            <li class="nav-item mr-4">
+              <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
+                <div class="text-center">
+                  <div><i class="fas fa-shopping-bag fa-lg" style="color: #ffc107;"></i></div>
+                  <p class="my-0" style="color: #ffc107;">
+                    {% if grand_total %}
+                        €{{ grand_total|floatformat:2 }} 
+                    {% else %}
+                        €0.00 
+                    {% endif %}
+                  </p>
+                </div>
+              </a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0 mr-2" method="GET" action="">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search our site" aria-label="Search" name="q"/>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
         </div>
       </nav>
     </header>
@@ -108,7 +157,7 @@
 
     <main>
       {% block content %}
-      <!-- Default content can go here -->
+      
       {% endblock %}
     </main>
 
