@@ -51,8 +51,7 @@
     <title>Wellness Nest {% block extra_title %}{% endblock %}</title>
   </head>
   <body>
-    <header class="fixed-top">
-      <nav class="navbar navbar-expand-sm navbar-dark bg-dark py-1 py-lg-0 text-center text-lg-left" style="background-color: #f38c82;">
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark py-1 py-lg-0 text-center text-lg-left fixed-top" style="background-color: #f38c82;">
         <div class="container-fluid">
         <a class="navbar-brand text-uppercase shop-name" href="#"><img class="logo" src="{% static 'wellness_nest/images/favicon/favicon-32x32.png' %}" alt="site icon"> Wellness Nest</a>
         <button
@@ -160,12 +159,12 @@
         </div>
         </div>
       </nav>
-    </header>
+    <header>           
+    </header> 
 
     {% if messages %}
         <div class="message-container"></div>
     {% endif %}
-
     <main>
       {% block content %}
       
@@ -174,6 +173,6 @@
 
     {% block postloadjs %}
     {% endblock %}
-
+ 
   </body>
 </html>
