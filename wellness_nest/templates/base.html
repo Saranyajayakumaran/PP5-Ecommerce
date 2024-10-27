@@ -51,7 +51,7 @@
     <title>Wellness Nest {% block extra_title %}{% endblock %}</title>
   </head>
   <body>
-      <nav class="navbar navbar-expand-sm navbar-dark bg-dark py-1 py-lg-0 text-center text-lg-left fixed-top" style="background-color: #f38c82;">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-1 py-lg-0 text-center text-lg-left fixed-top" style="background-color: #f38c82;">
         <div class="container-fluid">
         <a class="navbar-brand text-uppercase shop-name" href="#"><img class="logo" src="{% static 'wellness_nest/images/favicon/favicon-32x32.png' %}" alt="site icon"> Wellness Nest</a>
         <button
@@ -66,7 +66,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse navlink-background" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
               <a class="nav-link text-dark" href="">New*</a>
@@ -151,11 +151,15 @@
                 </div>
               </a>
             </li>
+            <div class="search-bar-container">
+              <form class="d-flex my-2 my-lg-0" method="GET" action="">
+                  <input class="form-control me-2 search-input" type="text" placeholder="Search our site" aria-label="Search" name="q"/>
+                  <button class="btn btn-outline-success my-2 my-sm-0 search-btn" type="submit" style="color: #ffc107;">
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                  </button>
+              </form>
+          </div>
           </ul>
-          <form class="form-inline my-2 my-lg-0 mr-2" method="GET" action="">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search our site" aria-label="Search" name="q"/>
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color: #ffc107;"><i class="fa-solid fa-magnifying-glass"></i></button>
-          </form>
         </div>
         </div>
       </nav>
