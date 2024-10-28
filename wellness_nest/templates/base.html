@@ -51,6 +51,7 @@
     <title>Wellness Nest {% block extra_title %}{% endblock %}</title>
   </head>
   <body>
+    <header class="header-container"> 
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-1 py-lg-0 text-center text-lg-left fixed-top" style="background-color: #f38c82;">
         <div class="container-fluid">
         <a class="navbar-brand text-uppercase shop-name" href="#"><img class="logo" src="{% static 'wellness_nest/images/favicon/favicon-32x32.png' %}" alt="site icon"> Wellness Nest</a>
@@ -151,19 +152,40 @@
                 </div>
               </a>
             </li>
-            <div class="search-bar-container">
-              <form class="d-flex my-2 my-lg-0" method="GET" action="">
-                  <input class="form-control me-2 search-input" type="text" placeholder="Search our site" aria-label="Search" name="q"/>
-                  <button class="btn btn-outline-success my-2 my-sm-0 search-btn" type="submit" style="color: #ffc107;">
-                      <i class="fa-solid fa-magnifying-glass"></i>
-                  </button>
-              </form>
-          </div>
           </ul>
         </div>
         </div>
+        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 d-none d-lg-block">
+          <form method="GET" action="">
+              <div class="input-group w-100 ">
+                  <input class="form-control border bg-light border-black rounded-5 " type="text" name="q" placeholder="Search our site">
+                  <div class="input-group-append">
+                      <button class="form-control btn bg-dark btn-black border border-black rounded-5" type="submit">
+                          <span class="icon border-black text-light">
+                              <i class="fas fa-search"></i>
+                          </span>
+                      </button>
+                  </div>
+              </div>
+          </form>
+      </div>          
       </nav>
-    <header>           
+
+      <div class="search-container d-lg-none mt-3 text-center">
+        <form method="GET" action="">
+            <div class="input-group w-100">
+                <input class="form-control border bg-light border-black rounded-5 search-input" type="text" name="q" placeholder="Search our site">
+                <div class="input-group-append">
+                    <button class="form-control btn bg-dark btn-black border border-black rounded-5" type="submit">
+                        <span class="icon border-black text-light">
+                            <i class="fas fa-search"></i>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+      
     </header> 
 
     {% if messages %}

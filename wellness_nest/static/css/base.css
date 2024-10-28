@@ -32,6 +32,18 @@ body{
     background-color: #343a40;
 }
 
+.search-container {
+    margin-top: 15px; /* Adjust based on your layout */
+}
+
+.search-input {
+    width: 100%; /* Ensures the search input takes full width */
+}
+
+.btn {
+    flex-shrink: 0; /* Prevents button from shrinking */
+}
+
 main {
     flex: 1; /* Allow main to take up available space */
 }
@@ -94,7 +106,20 @@ footer {
     
     .hero-section h1 {
         font-size: 2rem;
-    }  
+    } 
+    .search-container{
+        width:50%;
+        margin-left:7rem;
+        margin-top:rem;
+        
+    }
+}
+
+@media (min-width: 578px) and (max-width: 992px){
+    .search-container{
+        width:60%;
+        margin-left:10rem;
+    }
 }
 
 /*@media (max-width: 992px) { /* Adjust the max-width for specific screen sizes */
@@ -119,14 +144,4 @@ footer {
 .navbar-nav .nav-item{
     padding: 5px 0;
 }
-.search-input {   
-    width: 30%;
-    margin-left:px;
-    
 }
-
-.search-input, .search-btn{
-    margin-left:14rem;
-}
-}
-    
