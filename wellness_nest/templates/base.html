@@ -52,6 +52,11 @@
   </head>
   <body>
     <header class="header-container"> 
+      <!--<div id="delivery-banner" class="row text-center">
+        <div class="col text-white ">
+          <h5 class="my-2 bg-dark">Free Delivery to Ireland on orders over €{{ free_delivery_threshold }} </h5>
+        </div>
+      </div>-->
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-1 py-lg-0 text-center text-lg-left fixed-top" style="background-color: #f38c82;">
         <div class="container-fluid">
         <a class="navbar-brand text-uppercase shop-name" href="#"><img class="logo" src="{% static 'wellness_nest/images/favicon/favicon-32x32.png' %}" alt="site icon"> Wellness Nest</a>
@@ -155,7 +160,7 @@
           </ul>
         </div>
         </div>
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 d-none d-lg-block">
+        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 d-none d-lg-block mt-3 ">
           <form method="GET" action="">
               <div class="input-group w-100 ">
                   <input class="form-control border bg-light border-black rounded-5 " type="text" name="q" placeholder="Search our site">
@@ -170,7 +175,6 @@
           </form>
       </div>          
       </nav>
-
       <div class="search-container d-lg-none mt-3 text-center">
         <form method="GET" action="">
             <div class="input-group w-100">
@@ -199,6 +203,44 @@
 
     {% block postloadjs %}
     {% endblock %}
- 
+    <footer>
+      <footer class="bg-dark text-light py-4">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 mb-6 py-4">
+              <h5 class="text-uppercase mb-3">Contact Us</h5>
+              <p>Email: support@wellnessnest.com</p>
+              <p>Phone: +123 456 7890</p>
+              <div class="mb-5">
+                <a href="#" class="text-light mr-3"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-light mr-3"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-light mr-3"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-light"><i class="fab fa-youtube"></i></a>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4 py-4 d-flex flex-column ">
+              <h5 class="text-uppercase mb-3">Quick Links</h5>
+              <ul class="list-unstyled">
+                <li><a href="#" class="text-light">Home</a></li>
+                <li><a href="#" class="text-light">Products</a></li>
+                <li><a href="#" class="text-light">Testimonials</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 py-4 d-flex flex-column mb-4 ">
+              <h5 class=" text-uppercase mb-3">Stay Updated</h5>
+              <form action="" method="POST" class="d-flex">
+                <input type="email" class="form-control me-2" placeholder="Your email" required>
+                <button type="submit" class="btn btn-warning">Subscribe</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <hr class="bg-light">
+        <div class="text-center">
+          <p class="mb-0">&copy; The website is for education purpose only </p>
+        </div>
+      </footer>
+      
+    </footer>
   </body>
 </html>
