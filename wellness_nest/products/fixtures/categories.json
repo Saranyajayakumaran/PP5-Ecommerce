@@ -1,0 +1,27 @@
+[{
+    "pk":1,
+    "model":"products.category",
+    "fields":{
+        "name":"Beauty",
+        "friendly_name":"Beauty Products",
+        "slug":"beauty"
+    }
+},
+{
+    "pk":2,
+    "model":"products.category",
+    "fields":{
+        "name":"Hair Care",
+        "friendly_name":"Hair care Products",
+        "slug":"hair-care"
+    }
+},
+{
+    "pk":3,
+    "model":"products.category",
+    "fields":{
+        "name":"Health and Wellness",
+        "friendly_name":"Health and Wellness Products",
+        "slug":"health-and-wellness"
+    }
+}]
