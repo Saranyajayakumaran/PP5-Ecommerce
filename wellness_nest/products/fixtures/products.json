@@ -1,0 +1,304 @@
+[
+    {
+        "pk": 1,
+        "model": "products.product",
+        "fields": {
+          "sku": "HC-10001",
+          "name": "Argan oil hair mask",
+          "description": "Revitalize your hair with our luxurious Argan Oil Hair Mask, designed to nourish and restore vitality to all hair types. Intense Moisture,Frizz Control",
+          "price": 65.99,
+          "category": 2 ,
+          "rating": 4.6,
+          "image_url": "/media/argal-oil-hairmask.jpg",
+          "image": "argal-oil-hairmask.jpg",
+          "size":"350ml"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.product",
+        "fields": {
+        "sku": "HC-10002",
+        "name": "Argan conditioner",
+        "description": "Indulge your hair with our nourishing Argan Conditioner, a luxurious formula designed to hydrate, detangle, and restore shine to all hair types. Enriched with pure, organic argan oil, this conditioner provides deep moisture and essential nutrients, leaving your hair soft, manageable, and beautifully vibrant.",
+        "price": 25.99,
+        "category": 2 ,
+        "rating": 4.1,
+        "image_url": "/media/argan-conditioner.jpg",
+        "image": "argan-conditioner.jpg",
+        "size":"200ml"
+        
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.product",
+        "fields": {
+        "sku": "HC-10003",
+        "name": "Black Comb",
+        "description": "Elevate your grooming routine with our sleek and stylish Black Comb, designed for both functionality and elegance. Made from high-quality materials, this comb provides a smooth glide through hair, making it perfect for detangling, styling, and everyday use.",
+        "price": 6.99,
+        "category": 2 ,
+        "rating": 4.0,
+        "image_url": "/media/black-comb.jpg",
+        "image": "black-comb.jpg",
+        "size":"standard"
+        }
+    },
+    
+    {
+        "pk": 5,
+        "model": "products.product",
+        "fields": {
+        "sku": "B-10005",
+        "name": "Face Cleansing Foam",
+        "description": "Experience a refreshing cleanse with our Refreshing Face Cleansing Foam, specially formulated to purify and revitalize your skin. This gentle yet effective foam removes impurities, excess oil, and makeup without stripping your skin of its natural moisture, leaving your complexion fresh and radiant.",
+        "price": 12.99,
+        "category": 1 ,
+        "rating": 4.5,
+        "image_url": "/media/cleansing-foam.jpg",
+        "image": "cleansing-foam.jpg",
+        "size":"60ml"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.product",
+        "fields": {
+        "sku": "HW-10006",
+        "name": "Organic Coffee Beans",
+        "description": "Awaken your senses with our premium Organic Coffee Beans, sourced from the finest coffee-growing regions around the world. These ethically sourced beans are 100% organic, ensuring a rich and flavorful cup while supporting sustainable farming practices.",
+        "price": 20.99,
+        "category": 3 ,
+        "rating": 3.2,
+        "image_url": "/media/coffee-beans.jpg",
+        "image": "coffee-beans.jpg",
+        "size":"300g"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "products.product",
+        "fields": {
+        "sku": "HW-10007",
+        "name": "Collagen with Vitamin-D",
+        "description": "Enhance your wellness routine with our Collagen with Vitamin D supplement, expertly formulated to support skin elasticity, joint health, and overall vitality. This powerful combination provides essential nutrients that promote a youthful appearance and a healthy lifestyle.",
+        "price": 17.99,
+        "category": 3 ,
+        "rating": 4.2,
+        "image_url": "/media/collagen-with-vitamin-d.jpg",
+        "image": "collagen-with-vitamin-d.jpg",
+        "size":"50 tablets"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "products.product",
+        "fields": {
+        "sku": "B-10008",
+        "name": "Wellness Face Cream",
+        "description": "Transform your skincare routine with our Rejuvenating Face Cream, a luxurious formula designed to hydrate, nourish, and protect your skin. Infused with powerful antioxidants and natural ingredients, this cream is perfect for all skin types, leaving your complexion radiant and youthful.",
+        "price": 6.99,
+        "category": 1 ,
+        "rating": 4.1,
+        "image_url": "/media/creams.jpg",
+        "image": "creams.jpg",
+        "size":"25g"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "products.product",
+        "fields": {
+        "sku": "B-10009",
+        "name": "Vibrant Eyeshadow Palette",
+        "description": "Unleash your creativity with our Vibrant Eyeshadow Palette, a collection of richly pigmented shades designed to elevate your eye makeup game. Whether you're aiming for a subtle daytime look or a bold evening statement, this versatile palette has everything you need to express your unique style.",
+        "price": 14.99,
+        "category": 1 ,
+        "rating": 3.8,
+        "image_url": "/media/eye-shadow.jpg",
+        "image": "eye-shadow.jpg",
+        "size":"2ml"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "products.product",
+        "fields": {
+        "sku": "HW-10010",
+        "name": "Nutritious Health Mix",
+        "description": "Fuel your day with our Nutritious Health Mix, a wholesome blend of carefully selected ingredients designed to support your overall well-being. Packed with essential vitamins, minerals, and antioxidants, this health mix is perfect for anyone looking to enhance their diet and maintain a balanced lifestyle.",
+        "price": 16.99,
+        "category": 3 ,
+        "rating": 3.8,
+        "image_url": "/media/health-mix.jpg",
+        "image": "health-mix.jpg",
+        "size":"500g"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "products.product",
+        "fields": {
+        "sku": "HC-10011",
+        "name": "Keun Shampoo & Conditioner Duo",
+        "description": "Transform your hair care routine with the Keun Shampoo and Conditioner Duo, specially formulated to cleanse, nourish, and revitalize your hair. This powerful combination works together to provide your hair with the care it deserves, leaving it healthy, shiny, and full of life.",
+        "price": 13.99,
+        "category": 2,
+        "rating": 4.3,
+        "image_url": "/media/keun-conditioner-shampoo.jpg",
+        "image": "keun-conditioner-shampoo.jpg",
+        "size":"400ml"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "products.product",
+        "fields": {
+        "sku": "B-10012",
+        "name": "Luxe Lipstick",
+        "description": "Enhance your beauty with our Luxe Lipstick, a rich, creamy formula designed to provide bold color and luxurious wear. This lipstick glides on effortlessly, delivering a smooth application and a vibrant finish that lasts all day.",
+        "price": 7.99,
+        "category": 1,
+        "rating": 4.1,
+        "image_url": "/media/lipstick-red.jpg",
+        "image": "lipstick-red.jpg",
+        "size":"Medium"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "products.product",
+        "fields": {
+        "sku": "HC-10013",
+        "name": "Shampoo and Brush Combo",
+        "description": "Elevate your hair care routine with our Shampoo and Brush Combo, designed to cleanse and style your hair effortlessly. The nourishing shampoo is formulated with natural ingredients that gently cleanse while providing essential moisture, leaving your hair soft, shiny, and manageable.",
+        "price": 5.99,
+        "category": 2,
+        "rating": 3.2,
+        "image_url": "/media/soap-and-brush.jpg",
+        "image": "soap-and-brush.jpg",
+        "size":"30g and standard brush"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "products.product",
+        "fields": {
+        "sku": "B-10014",
+        "name": "Professional Makeup Brush",
+        "description": "Achieve a flawless look with our Professional Makeup Brush, designed for both makeup enthusiasts and professionals alike. This high-quality brush offers precision application, making it the perfect tool for creating a variety of stunning looks.",
+        "price": 25.99,
+        "category": 1,
+        "rating": 4.5,
+        "image_url": "/media/make-up-brush.jpg",
+        "image": "make-up-brush.jpg",
+        "size":"standard"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "products.product",
+        "fields": {
+        "sku": "HC-10015",
+        "name": "Premium Milk Powder",
+        "description": "Discover the rich and creamy goodness of our Premium Milk Powder, made from high-quality, whole milk. Perfect for cooking, baking, and enjoying a delicious drink, this versatile ingredient is a pantry essential for every household.",
+        "price": 30.99,
+        "category": 2,
+        "rating": 3.9,
+        "image_url": "/media/milk-powder.jpg",
+        "image": "milk-powder.jpg",
+        "size":"500g"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "products.product",
+        "fields": {
+        "sku": "HW-10016",
+        "name": "Gourmet Mixed Nuts",
+        "description": "Indulge in the delightful crunch of our Gourmet Mixed Nuts, a perfect blend of premium nuts that offers a delicious and nutritious snack option for any time of day. Packed with essential nutrients, these mixed nuts are a healthy addition to your diet.",
+        "price": 6.99,
+        "category": 3,
+        "rating": 3.9,
+        "image_url": "/media/mixed-nuts.jpg",
+        "image": "mixed-nuts.jpg",
+        "size":"200g"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "products.product",
+        "fields": {
+        "sku": "B-10017",
+        "name": "Premium Nail Gel",
+        "description": "Achieve salon-quality nails at home with our Premium Nail Gel, specially formulated for long-lasting wear and a stunning finish. This gel polish delivers vibrant color and durability, ensuring your manicure stays flawless for weeks.",
+        "price": 4.99,
+        "category": 1,
+        "rating": 3.9,
+        "image_url": "/media/nail-gel-grey.jpg",
+        "image": "nail-gel-grey.jpg",
+        "size":"3ml"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "products.product",
+        "fields": {
+        "sku": "HW-10018",
+        "name": "Organic Ginger Tea",
+        "description": "Savor the warmth and vitality of our Organic Ginger Tea, a soothing and invigorating beverage crafted from the finest organic ginger roots. Known for its aromatic flavor and numerous health benefits, this tea is a delightful addition to your daily routine.",
+        "price": 3.19,
+        "category": 3,
+        "rating": 3.9,
+        "image_url": "wellness_nest/media/organic tea.jpg",
+        "image": "organic tea.jpg",
+        "size":"30 packets"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "products.product",
+        "fields": {
+        "sku": "HW-10019",
+        "name": "Premium Saffron",
+        "description": "Discover the exquisite flavor and vibrant color of our Premium Saffron, the world's most precious spice. Sourced from the finest saffron crocuses, our saffron threads are hand-harvested to ensure the highest quality and potency.",
+        "price": 10.59,
+        "category": 3,
+        "rating": 3.2,
+        "image_url": "/media/saffron.jpg",
+        "image": "saffron.jpg",
+        "size":"15g"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "products.product",
+        "fields": {
+        "sku": "B-10020",
+        "name": "Rejuvenating Skin Serum",
+        "description": "Revitalize your skincare routine with our Rejuvenating Skin Serum, a potent blend of active ingredients designed to nourish, hydrate, and rejuvenate your skin. Perfect for all skin types, this serum targets key signs of aging and enhances your natural glow.",
+        "price": 10.59,
+        "category": 1,
+        "rating": 4.4,
+        "image_url": "/media/skin serum.jpg",
+        "image": "skin serum.jpg",
+        "size":"50ml"
+        }
+    },
+    {
+        "pk": 21,
+        "model": "products.product",
+        "fields": {
+        "sku": "B-10021",
+        "name": "Naturals Shampoo and Conditioner",
+        "description": "Transform your hair care routine with our Naturals Shampoo and Conditioner Set, specially formulated to nourish, strengthen, and revitalize your hair using the power of natural ingredients. Suitable for all hair types, this dynamic duo will leave your locks looking healthy, shiny, and beautifully manageable.",
+        "price": 26.59,
+        "category": 1,
+        "rating": 4.4,
+        "image_url": "/media/shampoo-and-conditioner.jpg",
+        "image": "shampoo-and-conditioner.jpg",
+        "size":"200ml"
+        }
+    }
+]
