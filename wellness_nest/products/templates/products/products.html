@@ -12,10 +12,39 @@
 {% endblock %}
 
 {% block content %}
+<div class="overlay"></div>
 <div class="container">
-    <div class=" row hero-section">
+    <div class=" row ">
         <div class="col-12">
-            {{ products }}
+            <h1 class="text-center my-5">Products</h1>
+        </div>
+    </div>
+    <div class="row card">
+        {% for product in products %}
+        <div class="col-lg-4 col-md-4 col-12">
+            <div class="card">
+                {% if product.image %}
+                <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                {% else %}
+                <img src="{{ MEDIA_URL }}noimage.png" class="card-img-top" alt="{{ product.name }}">
+                {% endif %}
+                <div class="card-body">
+                    <div class="col">
+                        {{product.name}}
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="col">
+                        {{product.size}}
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="col">
+                        {{product.price}}
+                    </div>
+                </div>
+            </div>
+        {% endfor %} 
         </div>
     </div>
 </div>
