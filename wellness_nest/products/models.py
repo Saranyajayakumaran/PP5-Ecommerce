@@ -6,9 +6,12 @@ class Category(models.Model):
     
     """Model for Categories of the products"""
 
+    class Meta:
+        verbose_name_plural = 'Categories'
+
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
-    slug = models.SlugField(max_length=254, unique=True, null=True, blank=True)
+    slug = models.SlugField(max_length=254, unique=True, null=True, blank=True) # used for SEO
     
     def __str__(self):
         #print(self.name)
@@ -20,6 +23,9 @@ class Category(models.Model):
 
 class Products(models.Model):
     """ Model for all products fields """
+
+    class Meta:
+        verbose_name_plural = 'Products'
 
     category=models.ForeignKey('Category', null=True , blank=True, on_delete=models.SET_NULL)
     sku=models.CharField(max_length=254,null=True,blank=True)
