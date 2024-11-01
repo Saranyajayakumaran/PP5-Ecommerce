@@ -24,39 +24,58 @@
         <div class="col-sm-6 col-lg-4 px-1 d-flex mb-5  col-xl-3 col-12">
             <div class="card h-100 border-0 mb-3 mx-auto mx-sm-2 ">
                 {% if product.image %}
-                <a href="">
+                <a href="{% url 'product_detail' product.id %}">
                     <img src="{{ product.image.url }}" class="card-img-top img-fluid" alt="{{ product.name }}">
                 </a>
                 {% else %}
-                <a href="">
+                <a href="{% url 'product_detail' product.id %}">
                     <img src="{{ MEDIA_URL }}noimage.png" class="card-img-top img-fluid" alt="{{ product.name }}">
                 </a>
                 {% endif %}
-                <div class="row card-body pb-0">
-                    <div class="col card-text">
+                <div class="row card-body">
+                    <small><div class="col card-text ">
                         {{product.name}}
-                    </div>
-                    <div class="col text-right pb-4">
+                    </div></small>
+                    <small><div class="col text-right ">
                         {{product.size}}
-                    </div>
+                    </div></small>
                 </div>
-                <div class="card-footer bg-white border-0 pt-0 text-left">
+                <div class="card-footer bg-white border-0 text-left">
                     <div class="row">
-                        <div class="col text-left pb-4">
+                        <div class="col text-left">
                             {% if product.rating %}
                                 <small class="text-muted"><i class="fas fa-star mr-1"></i>{{product.rating}}/ 5</small>
                             {% else %}
                                 <small class="text-muted">No Rating</small>
                             {% endif %}
                             </div>
-                        <div class="col text-right pb-4 ">
+                        <div class="col text-right text-decoration-line-through ">
                             Price:{{product.price}}€
                         </div> 
                     </div>  
                 </div>
             </div>
         </div>
-        
+        {% if forloop.counter|divisibleby:1 %}
+            <div class="col-12 d-sm-none mb-5">
+                <hr>
+            </div>
+        {% endif %}                        
+        {% if forloop.counter|divisibleby:2 %}
+            <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+                <hr>
+            </div>
+        {% endif %}
+        {% if forloop.counter|divisibleby:3 %}
+            <div class="col-12 d-none d-lg-block d-xl-none mb-5">
+                    <hr>
+            </div>
+        {% endif %}
+        {% if forloop.counter|divisibleby:4 %}
+            <div class="col-12 d-none d-xl-block mb-5">
+                <hr>
+            </div>
+        {% endif %}
         {% endfor %} 
     </div>
 {% endblock %}
