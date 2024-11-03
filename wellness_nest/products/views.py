@@ -11,7 +11,7 @@ def all_products(request):
 
     products = Products.objects.all()
     query=None
-    category=None
+    categories=None
 
     if request.GET:
         if 'search_term' in request.GET:
@@ -24,12 +24,12 @@ def all_products(request):
             products = products.filter(queries)
 
         if 'category' in request.GET:
-            categories = request.GET('category').split(',')
+            categories = request.GET['category'].split(',')
+            print(categories)
             products= products.filter(category__name__in=categories)
+            print(products)
             categories=Category.objects.filter(name__in=categories)
 
-
-   
     context={
         'products' : products,
         'search_term':query,

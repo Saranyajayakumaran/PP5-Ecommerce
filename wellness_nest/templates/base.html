@@ -97,16 +97,16 @@
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{% url 'products' %}">All products</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="">Beauty</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=beauty">Beauty</a>
                 <div class="dropdown-submenu">
-                  <a class="dropdown-item dropdown-toggle" href="">Haircare</a>
+                  <a class="dropdown-item dropdown-toggle" href="{% url 'products' %}?category=haircare">Haircare</a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="">Shampoo</a></li>
-                    <li><a class="dropdown-item" href="">Oil</a></li>
-                    <li><a class="dropdown-item" href="">Soap</a></li>
+                    <li><a class="dropdown-item" href="{% url 'products' %}?category=shampoo">Shampoo</a></li>
+                    <li><a class="dropdown-item" href="{% url 'products' %}?category=oil">Oil</a></li>
+                    <li><a class="dropdown-item" href="{% url 'products' %}?category=comb">Comb</a></li>
                   </ul>
               </div>
-                <a class="dropdown-item" href="">Health and wellness</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=health_and_wellness">Health and wellness</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="">By Price</a>
                 <a class="dropdown-item" href="">By Rating</a>
@@ -134,18 +134,18 @@
               <div class="dropdown-menu" aria-labelledby="user-options">
                 {% if request.user.is_authenticated %} 
                 {% if request.user.is_superuser %}
-                <a href="" class="dropdown-item">Product Management</a>
+                <a href="{% url 'account_logout' %}" class="dropdown-item">Admin</a>
                 {% endif %}
                 <a href="" class="dropdown-item">My Profile</a>
                 <div class="dropdown-divider"></div>
-                <a href="" class="dropdown-item"
+                <a href="{% url 'account_logout' %}" class="dropdown-item"
                   >Logout</a
                 >
                 {% else %}
-                <a href="" class="dropdown-item"
+                <a href="{% url 'account_signup' %}" class="dropdown-item"
                   >Register</a
                 >
-                <a href="" class="dropdown-item"
+                <a href="{% url 'account_login' %}" class="dropdown-item"
                   >Login</a
                 >
                 {% endif %}
