@@ -6,7 +6,7 @@ from.models import Products, Category
 
 # Create your views here.
 
-def all_products(request):
+def all_products_view(request):
     """ A view to display all products image and details
         and filter the displayed products based on search query"""
 
@@ -65,7 +65,7 @@ def all_products(request):
     return render(request,'products/products.html', context)
 
 
-def product_detail(request,product_id):
+def product_detail_view(request,product_id):
     """ A view to display indivudual product details with description"""
 
     product = get_object_or_404(Products,pk=product_id)
