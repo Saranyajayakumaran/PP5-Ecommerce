@@ -97,16 +97,9 @@
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{% url 'products' %}">All products</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{% url 'products' %}?category=beauty">Beauty</a>
-                <div class="dropdown-submenu">
-                  <a class="dropdown-item dropdown-toggle" href="{% url 'products' %}?category=haircare">Haircare</a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'products' %}?category=shampoo">Shampoo</a></li>
-                    <li><a class="dropdown-item" href="{% url 'products' %}?category=oil">Oil</a></li>
-                    <li><a class="dropdown-item" href="{% url 'products' %}?category=comb">Comb</a></li>
-                  </ul>
-              </div>
-                <a class="dropdown-item" href="{% url 'products' %}?category=health_and_wellness">Health and wellness</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=Beauty">Beauty</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=Hair Care">Haircare</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=Health and Wellness">Health and wellness</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="">By Price</a>
                 <a class="dropdown-item" href="">By Rating</a>
