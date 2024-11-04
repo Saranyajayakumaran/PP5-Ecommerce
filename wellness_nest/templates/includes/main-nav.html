@@ -27,9 +27,9 @@
           <a class="dropdown-item" href="{% url 'products' %}?category=Hair Care">Haircare</a>
           <a class="dropdown-item" href="{% url 'products' %}?category=Health and Wellness">Health and wellness</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="">By Price</a>
-          <a class="dropdown-item" href="">By Rating</a>
-          <a class="dropdown-item" href="">By Category</a>
+          <a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">By Price</a>
+          <a class="dropdown-item" href="{% url 'products' %}?sort=rating&direction=asc">By Rating</a>
+          <a class="dropdown-item" href="{% url 'products' %}?sort=name&direction=asc">By Name</a>
         </div>
       </li>
       
