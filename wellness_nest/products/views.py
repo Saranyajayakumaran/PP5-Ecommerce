@@ -32,6 +32,23 @@ def all_products_view(request):
                 direction = request.GET['direction']
                 if direction == 'desc':
                     sortkey=f'-{sortkey}'
+
+            """if sortkey in ['price_low_high', 'price_high_low', 'rating_low_high', 'rating_high_low', 'name_az', 'name_za']:
+                if sortkey == 'price__low__high':
+                    products=products.order_by('price')
+                elif sortkey=='price__high__low':
+                    products=products.order_by('-price')
+                elif sortkey=='rating_low_high':
+                    products=products.order_by('rating')
+                elif sortkey=='rating_high_low':
+                    products=products.order_by('-rating')
+                elif sortkey=='name_az':
+                    products=products.order_by('name')
+                elif sortkey=='name_za':
+                    products=products.order_by('-name')
+
+                    current_sorting=sortkey"""
+
             products = products.order_by(sortkey)
 
         if 'category' in request.GET:

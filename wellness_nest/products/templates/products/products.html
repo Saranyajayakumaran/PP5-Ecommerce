@@ -23,14 +23,28 @@
     <div class="row mb-2">
         <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
             <div class="sort-select-wrapper w-50">
-                <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border-gold">
-                    <option value="">Sort by...</option>
-                    <option value="">Price(low to high)</option>
-                    <option value="">Price(high to low)</option>
-                    <option value="">Rating(low to high)</option>
-                    <option value="">Rating(high to low)</option>
-                    <option value="">Name (A-Z)</option>
-                    <option value="">Name (Z-A)</option>
+                <select id="sort-selector" class="custom-select custom-select-sm rounded-0 ">
+                    <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}> 
+                        Sort by...
+                    </option>
+                    <option value="price_low_high" {% if current_sorting == 'price_low_high' %}selected{% endif %}>
+                        Price(low to high)
+                    </option>
+                    <option value="price_high_low" {% if current_sorting == 'price_high_low' %}selected{% endif %}>
+                        Price(high to low)
+                    </option>
+                    <option value="rating_low_high" {% if current_sorting == 'price_high_low' %}selected{% endif %}>
+                        Rating(low to high)
+                    </option>
+                    <option value="rating_high_low" {% if current_sorting == 'price_high_low' %}selected{% endif %}>
+                        Rating(high to low)
+                    </option>
+                    <option value="name_az" {% if current_sorting == 'name_az' %}selected{% endif %}>
+                        Name (A-Z)
+                    </option>
+                    <option value="name_za" {% if current_sorting == 'name_za' %}selected{% endif %}>
+                        Name (Z-A)
+                    </option>
                 </select>
             </div>
         </div>
@@ -43,7 +57,7 @@
     </div>
     <div class="row card-deck">
         {% for product in products %}
-        <div class="col-sm-6 col-lg-4 px-1 d-flex mb-5  col-xl-3 col-12">
+        <div class="col-sm-6 col-lg-4  d-flex mb-5  col-xl-3 col-12">
             <div class="card h-100 border-0 mb-3 mx-auto mx-sm-2 ">
                 {% if product.image %}
                 <a href="{% url 'product_detail' product.id %}">
@@ -62,7 +76,7 @@
                         {{product.size}}
                     </div></small>
                 </div>
-                <div class="card-footer bg-white border-0 text-left">
+                <div class="card-body bg-white border-0 text-left">
                     <div class="row">
                         <div class="col text-left">
                             {% if product.rating %}
@@ -70,7 +84,7 @@
                             {% else %}
                                 <small class="text-muted">No Rating</small>
                             {% endif %}
-                            </div>
+                        </div>
                         <div class="col text-right text-decoration-line-through ">
                             Price:{{product.price}}€
                         </div> 
