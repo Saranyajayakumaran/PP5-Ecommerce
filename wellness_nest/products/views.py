@@ -10,6 +10,7 @@ def all_products_view(request):
     """ A view to display all products image and details
         and filter the displayed products based on search query"""
 
+
     products = Products.objects.all()
     query=None
     categories=None
@@ -17,37 +18,23 @@ def all_products_view(request):
     direction=None
 
     if request.GET:
-
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
-            print(sortkey)
+            #print(sortkey)
             sort=sortkey
-            print(sort)
+            #print(sort)
             if sortkey=='name':
-                sortkey='lowercase_name'
+                sortkey='lower_name'
                 print(sortkey)
                 products=products.annotate(lowercase_name=Lower('name'))
+            
+            if sortkey == 'category':
+                sortkey = 'category__name'
 
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
                     sortkey=f'-{sortkey}'
-
-            """if sortkey in ['price_low_high', 'price_high_low', 'rating_low_high', 'rating_high_low', 'name_az', 'name_za']:
-                if sortkey == 'price__low__high':
-                    products=products.order_by('price')
-                elif sortkey=='price__high__low':
-                    products=products.order_by('-price')
-                elif sortkey=='rating_low_high':
-                    products=products.order_by('rating')
-                elif sortkey=='rating_high_low':
-                    products=products.order_by('-rating')
-                elif sortkey=='name_az':
-                    products=products.order_by('name')
-                elif sortkey=='name_za':
-                    products=products.order_by('-name')
-
-                    current_sorting=sortkey"""
 
             products = products.order_by(sortkey)
 
