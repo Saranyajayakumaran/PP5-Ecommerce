@@ -119,6 +119,11 @@ main {
     object-fit:cover;
 }
 
+a.category-badge > span.badge:hover{
+    background :#ffc107 !important;
+    color:#000000;
+}
+
 /*footer*/
 
 footer {
