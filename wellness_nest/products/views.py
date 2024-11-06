@@ -18,26 +18,45 @@ def all_products_view(request):
     direction=None
 
     if request.GET:
+        # Sorting logic
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
-            #print(sortkey)
-            sort=sortkey
-            #print(sort)
-            if sortkey=='name':
-                sortkey='lower_name'
-                print(sortkey)
-                products=products.annotate(lowercase_name=Lower('name'))
+            print("Sort key received:", sortkey)
+            sort = sortkey
             
-            if sortkey == 'category':
-                sortkey = 'category__name'
+            # Sorting by name - ensure it's case-insensitive
+            if sortkey == 'name_asc':
+                sortkey = 'lower_name'
+                products = products.annotate(lower_name=Lower('name'))
+                print("Annotated for sorting by name (asc):", products)
+            elif sortkey == 'name_desc':
+                sortkey = '-lower_name'
+                products = products.annotate(lower_name=Lower('name'))
+                print("Annotated for sorting by name (desc):", products)
+            
+            # Sorting by price (ascending and descending)
+            elif sortkey == 'price_asc':
+                sortkey = 'price'
+            elif sortkey == 'price_desc':
+                sortkey = '-price'
 
+            # Sorting by rating (ascending and descending)
+            elif sortkey == 'rating_asc':
+                sortkey = 'rating'
+            elif sortkey == 'rating_desc':
+                sortkey = '-rating'
+            
+            # Handling the sorting direction (if specified in the query parameters)
             if 'direction' in request.GET:
                 direction = request.GET['direction']
+                print("Sort direction received:", direction)
                 if direction == 'desc':
-                    sortkey=f'-{sortkey}'
-
+                    sortkey = f'-{sortkey}'
+                    print("Sorting in descending order")
+            
+            # Apply the sorting to the queryset
             products = products.order_by(sortkey)
-
+            print("Products after sorting:", products)
         if 'category' in request.GET:
             #print(request.GET)
             categories = request.GET['category'].split(',')
@@ -58,6 +77,7 @@ def all_products_view(request):
             products = products.filter(queries)
 
     current_sorting=f'{sort}_{direction}'
+    print("Current sorting:", current_sorting)
 
     context={
         'products' : products,

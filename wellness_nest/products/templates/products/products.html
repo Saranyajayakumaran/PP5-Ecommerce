@@ -23,21 +23,23 @@
     <div class="row mb-2">
         <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
             <div class="sort-select-wrapper w-50">
-                <select name="sort" onchange="this.form.submit()">
+                <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
                     <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
-                    <option value="price_low_high" {% if current_sorting == 'price_low_high' %}selected{% endif %}>Price (low to high)</option>
-                    <option value="price_high_low" {% if current_sorting == 'price_high_low' %}selected{% endif %}>Price (high to low)</option>
-                    <option value="rating_low_high" {% if current_sorting == 'rating_low_high' %}selected{% endif %}>Rating (low to high)</option>
-                    <option value="rating_high_low" {% if current_sorting == 'rating_high_low' %}selected{% endif %}>Rating (high to low)</option>
-                    <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A to Z)</option>
-                    <option value="name_dsc" {% if current_sorting == 'name_dsc' %}selected{% endif %}>Name (Z to A)</option>
+                    <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
+                    <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+                    <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
+                    <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
+                    <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
+                    <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
                 </select>
             </div>
         </div>
         <div class="col-12 col-md-6 order-md-first">
             <p class="mt-3 text-center text-md-left">
-                {{ products|length }} Products{% if search_term %} found for
-                <strong>"{{ search_term }}"</strong>{% endif %}
+                {% if search_term or current_categories or current_sorting != 'None_None' %}
+                    <span class="small"><a href="{% url 'products' %}">Products Home</a> | </span>
+                {% endif %}
+                {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
             </p>
         </div>
     </div>
