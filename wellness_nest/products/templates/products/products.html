@@ -109,16 +109,23 @@
         {% endif %}
         {% endfor %} 
     </div>
+    <!--Arrow to go to top of the page-->
+    <div class="btt-button shadow-sm rounded-0 border border-black">
+        <a class="btn-top-link d-flex h-120" href="">
+            <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+        </a>
+    </div>
 {% endblock %}
 
 {% block postloadjs %}
     {{ block.super }}
+    <!--functionlity for clicking the arrow using jquery-->
     <script type="text/javascript">
-		$('.btt-link').click(function(e) {
+		$('.btn-top-link').click(function(e) {
 			window.scrollTo(0,0)
 		})
 	</script>
-    
+    <!--sorting functionality to change sort and direction when each click-->
     <script type="text/javascript">
         $('#sort-selector').change(function() {
             var selector = $(this);
@@ -126,6 +133,7 @@
 
             var selectedVal = selector.val();
             if(selectedVal != "reset"){
+               /*split into sort and direction*/
                 var sort = selectedVal.split("_")[0];
                 var direction = selectedVal.split("_")[1];
 
