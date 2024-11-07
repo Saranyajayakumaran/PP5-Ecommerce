@@ -42,7 +42,7 @@
                     <div class="pt-2">
                         <small class="text-muted dispatch-detail">Dispatched in {{ product.expected_dispatch }}</small>
                     </div>
-                    <form class="form" action="" method="POST">
+                    <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                         {% csrf_token %}
                         <div class="form-row">
                             <div class="col-12">
