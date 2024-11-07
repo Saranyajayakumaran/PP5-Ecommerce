@@ -10,22 +10,22 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="card my-5 border-0">
+<div class="container ">
+    <div class="card my-5 border-0 product-detail-container">
         <div class="row">
-            <div class="col-12 col-md-6 col-xl-8">
+            <div class="col-12 col-md-6 col-xl-8 ">
                 {% if product.image %}
                 <a href="{{ product.image.url }}" target="_blank">
                     <img src="{{ product.image.url }}" class="product-detail-image" alt="placeholder image">
                 </a>
                 {% else %}
-                <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" class="product-detail-image">
+                    <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" class="product-detail-image">
                 {% endif %}
             </div>
-            <div class="col-12 col-md-6 col-xl-4">
+            <div class="col-12 col-md-6 col-xl-4 product-details-column">
                 <div class="card-body pt-4 px-0 pl-md-5">
-                    <p class="card-title text-left">{{ product.name }}</p>
-                    <p class="card-text">{{ product.price }}</p>
+                    <p class="card-title product-name">{{ product.name }}</p>
+                    <p class="card-text product-price">{{ product.price }}</p>
                     {% if product.category %}
                         <p class="small mt-1 mb-0">
                             <a class="text-muted category-badge" href="{% url 'products' %}?category={{ product.category.name }}">
@@ -34,13 +34,13 @@
                         </p>
                     {% endif %}
                     {% if product.rating %}
-                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{product.rating}}/ 5</small>
+                        <small class="text-muted product-rating"><i class="fas fa-star mr-1"></i>{{product.rating}}/ 5</small>
                     {% else %}
-                        <small class="text-muted">No Rating</small>
+                        <small class="text-muted product-rating">No Rating</small>
                     {% endif %}
-                    <p class="mt-3">{{ product.description }}</p>
+                    <p class="mt-3 product-description">{{ product.description }}</p>
                     <div class="pt-2">
-                        <small class="text-muted">Dispatched in {{ product.expected_dispatch }}</small>
+                        <small class="text-muted dispatch-detail">Dispatched in {{ product.expected_dispatch }}</small>
                     </div>
                 </div>
             </div>

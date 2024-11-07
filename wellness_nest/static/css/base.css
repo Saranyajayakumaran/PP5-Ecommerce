@@ -37,7 +37,7 @@ body{
 }
 
 .search-input {
-    width: 100%; /* Ensures the search input takes full width */
+    width: 70%; /* Ensures the search input takes full width */
 }
 
 .btn {
@@ -124,6 +124,66 @@ a.category-badge > span.badge:hover{
     color:#000000;
 }
 
+/*product detail page"*/
+
+.product-detail-container{
+    width:70%;
+     height:100%;
+     margin-left:3rem;
+ }
+.product-detail-image{
+    width:50%;
+    height:100%;
+}
+
+.product-name,
+.product-price,
+.category-badge,
+.product-rating,
+.product-description,
+.dispatch-detail
+{
+    margin-top:20px;
+    margin-left:-18rem;
+}
+
+
+
+/*add arrow to top of the page*/
+.btt-button {
+    position: fixed;  /* Fixes the button on the page */
+    right: 20px;  /* Positions the button 20px from the right side of the page */
+    bottom: 20px;  /* Positions the button 20px from the bottom of the page */
+    z-index: 1000;  /* Ensures the button stays on top of other elements */
+    background-color: #f1f1f1;  /* Light background color */
+    border-radius: 50%;  /* Circular button */
+    padding: 10px;  /* Padding inside the button */
+    display: none;  /* Initially hide the button */
+}
+
+.btt-button a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    background-color: #f1f1f1;  /* Background of the button */
+    color: #333;  /* Icon color */
+    text-decoration: none;
+    border-radius: 50%;  /* Circular shape */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Subtle shadow */
+    transition: background-color 0.3s ease;  /* Smooth transition effect */
+}
+
+.btt-button a:hover {
+    background-color: #555;  /* Darker background on hover */
+    color: #fff;  /* Change icon color on hover */
+}
+
+/* Optional: Show the button when user scrolls down a bit */
+.btt-button.show {
+    display: block;
+}
 /*footer*/
 
 footer {
