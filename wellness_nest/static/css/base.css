@@ -136,6 +136,21 @@ a.category-badge > span.badge:hover{
     height:100%;
 }
 
+/*quantity input button*/
+
+.btn-outline-black{
+    background:white;
+    color:black !important;
+    border: 1px solid black;
+}
+.btn-outline-black:hover,
+.btn-outline-black:active,
+.btn-outline-black:focus{
+    background:black;
+    color:white !important
+}
+
+
 .product-name,
 .product-price,
 .category-badge,
