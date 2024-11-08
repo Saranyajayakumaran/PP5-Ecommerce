@@ -5,16 +5,16 @@ from products.models import Products
 
 def shopping_bag_contents(request):
 
-    bag_items = []
+    shopping_bag_items = []
     total = 0
     product_count = 0
     shopping_bag=request.session.get('shopping_bag',{})
 
     for item_id , quantity in shopping_bag.items():
-        product =get_object_or__404(product,id=item_id)
+        product = get_object_or_404(Products,id=item_id)
         total += quantity *product.price
         product_count += quantity
-        bag_items.append(({
+        shopping_bag_items.append(({
             'item_id': item_id,
             'quantity': quantity,
             'product': product,
@@ -31,7 +31,7 @@ def shopping_bag_contents(request):
 
 
     context = {
-        'bag_items':bag_items,
+        'shopping_bag_items':shopping_bag_items,
         'total':total,
         'product_count':product_count,
         'delivery':delivery,
