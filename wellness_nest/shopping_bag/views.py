@@ -7,13 +7,13 @@ def shopping_bag_view(request):
 
     return render(request,'shopping_bag/shopping_bag.html')
 
-def add_to_bag_view(request,item_id):
+def add_to_bag_view(request,item_id):#item_id=Product_id
     """Add quantity of selected product to shopping bag"""
 
     quantity = int(request.POST.get('quantity'))
     redirect_url=request.POST.get('redirect_url')
-    shopping_bag = request.session.get('bag',{})
-
+    shopping_bag = request.session.get('shopping_bag',{})#checks weather the user iniate adding item or bag id empty
+    print(shopping_bag)
     if item_id in list(shopping_bag.keys()):
         shopping_bag[item_id] += quantity
     else:
