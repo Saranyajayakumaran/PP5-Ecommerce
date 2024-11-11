@@ -49,3 +49,19 @@ def adjust_bag_view(request,item_id):#item_id=Product_id
     request.session['shopping_bag'] = shopping_bag
     print(request.session['shopping_bag'])
     return redirect(reverse('shopping_bag'))
+
+def remove_item_view(request,item_id):
+    try:
+        product=get_object_or_404(Products,pk=item_id)
+        shopping_bag = request.session.get('shopping_bag',{})
+
+        shopping_bag.pop(item_id)
+        messages.success(request, f'Removed {product.name} from your bag')
+
+        request.session['shopping_bag'] = shopping_bag
+        return HttpResponse(status=200)
+    except Exception as e:
+        return HttpResponse(status=500)
+
+
+
