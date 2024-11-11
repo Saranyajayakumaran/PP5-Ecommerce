@@ -131,13 +131,16 @@ a.category-badge > span.badge:hover{
      height:100%;
      margin-left:3rem;
  }
-.product-detail-image{
-    width:50%;
-    height:100%;
+ .product-detail-image {
+    width: 100%;
+    height: 30vw;
+    object-fit: cover;
+    min-height: 100px
 }
 
-.product-detail-buttons{
-    margin-left:2rem;
+.product-description {
+    background-color: #F5F6F4;
+    height: 15vw;
 }
 
 /*quantity input button*/
@@ -203,6 +206,23 @@ a.category-badge > span.badge:hover{
 .btt-button.show {
     display: block;
 }
+
+/*shopping bag page*/
+.update-delete-btns{
+    cursor:pointer;
+    z-index:5000;
+    color:#ffc107;
+}
+
+.update-delete-btns span{
+    color:#000000;
+}
+
+.update-delete-btns a{
+    color:#f8f9fa;
+}
+
+
 /*footer*/
 
 footer {
