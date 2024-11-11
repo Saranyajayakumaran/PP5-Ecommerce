@@ -136,6 +136,10 @@ a.category-badge > span.badge:hover{
     height:100%;
 }
 
+.product-detail-buttons{
+    margin-left:2rem;
+}
+
 /*quantity input button*/
 
 .btn-outline-black{
