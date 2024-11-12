@@ -75,7 +75,7 @@
                                 </td>
                                 <td class="py-3 update-delete-btns">
                                     <span class="update-link btn p-0"><small><i class="fas fa-sync"></i></small></span>
-                                    <span class="remove-btn btn p-0 float-right remove_{{ item.item_id }}"><small><i
+                                    <span class="remove-item btn p-0 float-right remove_{{ item.item_id }}"><small><i
                                                 class="fas fa-trash-alt"></i></small></span>
                                 </td>
                             </tr>
@@ -137,7 +137,7 @@
     $('.remove-item').click(function(e){
         var csrfToken ="{{ csrf_token }}";
         var itemId = $(this).attr('class').split('remove_')[1];
-        var url=`/shopping_bag/remove/${itemId}`;
+        var url=`/shopping_bag/remove/${itemId}/`;
         var data = {'csrfmiddlewaretoken':csrfToken}
 
         $.post(url,data)
