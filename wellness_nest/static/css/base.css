@@ -223,6 +223,23 @@ a.category-badge > span.badge:hover{
 }
 
 
+/*message container */
+
+.message-container{
+    position: fixed;
+    top:72px;
+    right:15px;
+    z-index: 999999999999;
+}
+
+.cusom-toast{
+    overflow:visible;
+}
+
+.toast-crapper{
+    height:2px;
+}
+
 /*footer*/
 
 footer {
@@ -239,7 +256,8 @@ footer {
   }
 
 
-  /* media query*/
+
+  /*--------------------- media query*/
 @media (min-width: 350px) and (max-width: 576px) { 
     
     .hero-section h1 {

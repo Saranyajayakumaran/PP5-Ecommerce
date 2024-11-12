@@ -43,7 +43,7 @@ def adjust_bag_view(request,item_id):#item_id=Product_id
     elif quantity > 0:
         shopping_bag[item_id]=quantity
         messages.success(
-            request, f'Updated {product.name} quantity is added to {shopping_bag[item_id]}'
+            request, f'Updated {product.name} quantity to {shopping_bag[item_id]}'
         )
     else:
         shopping_bag.pop(item_id)
