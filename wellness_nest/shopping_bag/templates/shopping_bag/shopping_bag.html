@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
+{% load bag_tools %}
+
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
@@ -71,7 +73,7 @@
                                     </form>
                                 </td>
                                 <td class="py-3">
-                                    <p class ="my-0">{{ item.product.price }}</p>
+                                    <p class ="my-0">{{ item.product.price | calc_subtotal:item.quantity }}</p>
                                 </td>
                                 <td class="py-3 update-delete-btns">
                                     <span class="update-link btn p-0"><small><i class="fas fa-sync"></i></small></span>
