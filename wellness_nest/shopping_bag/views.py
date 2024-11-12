@@ -12,14 +12,18 @@ def shopping_bag_view(request):
 def add_to_bag_view(request,item_id):#item_id=Product_id
     """Add quantity of selected product to shopping bag"""
 
+    product=get_object_or_404(Products,pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url=request.POST.get('redirect_url')
     shopping_bag = request.session.get('shopping_bag',{})#checks weather the user iniate adding item or bag id empty
     print(shopping_bag)
     if item_id in list(shopping_bag.keys()):
         shopping_bag[item_id] += quantity
+        messages.success(request, f'Added {product.name} quantity to {shopping_bag[item_id]}')
     else:
         shopping_bag[item_id] = quantity
+        messages.success(request, f'Added {product.name} quantity to your bag')
+        
 
     request.session['shopping_bag'] = shopping_bag
     print(request.session['shopping_bag'])
@@ -39,7 +43,7 @@ def adjust_bag_view(request,item_id):#item_id=Product_id
     elif quantity > 0:
         shopping_bag[item_id]=quantity
         messages.success(
-            request, f'{product.name} quantity is added to {shopping_bag[item_id]}'
+            request, f'Updated {product.name} quantity is added to {shopping_bag[item_id]}'
         )
     else:
         shopping_bag.pop(item_id)
@@ -51,6 +55,7 @@ def adjust_bag_view(request,item_id):#item_id=Product_id
     return redirect(reverse('shopping_bag'))
 
 def remove_item_view(request,item_id):
+    """ A view for removing items from shopping bag"""
     try:
         product=get_object_or_404(Products,pk=item_id)
         shopping_bag = request.session.get('shopping_bag',{})
@@ -61,6 +66,7 @@ def remove_item_view(request,item_id):
         request.session['shopping_bag'] = shopping_bag
         return HttpResponse(status=200)
     except Exception as e:
+        messages.error(request,f'Error removing items:{e}')
         return HttpResponse(status=500)
 
 
