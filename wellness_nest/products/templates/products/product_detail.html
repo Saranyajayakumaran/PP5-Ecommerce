@@ -11,7 +11,7 @@
 
 {% block content %}
 <div class="container ">
-    <div class="card my-5 border-0 product-detail-container">
+    <div class="card my-3 my-md-5 my-5 border-0 product-detail-container">
         <div class="row">
             <div class="col-12 col-md-6 col-xl-8 ">
                 {% if product.image %}
@@ -24,8 +24,8 @@
             </div>
             <div class="col-12 col-md-6 col-xl-4">
                 <div class="card-body pt-4 px-0 pl-md-5">
-                    <p class="card-title product-name">{{ product.name }}</p>
-                    <p class="card-text product-price">{{ product.price }}</p>
+                    <p class="card-title product-name sm-h1 h4 h2-md">{{ product.name }}</p>
+                    <p class="card-text product-price h5 h3-md">€{{ product.price }}</p>
                     {% if product.category %}
                         <p class="small mt-1 mb-0">
                             <a class="text-muted category-badge" href="{% url 'products' %}?category={{ product.category.name }}">
