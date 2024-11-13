@@ -238,65 +238,61 @@ a.category-badge > span.badge:hover{
 
 /*message container */
 
-.message-container{
+/*.message-container {
     position: fixed;
-    top:70px;
-    right:15px;
-    z-index:9999999;
-    margin:15px;
-    padding:10px;
-}
-
-.cusom-toast{
-    width:100%;
-    max-width:400px;
-    margin:20px auto;
-    position:relative;
-    border-radius:10px;
-    border: 1px solid #c3e6cb;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1050; /* Ensure it's on top */
-    /*opacity: 0;*/
-    transition: opacity 0.3s ease-in-out;
-    overflow:visible;
-}
-
-.toast-header {
-    padding: 10px;
-    font-weight: bold;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-
-.toast-body p {
-    margin: 0;
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-.shopping-bag-notification-wrapper {
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #f8f9fa;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 15px;
-}
-
-.shopping-bag-notification-wrapper .row {
-    align-items: center;
-}
-/*.shopping-bag-notification-wrapper img {
-    max-width: 50px;
-    object-fit: cover;
-    border-radius: 5px;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
 }*/
 
-.shopping-bag-notification-wrapper .col-9 {
-    padding-top: 15px;
+.custom-toast {
+    position: fixed;
+    top: px;
+    right: 1px;
+    left:px;
+    width: 450px;
+    z-index: 1050;
+    margin-right:50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 0.3s ease-in-out;
 }
 
-.toast-crapper{
-    height:2px;
+.custom-toast .toast-header {
+    display: flex;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.custom-toast .toast-header strong {
+    font-size: 16px;
+    color: #000000;
+} 
+
+.custom-toast .toast-header .close:hover {
+    opacity: 1;
+}
+.custom-toast .toast-body {
+    background-color: #fff;
+    padding: 15px;
+    color: #333;
+    font-size: 14px;
+}
+
+.toast-body .shopping-bag-notification-wrapper .row {
+    align-items: center;
+    padding: 5px 0;
+}
+
+.toast-body .btn-outline-dark {
+    color: #000000;
+    border-color: #000000;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-top: 15px;
+    text-align: center;
 }
 
 .arrow-up{
