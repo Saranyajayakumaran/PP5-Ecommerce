@@ -2,6 +2,8 @@ from django.shortcuts import render,redirect,reverse
 from django.contrib import messages
 from .forms import CheckoutForm
 
+from shopping_bag.contexts import shopping_bag_contents
+
 # Create your views here.
 
 
@@ -10,7 +12,10 @@ def payment_view(request):
     if not shopping_bag:
         messages.error(request, "Your Bag is empty at the moment")
         return redirect(reverse('products'))
+    
 
+    current_bag = shopping_bag_contents(request)
+    total=current_bag['grand_total']
     checkout_form = CheckoutForm() 
     template = 'payment/payment.html'
     context={
