@@ -4,6 +4,8 @@ from .forms import CheckoutForm
 
 from shopping_bag.contexts import shopping_bag_contents
 
+import stripe
+
 # Create your views here.
 
 
@@ -16,6 +18,8 @@ def payment_view(request):
 
     current_bag = shopping_bag_contents(request)
     total=current_bag['grand_total']
+    stripe_total=round(total * 100)
+
     checkout_form = CheckoutForm() 
     template = 'payment/payment.html'
     context={
