@@ -76,17 +76,21 @@
                 <p class="text-black"> Please Fill the form to complete your order </p>
                 <form action="{% url 'payment' %}" method="POST" id="payment-form" >
                     {% csrf_token %}
+
+                    <!-- Details Section -->
                     <fieldset class="rounded px-3 mb-5 border">
                         <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
-                        {{ checkout_form.full_name }}
-                        {{ checkout_form.email }}
+                        {{ checkout_form.full_name  }}
+                        {{ checkout_form.email  }}
                     </fieldset>
+
+                    <!-- Delivery Section -->
                     <fieldset class="rounded px-3 mb-5 border">
                         <legend class="fieldset-label small text-black px-2 w-auto">Delivery</legend>
                         {{ checkout_form.phone_number }}
-                        {{ checkout_form.street_address1 }}
+                        {{ checkout_form.street_address1  }}
                         {{ checkout_form.street_address2  }}
-                        {{ checkout_form.town_or_city  }}
+                        {{ checkout_form.town_or_city   }}
                         {{ checkout_form.postcode }}
                         {{ checkout_form.country  }}
                         <div class="form-check form-check-inline float-right mr-0">
@@ -133,5 +137,13 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+
+{% block postloadjs %}
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}  
+    <script src="{% static 'payment/js/stripe_elements.js' %}"></script>
 {% endblock %}
 
