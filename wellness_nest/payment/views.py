@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect,reverse
 from django.contrib import messages
 from .forms import CheckoutForm
+from django.conf import settings
 
 from shopping_bag.contexts import shopping_bag_contents
 
@@ -10,6 +11,10 @@ import stripe
 
 
 def payment_view(request):
+    stripe_public_key = settings.STRIPE_PUBLIC_KEY
+    stripe_secret_key = settings.STRIPE_SECRET_KEY
+
+
     shopping_bag=request.session.get('shopping_bag',{})
     if not shopping_bag:
         messages.error(request, "Your Bag is empty at the moment")
@@ -19,13 +24,31 @@ def payment_view(request):
     current_bag = shopping_bag_contents(request)
     total=current_bag['grand_total']
     stripe_total=round(total * 100)
+    stripe.api_key=stripe_secret_key
 
+    
+    #Create stripe payment intent
+
+    intent = stripe.PaymentIntent.create(
+        amount=stripe_total,
+        currency=settings.STRIPE_CURRENCY,
+    )
+
+    print(intent)
+
+    if not stripe_public_key:
+        messages.warning(request,'Stripe public key is missing.Did you forget to set it in your environment?')
+
+    
     checkout_form = CheckoutForm() 
+    
+    #Render the template 
+    
     template = 'payment/payment.html'
     context={
         'checkout_form' : checkout_form,
-        'stripe_public_key' : 'pk_test_51Q7v6IDWaRaJpdsNRMvH4E5DToW03grHxgBEHzD9gpAiphyZRTEsPjuUsCHLQDG1rQFlCgJTPxgTyx9Sc2MHUKD000gTbuNn7J',
-        'client_secret' : 'test client secret',   
+        'stripe_public_key' : stripe_public_key,
+        'client_secret' : intent.client_secret,   
         }
 
     return render(request,template,context)
