@@ -4,7 +4,7 @@ from django.dispatch import receiver
 from .models import CheckoutLineItem
 
 @receiver(post_save, sender=CheckoutLineItem)
-def update_on_save(sender,instance,created, **kwargs):
+def update_on_save(sender, instance, created, **kwargs):
     
     """
     Update order total on lineitem update/create
@@ -12,7 +12,7 @@ def update_on_save(sender,instance,created, **kwargs):
     instance.checkout.update_total()
 
 @receiver(post_delete, sender=CheckoutLineItem)
-def update_on_delete(sender,instance,**kwargs):
+def update_on_delete(sender, instance, **kwargs):
     """
     Update order total on lineitem update/create
     """

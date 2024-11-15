@@ -1,7 +1,6 @@
 from django.shortcuts import render,redirect,reverse
 from django.contrib import messages
-
-from .form import CheckoutForm
+from .forms import CheckoutForm
 
 # Create your views here.
 
