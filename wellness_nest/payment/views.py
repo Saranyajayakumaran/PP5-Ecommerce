@@ -35,13 +35,11 @@ def payment_view(request):
     )
 
     print(intent)
+    checkout_form = CheckoutForm() 
 
     if not stripe_public_key:
         messages.warning(request,'Stripe public key is missing.Did you forget to set it in your environment?')
 
-    
-    checkout_form = CheckoutForm() 
-    
     #Render the template 
     
     template = 'payment/payment.html'
