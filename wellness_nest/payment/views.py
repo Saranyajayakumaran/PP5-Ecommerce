@@ -13,6 +13,10 @@ import stripe
 
 
 def payment_view(request):
+    """
+    checks the user's order is valid and all items in the shopping bag are available.
+    A Stripe PaymentIntent is created for processing the payment.
+    """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -29,9 +33,9 @@ def payment_view(request):
             'postcode':request.POST['postcode'],
             'country':request.POST['country'],
         }
-        checkout_form = CheckoutForm(form_data) 
+        checkout_form = CheckoutForm(form_data)#creating the form data 
         if checkout_form.is_valid():
-            order=checkout_form.save()
+            order=checkout_form.save()#save the form if it is valid
             for item_id, item_data in shopping_bag.items():
                 try:
                     product=Products.objects.get(id=item_id)
