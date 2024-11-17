@@ -56,6 +56,10 @@ form.addEventListener('submit', function(ev) {
     card.update({ 'disabled': true});
     //Disable card data field to prevent chnages during payment processing.
     $('#submit-button').attr('disabled', true);
+    //Triggers the form to spade out when user clicks check out
+    $('#payment-form').fadeToggle(100);
+    $('#loading-overlay').fadeToggle(100);
+
     stripe.confirmCardPayment(clientSecret, {
         payment_method: {
             card: card,
@@ -70,6 +74,8 @@ form.addEventListener('submit', function(ev) {
                 <span>${result.error.message}</span>`;
                 //Error message to display when card payment fails or wrong info
             $(errorDiv).html(html);
+            $('#payment-form').fadeToggle(100);
+            $('#loading-overlay').fadeToggle(100);
             //Enabling card data field to correct the details after error.
             card.update({ 'disabled': false});
             $('#submit-button').attr('disabled', false);
@@ -80,3 +86,4 @@ form.addEventListener('submit', function(ev) {
         }
     });
 });
+
