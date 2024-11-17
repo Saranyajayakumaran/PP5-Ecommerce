@@ -9,11 +9,11 @@ def update_on_save(sender, instance, created, **kwargs):
     """
     Update order total on lineitem update/create
     """
-    instance.checkout.update_total()
+    instance.order.update_total()
 
 @receiver(post_delete, sender=CheckoutLineItem)
 def update_on_delete(sender, instance, **kwargs):
     """
     Update order total on lineitem update/create
     """
-    instance.checkout.update_total()
+    instance.order.update_total()
