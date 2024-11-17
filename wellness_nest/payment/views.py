@@ -22,7 +22,7 @@ def payment_view(request):
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     if request.method == 'POST':
-        print("post request recived")
+        #print("post request recived")
         shopping_bag=request.session.get('shopping_bag',{})
 
         form_data = {
@@ -35,14 +35,14 @@ def payment_view(request):
             'postcode':request.POST['postcode'],
             'country':request.POST['country'],
         }
-        print("Form_data",form_data)
+        #print("Form_data",form_data)
         checkout_form = CheckoutForm(form_data)#creating the form data 
-        print("checkout form:",checkout_form)
+        #print("checkout form:",checkout_form)
         if checkout_form.is_valid():
-            print("form is valid")
+            #print("form is valid")
             order=checkout_form.save()#save the form if it is valid
-            print(f"order:",order)
-            print(f"order created with order_number:{order.order_number}")
+            #print(f"order:",order)
+            #print(f"order created with order_number:{order.order_number}")
             for item_id, item_data in shopping_bag.items():
                 try:
                     product=Products.objects.get(id=item_id)
@@ -55,14 +55,14 @@ def payment_view(request):
                         checkout_line_item.save()
                         print(f"Saved line item for product ID {item_id} with quantity {item_data}")
                 except Products.DoesNotExist:
-                    print(f"Product ID {item_id} not found in database")
+                    #print(f"Product ID {item_id} not found in database")
                     messages.error(request,(
                         "One of the products in your bag wasn't found in our database."
                         "Please call us for assistance!")
                     )
                     order.delete()
                     return redirect(reverse('shopping_bag'))
-                print("Redirecting to payment_success page") 
+                #print("Redirecting to payment_success page") 
                 
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('payment_success',args=[order.order_number]))
@@ -73,7 +73,7 @@ def payment_view(request):
     else:
         shopping_bag=request.session.get('shopping_bag',{})
         if not shopping_bag:
-            print("Shopping bag is empty")
+            #print("Shopping bag is empty")
             messages.error(request, "Your Bag is empty at the moment")
             return redirect(reverse('products'))
         
@@ -112,7 +112,7 @@ def payment_success_view(request,order_number):
     print("Rendering payment success view")
     save_info=request.session.get('save_info')
     order=get_object_or_404(Checkout,order_number=order_number)
-    print(f"Order found with order_number: {order_number}")
+    #print(f"Order found with order_number: {order_number}")
     messages.success(request, f'Order successfully processed! \
                      Your order number is {order_number}. A confirmation email will be sent to {order.email}')
     
@@ -123,5 +123,5 @@ def payment_success_view(request,order_number):
     context = {
         'order':order,
     }
-    print("Rendering payment_success template")
+    #print("Rendering payment_success template")
     return render(request,template,context)
