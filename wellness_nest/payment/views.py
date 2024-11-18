@@ -15,15 +15,21 @@ import json
 
 @require_POST
 def cache_checkout_data(request):
+    print("Entered Cache checkout data")
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
+        print(pid)
         stripe.api_key=settings.STRIPE_SECRET_KEY
-        stripe.paymentIntent.modify(pid,metadata={
+        print(stripe.api_key)
+        stripe.PaymentIntent.modify(pid,metadata={
             'shopping_bag':json.dumps(request.session.get('shopping_bag',{})),#shopping cart info
             'save_info':request.POST.get('save_info'),#weather user needs to save info
             'username':request.user,#username of logged in user
         })
+        print("cache_success")
+        return HttpResponse(status=200)
     except Exception as e:
+        print(f"Error in cache_checkout_data: {e}")
         messages.error(request,'Sorry, your payment cannot be \
                        processed right now.Please try again later ')
         return HttpResponse(content=e,status=400)
@@ -34,12 +40,16 @@ def payment_view(request):
     checks the user's order is valid and all items in the shopping bag are available.
     A Stripe PaymentIntent is created for processing the payment.
     """
+    print("Enterd payment view")
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
+    print(stripe_public_key)
     stripe_secret_key = settings.STRIPE_SECRET_KEY
+    print(stripe_secret_key)
 
     if request.method == 'POST':
         #retrives the shopping bag from user session
         shopping_bag=request.session.get('shopping_bag',{})
+        print(shopping_bag)
         #collects user enters info from post data into dictionary
         form_data = {
             'full_name' : request.POST['full_name'],
@@ -54,12 +64,12 @@ def payment_view(request):
        
         #creating instance of checkoutform 
         checkout_form = CheckoutForm(form_data)
-        #print("checkout form:",checkout_form)
+        print("checkout form:",checkout_form)
         if checkout_form.is_valid():
-            #print("form is valid")
+            print("form is valid")
             order=checkout_form.save(commit=False)#save the form if it is valid
-            #print(f"order:",order)
-            #print(f"order created with order_number:{order.order_number}")
+            print(f"order:",order)
+            print(f"order created with order_number:{order.order_number}")
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_bag = json.dumps(shopping_bag)
@@ -76,14 +86,14 @@ def payment_view(request):
                         checkout_line_item.save()
                         print(f"Saved line item for product ID {item_id} with quantity {item_data}")
                 except Products.DoesNotExist:
-                    #print(f"Product ID {item_id} not found in database")
+                    print(f"Product ID {item_id} not found in database")
                     messages.error(request,(
                         "One of the products in your bag wasn't found in our database."
                         "Please call us for assistance!")
                     )
                     order.delete()
                     return redirect(reverse('shopping_bag'))
-                #print("Redirecting to payment_success page") 
+                print("Redirecting to payment_success page") 
                 
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('payment_success',args=[order.order_number]))
@@ -94,23 +104,23 @@ def payment_view(request):
     else:
         shopping_bag=request.session.get('shopping_bag',{})
         if not shopping_bag:
-            #print("Shopping bag is empty")
+            print("Shopping bag is empty")
             messages.error(request, "Your Bag is empty at the moment")
             return redirect(reverse('products'))
         
 
-    current_bag = shopping_bag_contents(request)
-    total=current_bag['grand_total']
-    stripe_total=round(total * 100)
-    stripe.api_key=stripe_secret_key
-    #Create stripe payment intent
-    intent = stripe.PaymentIntent.create(
-        amount=stripe_total,
-        currency=settings.STRIPE_CURRENCY,
-    )
+        current_bag = shopping_bag_contents(request)
+        total=current_bag['grand_total']
+        stripe_total=round(total * 100)
+        stripe.api_key=stripe_secret_key
+        #Create stripe payment intent
+        intent = stripe.PaymentIntent.create(
+            amount=stripe_total,
+            currency=settings.STRIPE_CURRENCY,
+        )
 
-    print(intent)
-    checkout_form = CheckoutForm() 
+        print(intent)
+        checkout_form = CheckoutForm() 
 
     if not stripe_public_key:
         messages.warning(request,'Stripe public key is missing.Did you forget to set it in your environment?')
@@ -133,9 +143,10 @@ def payment_success_view(request,order_number):
     print("Rendering payment success view")
     save_info=request.session.get('save_info')
     order=get_object_or_404(Checkout,order_number=order_number)
-    #print(f"Order found with order_number: {order_number}")
+    print(f"Order found with order_number: {order_number}")
     messages.success(request, f'Order successfully processed! \
-                     Your order number is {order_number}. A confirmation email will be sent to {order.email}')
+                     Your order number is {order_number}. A confirmation \
+                    email will be sent to {order.email}')
     
     if 'shopping_bag' in request.session:
         del request.session['shopping_bag']
@@ -144,5 +155,5 @@ def payment_success_view(request,order_number):
     context = {
         'order':order,
     }
-    #print("Rendering payment_success template")
+    print("Rendering payment_success template")
     return render(request,template,context)
