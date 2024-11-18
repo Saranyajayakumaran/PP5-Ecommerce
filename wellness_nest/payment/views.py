@@ -47,8 +47,9 @@ def payment_view(request):
     print(stripe_secret_key)
 
     if request.method == 'POST':
+        print("Entering POST")
         #retrives the shopping bag from user session
-        bag=request.session.get('bag',{})
+        bag=request.session.get('shopping_bag',{})
         print(bag)
         #collects user enters info from post data into dictionary
         form_data = {
