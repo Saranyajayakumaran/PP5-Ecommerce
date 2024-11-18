@@ -22,7 +22,7 @@ def cache_checkout_data(request):
         stripe.api_key=settings.STRIPE_SECRET_KEY
         print(stripe.api_key)
         stripe.PaymentIntent.modify(pid,metadata={
-            'shopping_bag':json.dumps(request.session.get('shopping_bag',{})),#shopping cart info
+            'bag':json.dumps(request.session.get('bag',{})),#shopping cart info
             'save_info':request.POST.get('save_info'),#weather user needs to save info
             'username':request.user,#username of logged in user
         })
@@ -48,8 +48,8 @@ def payment_view(request):
 
     if request.method == 'POST':
         #retrives the shopping bag from user session
-        shopping_bag=request.session.get('shopping_bag',{})
-        print(shopping_bag)
+        bag=request.session.get('bag',{})
+        print(bag)
         #collects user enters info from post data into dictionary
         form_data = {
             'full_name' : request.POST['full_name'],
@@ -72,9 +72,9 @@ def payment_view(request):
             print(f"order created with order_number:{order.order_number}")
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
-            order.original_bag = json.dumps(shopping_bag)
+            order.original_bag = json.dumps(bag)
             order.save()
-            for item_id, item_data in shopping_bag.items():
+            for item_id, item_data in bag.items():
                 try:
                     product=Products.objects.get(id=item_id)
                     if isinstance(item_data,int):
@@ -102,8 +102,8 @@ def payment_view(request):
                            'Please double check your informations.')
                 
     else:
-        shopping_bag=request.session.get('shopping_bag',{})
-        if not shopping_bag:
+        bag=request.session.get('shopping_bag',{})
+        if not bag:
             print("Shopping bag is empty")
             messages.error(request, "Your Bag is empty at the moment")
             return redirect(reverse('products'))
@@ -119,7 +119,6 @@ def payment_view(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        print(intent)
         checkout_form = CheckoutForm() 
 
     if not stripe_public_key:
@@ -148,8 +147,8 @@ def payment_success_view(request,order_number):
                      Your order number is {order_number}. A confirmation \
                     email will be sent to {order.email}')
     
-    if 'shopping_bag' in request.session:
-        del request.session['shopping_bag']
+    if 'bag' in request.session:
+        del request.session['bag']
 
     template='payment/payment_success.html'
     context = {
