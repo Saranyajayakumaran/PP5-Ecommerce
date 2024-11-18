@@ -19,9 +19,9 @@ def cache_checkout_data(request):
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key=settings.STRIPE_SECRET_KEY
         stripe.paymentIntent.modify(pid,metadata={
-            'bag':json.dumps(request.session.get('bag',{})),
-            'save_info':request.POST.get('save_info'),
-            'username':request.user,
+            'shopping_bag':json.dumps(request.session.get('shopping_bag',{})),#shopping cart info
+            'save_info':request.POST.get('save_info'),#weather user needs to save info
+            'username':request.user,#username of logged in user
         })
     except Exception as e:
         messages.error(request,'Sorry, your payment cannot be \
@@ -30,17 +30,17 @@ def cache_checkout_data(request):
 
 def payment_view(request):
     """
+    Processing payment
     checks the user's order is valid and all items in the shopping bag are available.
     A Stripe PaymentIntent is created for processing the payment.
     """
-    print("Entered payment view")
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     if request.method == 'POST':
-        #print("post request recived")
+        #retrives the shopping bag from user session
         shopping_bag=request.session.get('shopping_bag',{})
-
+        #collects user enters info from post data into dictionary
         form_data = {
             'full_name' : request.POST['full_name'],
             'email' : request.POST['email'],
@@ -51,14 +51,19 @@ def payment_view(request):
             'postcode':request.POST['postcode'],
             'country':request.POST['country'],
         }
-        #print("Form_data",form_data)
-        checkout_form = CheckoutForm(form_data)#creating the form data 
+       
+        #creating instance of checkoutform 
+        checkout_form = CheckoutForm(form_data)
         #print("checkout form:",checkout_form)
         if checkout_form.is_valid():
             #print("form is valid")
-            order=checkout_form.save()#save the form if it is valid
+            order=checkout_form.save(commit=False)#save the form if it is valid
             #print(f"order:",order)
             #print(f"order created with order_number:{order.order_number}")
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.original_bag = json.dumps(shopping_bag)
+            order.save()
             for item_id, item_data in shopping_bag.items():
                 try:
                     product=Products.objects.get(id=item_id)
