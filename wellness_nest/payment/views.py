@@ -1,4 +1,5 @@
-from django.shortcuts import render,redirect,reverse,get_object_or_404
+from django.shortcuts import render,redirect,reverse,get_object_or_404,HttpResponse
+from django.views.decorators.http import require_POST
 from django.contrib import messages
 from .forms import CheckoutForm
 from .models import Checkout,CheckoutLineItem
@@ -8,9 +9,24 @@ from django.conf import settings
 from shopping_bag.contexts import shopping_bag_contents
 
 import stripe
+import json
 
 # Create your views here.
 
+@require_POST
+def cache_checkout_data(request):
+    try:
+        pid = request.POST.get('client_secret').split('_secret')[0]
+        stripe.api_key=settings.STRIPE_SECRET_KEY
+        stripe.paymentIntent.modify(pid,metadata={
+            'bag':json.dumps(request.session.get('bag',{})),
+            'save_info':request.POST.get('save_info'),
+            'username':request.user,
+        })
+    except Exception as e:
+        messages.error(request,'Sorry, your payment cannot be \
+                       processed right now.Please try again later ')
+        return HttpResponse(content=e,status=400)
 
 def payment_view(request):
     """
@@ -88,7 +104,7 @@ def payment_view(request):
         currency=settings.STRIPE_CURRENCY,
     )
 
-    #print(intent)
+    print(intent)
     checkout_form = CheckoutForm() 
 
     if not stripe_public_key:
