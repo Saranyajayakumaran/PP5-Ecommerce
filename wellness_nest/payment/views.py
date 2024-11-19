@@ -46,8 +46,9 @@ def payment_view(request):
     stripe_secret_key = settings.STRIPE_SECRET_KEY
     print(stripe_secret_key)
 
+    print(f"Request method: {request.method}")
     if request.method == 'POST':
-        print("Entering POST")
+        
         #retrives the shopping bag from user session
         bag=request.session.get('shopping_bag',{})
         print(bag)
@@ -100,8 +101,7 @@ def payment_view(request):
             return redirect(reverse('payment_success',args=[order.order_number]))
         else:
             messages.error(request,'There was  an error with your form.'
-                           'Please double check your informations.')
-                
+                           'Please double check your informations.')           
     else:
         bag=request.session.get('shopping_bag',{})
         if not bag:
