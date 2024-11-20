@@ -3,6 +3,7 @@ from django.contrib import messages
 
 from .models import UserProfile
 from .forms import UserProfileForm
+from payment.models import Checkout
 
 # Create your views here.
 def profile_view(request):
@@ -26,3 +27,22 @@ def profile_view(request):
     }
 
     return render(request, template, context)
+
+def order_history_view(request,order_number):
+    """"""
+
+    order = get_object_or_404(Checkout, order_number=order_number)
+
+    messages.info(request,(
+        f'This is a past confrimation for order number {order_number}.'
+        'A confirmation email was sent on date of the order'
+    ))
+
+    template = 'payment/payment_success.html'
+    context = {
+        'order': order,
+        'from_profile': True,
+    }
+
+    return render(request, template, context)
+
