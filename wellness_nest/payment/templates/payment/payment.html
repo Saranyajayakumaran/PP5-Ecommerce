@@ -80,19 +80,19 @@
                     <!-- Details Section -->
                     <fieldset class="rounded px-3 mb-5 border">
                         <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
-                        {{ checkout_form.full_name  }}
-                        {{ checkout_form.email  }}
+                        {{ checkout_form.full_name | as_crispy_field  }}
+                        {{ checkout_form.email | as_crispy_field  }}
                     </fieldset>
 
                     <!-- Delivery Section -->
                     <fieldset class="rounded px-3 mb-5 border">
                         <legend class="fieldset-label small text-black px-2 w-auto">Delivery</legend>
-                        {{ checkout_form.phone_number }}
-                        {{ checkout_form.street_address1  }}
-                        {{ checkout_form.street_address2  }}
-                        {{ checkout_form.town_or_city   }}
-                        {{ checkout_form.postcode }}
-                        {{ checkout_form.country  }}
+                        {{ checkout_form.phone_number | as_crispy_field }}
+                        {{ checkout_form.street_address1 | as_crispy_field }}
+                        {{ checkout_form.street_address2 | as_crispy_field  }}
+                        {{ checkout_form.town_or_city | as_crispy_field  }}
+                        {{ checkout_form.postcode | as_crispy_field }}
+                        {{ checkout_form.country | as_crispy_field  }}
                         <div class="form-check form-check-inline float-right mr-0">
                             {% if user.is_authenticated %}
                             <label class="form-check-label" for="id-save-info" name="save-info">Save this delivery Information to my profile</label>
