@@ -76,7 +76,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'wellness_nest.urls'
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4',
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 CRISPY_ALLOWED_TEMPLATE_PACKS = ('bootstrap',)
 
 
