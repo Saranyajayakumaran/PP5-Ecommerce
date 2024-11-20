@@ -43,7 +43,6 @@
                             <tr>
                                 <th>Order Number</th>
                                 <th>Date</th>
-                                <th>Items</th>
                                 <th>Order Total</th>
                             </tr>
                         </thead>
@@ -59,6 +58,7 @@
                                 <td>{{ order.date }}</td>
                                 <td>{{ order.grand_total }}</td>
                             </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>

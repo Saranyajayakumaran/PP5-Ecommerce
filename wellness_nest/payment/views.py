@@ -1,11 +1,13 @@
 from django.shortcuts import render,redirect,reverse,get_object_or_404,HttpResponse
 from django.views.decorators.http import require_POST
 from django.contrib import messages
+from django.conf import settings
+
 from .forms import CheckoutForm
 from .models import Checkout,CheckoutLineItem
 from products.models import Products
-from django.conf import settings
-
+from profiles.forms import UserProfileForm
+from profiles.models import UserProfile
 from shopping_bag.contexts import shopping_bag_contents
 
 import stripe
@@ -120,7 +122,23 @@ def payment_view(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        checkout_form = CheckoutForm() 
+        if request.user.is_authenticated:
+            try:
+                profile = UserProfile.objects.get(user=request.user)
+                checkout_form = CheckoutForm(initial={
+                    'full_name' : profile.user.get_full_name(),
+                    'email' : profile.user.email,
+                    'phone_number': profile.default_phone_number,
+                    'street_address1': profile.default_street_address1,
+                    'street_address2': profile.default_street_address2,
+                    'town_or_city': profile.default_town_or_city,
+                    'postcode': profile.default_postcode,
+                    'country':profile.default_country,
+                })
+            except UserProfile.DoesNotExist:
+                checkout_form = CheckoutForm()
+        else:
+            checkout_form = CheckoutForm() 
 
     if not stripe_public_key:
         messages.warning(request,'Stripe public key is missing.Did you forget to set it in your environment?')
@@ -142,8 +160,26 @@ def payment_success_view(request,order_number):
     """
     print("Rendering payment success view")
     save_info=request.session.get('save_info')
-    order=get_object_or_404(Checkout,order_number=order_number)
-    print(f"Order found with order_number: {order_number}")
+    order=get_object_or_404(Checkout, order_number=order_number)
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+        order.user_profile = profile
+        order.save()
+
+        if save_info:
+            profile_data = {
+                'dafault_phone_number' : order.phone_number,
+                'default_street_address1': order.street_address1,
+                'default_street_address2' : order.street_address2,
+                'default_town_or_city': order.town_or_city,
+                'default_postcode' : order.postcode,
+                'default_country' : order.country,
+            }
+            user_profile_form = UserProfileForm(profile_data, instance=profile)
+            if user_profile_form.is_valid():
+                user_profile_form.save()
+
+            print(f"Order found with order_number: {order_number}")
     messages.success(request, f'Order successfully processed! \
                      Your order number is {order_number}. A confirmation \
                     email will be sent to {order.email}')
