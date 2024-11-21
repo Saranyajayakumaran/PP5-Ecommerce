@@ -20,11 +20,11 @@ def cache_checkout_data(request):
     print("Entered Cache checkout data")
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
-        print(pid)
+        print("pid:",pid)
         stripe.api_key=settings.STRIPE_SECRET_KEY
         print(stripe.api_key)
         stripe.PaymentIntent.modify(pid,metadata={
-            'bag':json.dumps(request.session.get('bag',{})),#shopping cart info
+            'bag':json.dumps(request.session.get('shopping_bag',{})),#shopping cart info
             'save_info':request.POST.get('save_info'),#weather user needs to save info
             'username':request.user,#username of logged in user
         })
@@ -120,6 +120,7 @@ def payment_view(request):
         intent = stripe.PaymentIntent.create(
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
+            payment_method_types=['card'],
         )
 
         if request.user.is_authenticated:
@@ -168,7 +169,7 @@ def payment_success_view(request,order_number):
 
         if save_info:
             profile_data = {
-                'dafault_phone_number' : order.phone_number,
+                'default_phone_number' : order.phone_number,
                 'default_street_address1': order.street_address1,
                 'default_street_address2' : order.street_address2,
                 'default_town_or_city': order.town_or_city,
