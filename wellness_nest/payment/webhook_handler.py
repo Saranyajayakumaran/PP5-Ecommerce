@@ -10,6 +10,7 @@ from profiles.models import UserProfile
 import json
 import time
 import logging
+import stripe
 
 logger = logging.getLogger(__name__)
 
@@ -22,12 +23,8 @@ class StripeWH_Handler:
     def _send_confirmation_email(self, order):
         """Send the user a order confirmation email"""
         cust_email = order.email
-        subject = render_to_string(
-            'payment/confirmation_emails/confirmation_email_subject.txt',
-            {'order': order})
-        body = render_to_string(
-            'payment/confirmation_emails/confirmation_email_body.txt',
-            {'order':order, 'contact_email':settings.DEFAULT_FROM_EMAIL})
+        subject = render_to_string('payment/confirmation_emails/confirmation_email_subject.txt',{'order': order})
+        body = render_to_string('payment/confirmation_emails/confirmation_email_body.txt',{'order':order, 'contact_email':settings.DEFAULT_FROM_EMAIL})
         send_mail (
             subject,
             body,
@@ -44,20 +41,39 @@ class StripeWH_Handler:
             content=f'Unhandled webhook received: {event["type"]}',
             status=200)
 
+
+
     def handle_payment_intent_succeeded(self, event):
         """
-        Handle the payment_intent.succeeded webhook from Stripe
+        #Handle the payment_intent.succeeded webhook from Stripe
         """
         
         intent = event.data.object
+        print("webhook intent:",intent)
         pid = intent.id
-        shopping_bag = intent.metadata.shopping_bag
-        save_info = intent.metadata.save_info
-       
-
-        billing_details = intent.charges.data[0].billing_details
+        print("pid:",pid)
+        shopping_bag = intent.metadata.bag
         shipping_details = intent.shipping
-        grand_total = round(intent.charges.data[0].amount / 100, 2)
+        print("webhok shopping_bag:", shopping_bag)
+        save_info = intent.metadata.save_info
+
+        print("stripe save info:",save_info)
+
+        """billing_details = intent.charges.data[0].billing_details
+        shipping_details = intent.shipping
+        print("shipping details",shipping_details)
+        grand_total = round(intent.charges.data[0].amount / 100, 2)"""
+
+        billing_details = None
+        if hasattr(intent, "charges") and intent.charges.data:
+            billing_details = intent.charges.data[0].billing_details
+            grand_total = round(intent.charges.data[0].amount / 100, 2)
+        else:
+            print("DEBUG: No charges data available in PaymentIntent")
+            return HttpResponse(
+                content="Webhook received: No charges data",
+                status=400
+            )
 
         #clean data in shipping details
         for field,value in shipping_details.address.items():
@@ -122,7 +138,7 @@ class StripeWH_Handler:
                     original_bag = shopping_bag,
                     stripe_pid = pid,
                     )
-                shopping_bag = json.loads(shopping_bag) 
+                #shopping_bag = json.loads(shopping_bag) 
                 for item_id, item_data in json.loads(shopping_bag).items():
                     product=Products.objects.get(id=item_id)
                     if isinstance(item_data,int):
@@ -150,3 +166,4 @@ class StripeWH_Handler:
         return HttpResponse(
             content=f'Webhook received: {event["type"]}',
             status=200)
+    

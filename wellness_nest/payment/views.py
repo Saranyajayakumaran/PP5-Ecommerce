@@ -20,15 +20,16 @@ def cache_checkout_data(request):
     print("Entered Cache checkout data")
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
-        print("pid:",pid)
+        #print("pid:",pid)
         stripe.api_key=settings.STRIPE_SECRET_KEY
-        print(stripe.api_key)
-        stripe.PaymentIntent.modify(pid,metadata={
+        #print(stripe.api_key)
+        stripe.PaymentIntent.modify(pid,
+                                    metadata={
             'bag':json.dumps(request.session.get('shopping_bag',{})),#shopping cart info
             'save_info':request.POST.get('save_info'),#weather user needs to save info
             'username':request.user,#username of logged in user
         })
-        print("cache_success")
+        #print("cache_success")
         return HttpResponse(status=200)
     except Exception as e:
         print(f"Error in cache_checkout_data: {e}")
@@ -42,18 +43,18 @@ def payment_view(request):
     checks the user's order is valid and all items in the shopping bag are available.
     A Stripe PaymentIntent is created for processing the payment.
     """
-    print("Enterd payment view")
+    #print("Enterd payment view")
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
-    print(stripe_public_key)
+    #print(stripe_public_key)
     stripe_secret_key = settings.STRIPE_SECRET_KEY
-    print(stripe_secret_key)
+    #print(stripe_secret_key)
 
     print(f"Request method: {request.method}")
     if request.method == 'POST':
         
         #retrives the shopping bag from user session
-        bag=request.session.get('shopping_bag',{})
-        print(bag)
+        bag=request.session.get('bag',{})
+        #print("bag:",bag)
         #collects user enters info from post data into dictionary
         form_data = {
             'full_name' : request.POST['full_name'],
@@ -65,15 +66,14 @@ def payment_view(request):
             'postcode':request.POST['postcode'],
             'country':request.POST['country'],
         }
-       
         #creating instance of checkoutform 
         checkout_form = CheckoutForm(form_data)
-        print("checkout form:",checkout_form)
+        #print("checkout form:",checkout_form)
         if checkout_form.is_valid():
-            print("form is valid")
+            #print("form is valid")
             order=checkout_form.save(commit=False)#save the form if it is valid
-            print(f"order:",order)
-            print(f"order created with order_number:{order.order_number}")
+            #print(f"order:",order)
+            #print(f"order created with order_number:{order.order_number}")
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
@@ -126,6 +126,7 @@ def payment_view(request):
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
+                print("profile:",profile)
                 checkout_form = CheckoutForm(initial={
                     'full_name' : profile.user.get_full_name(),
                     'email' : profile.user.email,
@@ -161,9 +162,12 @@ def payment_success_view(request,order_number):
     """
     print("Rendering payment success view")
     save_info=request.session.get('save_info')
+    print("save_info:",save_info)
     order=get_object_or_404(Checkout, order_number=order_number)
+    print("order:",order)
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
+        print("profile:",profile)
         order.user_profile = profile
         order.save()
 
@@ -176,6 +180,7 @@ def payment_success_view(request,order_number):
                 'default_postcode' : order.postcode,
                 'default_country' : order.country,
             }
+            print("Profile_data:",profile_data)
             user_profile_form = UserProfileForm(profile_data, instance=profile)
             if user_profile_form.is_valid():
                 user_profile_form.save()
