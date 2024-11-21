@@ -1,11 +1,13 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
-
+from django.contrib import decorators import login_required
 from .models import UserProfile
 from .forms import UserProfileForm
+
 from payment.models import Checkout
 
-# Create your views here.
+
+@login_required
 def profile_view(request):
     """Display User profile """
     profile = get_object_or_404(UserProfile, user=request.user)
@@ -30,6 +32,8 @@ def profile_view(request):
     }
 
     return render(request, template, context)
+
+
 
 def order_history_view(request,order_number):
     """"""
