@@ -78,7 +78,7 @@ MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware',
 ]
 
-ROOT_URLCONF = 'wellness_nest.urls'
+ROOT_URLCONF = 'wellness_nest_project.urls'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 CRISPY_ALLOWED_TEMPLATE_PACKS = ('bootstrap',)
@@ -133,7 +133,7 @@ LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 
 
-WSGI_APPLICATION = 'wellness_nest.wsgi.application'
+WSGI_APPLICATION = 'wellness_nest_project.wsgi.application'
 
 
 # Database
