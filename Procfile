@@ -1,1 +1,1 @@
-web: gunicorn wellness_nest.wsgi:application --log-file-
+web: gunicorn wellness_nest.wsgi:application 
