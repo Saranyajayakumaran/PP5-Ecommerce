@@ -28,10 +28,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['https://pp5-wellnessnest-96adb2a059a0.herokuapp.com/','localhost','127.0.0.1','localhost:8000']
+ALLOWED_HOSTS = ['pp5-wellnessnest-96adb2a059a0.herokuapp.com/','localhost','127.0.0.1',]
 CSRF_TRUSTED_ORIGINS = [
+    'https://pp5-wellnessnest-96adb2a059a0.herokuapp.com',
     'http://localhost:8000',
     'http://127.0.0.1:8000'
 ]
@@ -137,8 +138,7 @@ WSGI_APPLICATION = 'wellness_nest.wsgi.application'
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
 
-        'default':dj_database_url.parse(os.environ.get
-        ("DATABASE_URL")),
+        'default':dj_database_url.parse(os.environ.get("DATABASE_URL")),
     }
 else:
      DATABASES = {
@@ -210,4 +210,4 @@ DEFAULT_FROM_EMAIL = 'wellnessnest@example.com'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-APPEND_SLASH = False
+#APPEND_SLASH = False
