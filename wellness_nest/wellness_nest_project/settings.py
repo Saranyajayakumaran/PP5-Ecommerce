@@ -25,8 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = os.environ.get("SECRET_KEY",)
-SECRET_KEY = "dwizkb95rkngcjmg06nzf5s79zl2jk4m2unq7cd4y2a43d3j7a"
+SECRET_KEY = os.environ.get("SECRET_KEY",)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -196,7 +195,7 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-"""if 'USE_AWS' in os.environ:
+if 'USE_AWS' in os.environ:
     # Bucket Config
     AWS_STORAGE_BUCKET_NAME = 'pp5-wellness-nest'
     AWS_S3_REGION_NAME = 'us-east-1'
@@ -212,7 +211,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
     # Override static and media URLs in production
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
-    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'"""
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
 
 #srtipe
