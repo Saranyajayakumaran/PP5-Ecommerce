@@ -11,8 +11,7 @@ import os
 from django.core.wsgi import get_wsgi_application
 
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'wellness-nest.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'wellness_nest.wellness_nest.settings')
 
 application = get_wsgi_application()
 
-print("entered wsgi")
