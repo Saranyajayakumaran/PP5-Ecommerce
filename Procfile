@@ -1,2 +1,2 @@
-web: gunicorn wellness_nest.wsgi
+web: gunicorn wellness_nest.wsgi:application
 
