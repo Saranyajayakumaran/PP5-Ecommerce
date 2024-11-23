@@ -30,9 +30,9 @@ SECRET_KEY = os.environ.get("SECRET_KEY",)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['pp5-wellnessnest-96adb2a059a0.herokuapp.com/','localhost','127.0.0.1',]
+ALLOWED_HOSTS = ['pp5-ecommerce-7cfec9de238f.herokuapp.com','localhost','127.0.0.1',]
 CSRF_TRUSTED_ORIGINS = [
-    'https://pp5-wellnessnest-96adb2a059a0.herokuapp.com',
+    'https://pp5-ecommerce-7cfec9de238f.herokuapp.com',
     'http://localhost:8000',
     'http://127.0.0.1:8000'
 ]
@@ -77,7 +77,7 @@ MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware',
 ]
 
-ROOT_URLCONF = 'wellness_nest_project.urls'
+ROOT_URLCONF = 'wellness_nest.urls'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 CRISPY_ALLOWED_TEMPLATE_PACKS = ('bootstrap',)
@@ -132,24 +132,25 @@ LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 
 
-WSGI_APPLICATION = 'wellness_nest_project.wsgi.application'
+WSGI_APPLICATION = 'wellness_nest.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+
 if 'DATABASE_URL' in os.environ:
+
     DATABASES = {
 
-        'default':dj_database_url.parse(os.environ.get("DATABASE_URL")),
+        'default':dj_database_url.parse(os.environ.get('DATABASE')),
     }
 else:
-     DATABASES = {
-         'default': {
-             'ENGINE':'django.db.backends.sqlite3',
-             'NAME':os.path.join(BASE_DIR, 'db.sqlite3'),
-         }
-     }
-
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 
 
@@ -194,25 +195,6 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-if 'USE_AWS' in os.environ:
-    # Bucket Config
-    AWS_STORAGE_BUCKET_NAME = 'pp5-wellness-nest'
-    AWS_S3_REGION_NAME = 'us-east-1'
-    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
-
-    # Static and media files
-    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-    STATICFILES_LOCATION = 'static'
-    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-    MEDIAFILES_LOCATION = 'media'
-
-    # Override static and media URLs in production
-    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
-    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
-
 
 #srtipe
 FREE_DELIVERY_THRESHOLD=50
