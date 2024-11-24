@@ -1,4 +1,5 @@
 from django.db import models
+from .models import UserProfile
 
 # Create your models here.
 
@@ -40,3 +41,26 @@ class Products(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+class Whishlist(models.Model):
+    """Model to handle user wishlist"""
+
+    class Meta:
+        """Make the model name plural"""
+        verbose_name_plural = 'Wishlists'
+
+    user = models.ForeignKey(UserProfile,on_delete=models.CASCADE, related_name='wishists')
+    product = models.ForeignKey(Products,on_delete=models.CASCADE)
+    added_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.user.username} - {self.product.name}"
+
+    
+
+
+
+
+
+    
