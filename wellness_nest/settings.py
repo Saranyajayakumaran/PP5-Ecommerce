@@ -30,9 +30,9 @@ SECRET_KEY = os.environ.get("SECRET_KEY",)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8080-saranyajaya-pp5ecommerc-16o0t2gcc1v.ws-eu116.gitpod.io','pp5-ecommerce-7cfec9de238f.herokuapp.com','localhost','127.0.0.1',]
+ALLOWED_HOSTS = ['8000-saranyajaya-pp5ecommerc-05crxo5zuie.ws-eu116.gitpod.io','pp5-ecommerce-7cfec9de238f.herokuapp.com','localhost','127.0.0.1',]
 CSRF_TRUSTED_ORIGINS = [
-    'https://8080-saranyajaya-pp5ecommerc-16o0t2gcc1v.ws-eu116.gitpod.io',
+    'https://8000-saranyajaya-pp5ecommerc-05crxo5zuie.ws-eu116.gitpod.io',
     'https://pp5-ecommerce-7cfec9de238f.herokuapp.com',
     'http://localhost:8000',
     'http://127.0.0.1:8000'
