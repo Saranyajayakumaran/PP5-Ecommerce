@@ -31,5 +31,6 @@ class CategoryAdmin(admin.ModelAdmin):
 
     ordering=('name',)
 
+
 admin.site.register(Products, ProductsAdmin)
 admin.site.register(Category, CategoryAdmin)
