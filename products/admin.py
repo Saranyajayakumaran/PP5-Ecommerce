@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Products,Category
+from .models import Products,Category,Wishlist
 
 # Register your models here.
 
@@ -31,6 +31,20 @@ class CategoryAdmin(admin.ModelAdmin):
 
     ordering=('name',)
 
+class WishlistAdmin(admin.ModelAdmin):
+    """Display the fields of wishlist in admin"""
+    list_display=(
+        'user',
+        'product',
+        "added_on"
+    )    
+
+    ordering = ('product',)
+
+
+
 
 admin.site.register(Products, ProductsAdmin)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(Wishlist, WishlistAdmin)
+
