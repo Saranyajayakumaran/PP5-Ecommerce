@@ -5,7 +5,7 @@ from django.contrib import messages
 # Create your views here.
 
 def shopping_bag_view(request):
-    "A view that display the contents of bage"
+    "A view that display the contents of bag"
 
     return render(request,'shopping_bag/shopping_bag.html')
 

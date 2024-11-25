@@ -104,7 +104,7 @@ def add_product_view(request):
             messages.success(request, 'Successfully added product!')
             return redirect(reverse('add_product'))
         else:
-            messages.error(request, 'Failed to ad product. Please ensure thr form is valid')
+            messages.error(request, 'Failed to add product. Please ensure the form is valid')
     else:
         form = ProductForm()
 
@@ -161,13 +161,30 @@ def delete_product_view(request,product_id):
 @login_required
 def wishlist_view(request):
     """Display all the items in wishlist"""
-    return render(request,'products/wishlist.html')
+    wishlist_items = request.session.get('wishlist',{})
+
+    context={
+        'wishlist_items': wishlist_items
+    }
+    return render(request,'products/wishlist.html',context)
 
 
 @login_required
-def add_wishlist_view(request,product_id):
+def add_to_wishlist_view(request,item_id):
     """Add product to wishlist"""
-    product=get_object_or_404(Products,id=prodcut_id)
-    if not Wishlist.objects.filter(user=request.user, product=product).exists():
-        Wishlist.objects.create(user=request.user, product=product)
-    return redirect('product_detail', product_id=product.id)  
+    product=get_object_or_404(Products,pk=item_id)
+    wishlist_items = request.session.get('wishlist',{}) 
+    print(wishlist_items)
+    if item_id not in wishlist_items:
+        wishlist_items[str(item_id)] = {
+            'name': product.name,
+            'price' : str(product.price),
+            'image' : product.image.url if product.image else None
+        }
+        request.session['wishlist'] = wishlist_items
+        messages.info(request, f'{product.name} added to your wishlist')
+    else:
+        messages.info(request, f'{product.name} is already in your wishlist')
+    
+    # Redirect to the wishlist page
+    return redirect('wishlist')   # Redirect to the wishlist page
