@@ -162,10 +162,15 @@ def delete_product_view(request,product_id):
 def wishlist_view(request):
     """Display all the items in wishlist"""
     wishlist_items = request.session.get('wishlist',{})
-
-    context={
-        'wishlist_items': wishlist_items
-    }
+    print(wishlist_items)
+    wishlist_details = []
+    for item_id, details in wishlist_items.items():
+        wishlist_details.append(details)
+    
+        context = {
+            'wishlist_details': wishlist_details,
+        }
+        print("wishlist_details:",context)
     return render(request,'products/wishlist.html',context)
 
 
@@ -175,11 +180,12 @@ def add_to_wishlist_view(request,item_id):
     product=get_object_or_404(Products,pk=item_id)
     wishlist_items = request.session.get('wishlist',{}) 
     print(wishlist_items)
-    if item_id not in wishlist_items:
+    if str(item_id) not in wishlist_items:
         wishlist_items[str(item_id)] = {
             'name': product.name,
             'price' : str(product.price),
-            'image' : product.image.url if product.image else None
+            'image' : product.image.url if product.image else None,
+            'sku':product.sku
         }
         request.session['wishlist'] = wishlist_items
         messages.info(request, f'{product.name} added to your wishlist')

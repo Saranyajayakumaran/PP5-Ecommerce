@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="row">
-            {% if wishlist_items %}
+            {% if wishlist_details %}
             <div class="table-responsive rounded">
                 <table class="table table-sm table-borderless">
                     <thead class="text-black">
@@ -31,21 +31,21 @@
                         </tr>
                     </thead>
 
-                    {% for item in wishlist_items %}
+                    {% for item in wishlist_details %}
                     <tr>
                         <td class="p-3 w-25 product-image">
-                            {% if item.product.image %}
-                            <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                            {% if item.image %}
+                            <img class="img-fluid rounded" src="{{ item.image }}" alt="{{ item.name }}">
                             {% else %}
-                            <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
+                            <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.name }}">
                             {% endif %}
                         </td>
                         <td class="py-3">
-                            <p class ="my-0"><strong>{{ item.product.name }}</strong></p>
+                            <p class ="my-0"><strong>{{ item.name }}</strong></p>
                             <p class=" my-0 small text-muted">SKU: {{ item.sku|upper }}</p>
                         </td>
                         <td class="py-3">
-                            <p class ="my-0">{{ item.product.price }}</p>
+                            <p class ="my-0">{{ item.price }}</p>
                         </td>
                     </tr>
                     {% endfor %}
