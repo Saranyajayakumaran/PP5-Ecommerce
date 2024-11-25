@@ -157,10 +157,17 @@ def delete_product_view(request,product_id):
     messages.success(request, 'Product Deleted!')
     return redirect(reverse('products'))
 
+
+@login_required
+def wishlist_view(request):
+    """Display all the items in wishlist"""
+    return render(request,'products/wishlist.html')
+
+
 @login_required
 def add_wishlist_view(request,product_id):
     """Add product to wishlist"""
     product=get_object_or_404(Products,id=prodcut_id)
     if not Wishlist.objects.filter(user=request.user, product=product).exists():
         Wishlist.objects.create(user=request.user, product=product)
-    return redirect('product_detail', id=product.id)  
+    return redirect('product_detail', product_id=product.id)  

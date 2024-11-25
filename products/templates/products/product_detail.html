@@ -27,7 +27,7 @@
                     <p class="card-title product-name sm-h1 h4 h2-md">{{ product.name }}
                         {% if user.is_authenticated %}
                             <a href="{% url 'add_to_wishlist' product.id %}" class="wishlist-icon ml-2" title="Add to Wishlist">
-                                <i class="far fa-heart"></i> <!-- Outline heart -->
+                                <i class="fa-solid fa-heart"></i> <!-- Outline heart -->
                             </a>
                         {% endif %}
                     </p>
