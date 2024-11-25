@@ -161,10 +161,10 @@ def delete_product_view(request,product_id):
 @login_required
 def wishlist_view(request):
     """Display all the items in wishlist"""
-    print("Entet wishlist view")
+    #print("Entet wishlist view")
     wishlist_items = request.session.get('wishlist',{})
-    print(wishlist_items)
-
+    #print(wishlist_items)
+    wishlist_details = [{'id': key, **value} for key, value in wishlist_items.items()]
     wishlist_details = []
     for item_id, details in wishlist_items.items():
         details[item_id]=item_id
@@ -172,7 +172,7 @@ def wishlist_view(request):
         context = {
             'wishlist_details': wishlist_details,
         }
-        print("wishlist_details:",context)
+        #print("wishlist_details:",context)
     return render(request,'products/wishlist.html',context)
 
 
@@ -181,16 +181,18 @@ def add_to_wishlist_view(request,item_id):
     """Add product to wishlist"""
     product=get_object_or_404(Products,pk=item_id)
     wishlist_items = request.session.get('wishlist',{}) 
-    print(wishlist_items)
+    #print(wishlist_items)
     if str(item_id) not in wishlist_items:
+        print("ADD item id:", str(item_id))
         wishlist_items[str(item_id)] = {
             'name': product.name,
             'price' : str(product.price),
             'image' : product.image.url if product.image else None,
             'sku':product.sku
         }
+        print("Item_id for add product:", wishlist_items[str(item_id)])
         request.session['wishlist'] = wishlist_items
-        messages.info(request, f'{product.name} added to your wishlist')
+        messages.success(request, f'{product.name} added to your wishlist')
     else:
         messages.info(request, f'{product.name} is already in your wishlist')
     
@@ -199,19 +201,32 @@ def add_to_wishlist_view(request,item_id):
 
 @login_required
 def remove_from_wishlist_view(request, item_id):
-    """Remove product from wishlist"""
+    """Remove product from wishlist using pop method"""
+    # Get the wishlist from session
     wishlist_items = request.session.get('wishlist', {})
-    print(f"Wishlist before removal: {wishlist_items}")
+    print("Wishlist before removal:", wishlist_items)
 
-    # Check if the item exists in the wishlist
-    if str(item_id) in wishlist_items:
-        # Remove the item from the wishlist
-        del wishlist_items[str(item_id)]
-        request.session['wishlist'] = wishlist_items
-        product = get_object_or_404(Products, pk=item_id)  # Get product to show the name in the message
-        messages.info(request, f'{product.name} has been removed from your wishlist')
+    # Ensure item_id is treated as a string for consistency (if using SKU as key)
+    item_id = str(item_id)
+    print("item_id to remove:", item_id)
+
+    print("Available keys in wishlist:", wishlist_items.keys())
+
+    # Remove the item from the wishlist using pop()
+    removed_item = wishlist_items.pop(item_id,None)
+    print(f"Removed item:" ,removed_item)
+    if removed_item:
+        request.session['wishlist'] = wishlist_items  # Update the session
+        messages.info(request, f'Item removed from your wishlist.')
     else:
-        messages.info(request, "Item not found in your wishlist")
-    
-    # Redirect to the wishlist page
+        messages.info(request, f'The item is not in your wishlist.')
+
+    # Now we need to remove the product from the database using SKU
+    try:
+        product = Products.objects.get(sku=item_id)  # Get the product by SKU
+        print(f"Product {product.name} removed.")
+    except Products.DoesNotExist:
+        print("Product with SKU does not exist.")
+
+    # Redirect to the wishlist page after removal
     return redirect(reverse('wishlist'))
