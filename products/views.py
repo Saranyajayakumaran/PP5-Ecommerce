@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.db.models.functions import Lower
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from.models import Products, Category
+from.models import Products, Category, Wishlist
 from .forms import ProductForm
 
 # Create your views here.
@@ -156,3 +156,11 @@ def delete_product_view(request,product_id):
     product.delete()
     messages.success(request, 'Product Deleted!')
     return redirect(reverse('products'))
+
+@login_required
+def add_wishlist_view(request,product_id):
+    """Add product to wishlist"""
+    product=get_object_or_404(Products,id=prodcut_id)
+    if not Wishlist.objects.filter(user=request.user, product=product).exists():
+        Wishlist.objects.create(user=request.user, product=product)
+    return redirect('product_detail', id=product.id)  
