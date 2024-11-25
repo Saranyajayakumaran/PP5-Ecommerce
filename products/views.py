@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect,HttpResponse, reverse, get_object_or_404
 from django.contrib import messages
 
 
@@ -161,12 +161,14 @@ def delete_product_view(request,product_id):
 @login_required
 def wishlist_view(request):
     """Display all the items in wishlist"""
+    print("Entet wishlist view")
     wishlist_items = request.session.get('wishlist',{})
     print(wishlist_items)
+
     wishlist_details = []
     for item_id, details in wishlist_items.items():
+        details[item_id]=item_id
         wishlist_details.append(details)
-    
         context = {
             'wishlist_details': wishlist_details,
         }
@@ -193,4 +195,23 @@ def add_to_wishlist_view(request,item_id):
         messages.info(request, f'{product.name} is already in your wishlist')
     
     # Redirect to the wishlist page
-    return redirect('wishlist')   # Redirect to the wishlist page
+    return redirect(reverse('wishlist'))   # Redirect to the wishlist page
+
+@login_required
+def remove_from_wishlist_view(request, item_id):
+    """Remove product from wishlist"""
+    wishlist_items = request.session.get('wishlist', {})
+    print(f"Wishlist before removal: {wishlist_items}")
+
+    # Check if the item exists in the wishlist
+    if str(item_id) in wishlist_items:
+        # Remove the item from the wishlist
+        del wishlist_items[str(item_id)]
+        request.session['wishlist'] = wishlist_items
+        product = get_object_or_404(Products, pk=item_id)  # Get product to show the name in the message
+        messages.info(request, f'{product.name} has been removed from your wishlist')
+    else:
+        messages.info(request, "Item not found in your wishlist")
+    
+    # Redirect to the wishlist page
+    return redirect(reverse('wishlist'))

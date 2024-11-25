@@ -47,6 +47,15 @@
                         <td class="py-3">
                             <p class ="my-0">{{ item.price }}</p>
                         </td>
+                        <td class="py-3 update-delete-btns">
+                            <!-- Remove Button -->
+                            <form action="{% url 'remove_from_wishlist' item_id=item.sku %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" class="remove-item btn px-3 py-0">
+                                    <small><i class="fas fa-trash-alt"></i></small>
+                                </button>
+                            </form>
+                        </td>
                     </tr>
                     {% endfor %}
                 </table>
