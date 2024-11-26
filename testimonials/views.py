@@ -38,3 +38,19 @@ def delete_testimonials_view(request,testimonial_id):
     return redirect('testimonials')
 
 
+@login_required
+def  edit_testimonials_view(request, testimonial_id):
+    testimonial = get_object_or_404(Testimonial, id=testimonial_id)
+
+    if testimonial.user != request.user and not request.user.is_superuser:
+        messages.warning("You dont have permission to delete this testimonial")
+        return redirect('testimonials')
+    if request.method == 'POST':
+        form = TestimonialForm(request.POST, instance=testimonial)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Your testimonial has been updated successfully!")
+            return redirect('testimonials')
+    else:
+        form = TestimonialForm(instance=testimonial)
+    return render(request, 'testimonials/update_testimonials.html', {'form': form, 'testimonial': testimonial})
