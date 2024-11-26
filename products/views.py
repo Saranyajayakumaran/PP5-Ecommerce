@@ -185,33 +185,19 @@ def add_to_wishlist_view(request,product_id):
     return redirect(reverse('wishlist'))   # Redirect to the wishlist page
 
 @login_required
-def remove_from_wishlist_view(request, item_id):
-    """Remove product from wishlist using pop method"""
-    # Get the wishlist from session
-    wishlist_items = request.session.get('wishlist', {})
-    print("Wishlist before removal:", wishlist_items)
+def remove_from_wishlist_view(request, product_id):
+    """Remove product from wishlist"""
+    # Get the product object (if it exists)
+    product = get_object_or_404(Products, pk=product_id)
 
-    # Ensure item_id is treated as a string for consistency (if using SKU as key)
-    item_id = str(item_id)
-    print("item_id to remove:", item_id)
+    # Try to find the wishlist item for the logged-in user and the specific product
+    wishlist_item = Wishlist.objects.filter(user=request.user, product=product).first()
 
-    print("Available keys in wishlist:", wishlist_items.keys())
-
-    # Remove the item from the wishlist using pop()
-    removed_item = wishlist_items.pop(item_id,None)
-    print(f"Removed item:" ,removed_item)
-    if removed_item:
-        request.session['wishlist'] = wishlist_items  # Update the session
-        messages.info(request, f'Item removed from your wishlist.')
+    if wishlist_item:
+        wishlist_item.delete()  # Remove the item from the wishlist
+        messages.success(request, f"{product.name} has been removed from your wishlist.")
     else:
-        messages.info(request, f'The item is not in your wishlist.')
+        messages.info(request, f"{product.name} is not in your wishlist.")
 
-    # Now we need to remove the product from the database using SKU
-    try:
-        product = Products.objects.get(sku=item_id)  # Get the product by SKU
-        print(f"Product {product.name} removed.")
-    except Products.DoesNotExist:
-        print("Product with SKU does not exist.")
-
-    # Redirect to the wishlist page after removal
-    return redirect(reverse('wishlist'))
+    # Redirect to the wishlist page after removing the item
+    return redirect(reverse('wishlist'))  # Adjust the redirect if needed
