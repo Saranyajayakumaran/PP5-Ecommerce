@@ -160,41 +160,26 @@ def delete_product_view(request,product_id):
 
 @login_required
 def wishlist_view(request):
-    """Display all the items in wishlist"""
-    #print("Entet wishlist view")
-    wishlist_items = request.session.get('wishlist',{})
-    #print(wishlist_items)
-    wishlist_details = [{'id': key, **value} for key, value in wishlist_items.items()]
-    wishlist_details = []
-    for item_id, details in wishlist_items.items():
-        details[item_id]=item_id
-        wishlist_details.append(details)
-        context = {
-            'wishlist_details': wishlist_details,
-        }
-        #print("wishlist_details:",context)
-    return render(request,'products/wishlist.html',context)
-
+    wishlist_items = Wishlist.objects.filter(user=request.user).select_related('product')
+    for item in wishlist_items:
+        print(f"Product in wiahlist: {item.product.name}, Price: {item.product.price}, Image URL: {item.product.image.url if item.product.image else 'No Image'}")
+    print("wishlist_view items",wishlist_items)
+    context = {
+        'wishlist_items': wishlist_items
+    }
+    return render(request, 'products/wishlist.html', context)
 
 @login_required
-def add_to_wishlist_view(request,item_id):
+def add_to_wishlist_view(request,product_id):
     """Add product to wishlist"""
-    product=get_object_or_404(Products,pk=item_id)
-    wishlist_items = request.session.get('wishlist',{}) 
-    #print(wishlist_items)
-    if str(item_id) not in wishlist_items:
-        print("ADD item id:", str(item_id))
-        wishlist_items[str(item_id)] = {
-            'name': product.name,
-            'price' : str(product.price),
-            'image' : product.image.url if product.image else None,
-            'sku':product.sku
-        }
-        print("Item_id for add product:", wishlist_items[str(item_id)])
-        request.session['wishlist'] = wishlist_items
-        messages.success(request, f'{product.name} added to your wishlist')
+    product=get_object_or_404(Products,pk=product_id)
+    wishlist_item, created = Wishlist.objects.get_or_create(user=request.user, product=product)
+    print(wishlist_item)
+
+    if created:
+        messages.success(request, f"{product.name} has been added to your wishlist!")
     else:
-        messages.info(request, f'{product.name} is already in your wishlist')
+        messages.info(request, f"{product.name} is already in your wishlist.")
     
     # Redirect to the wishlist page
     return redirect(reverse('wishlist'))   # Redirect to the wishlist page
