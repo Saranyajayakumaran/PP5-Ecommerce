@@ -1,7 +1,12 @@
 from django import forms
-from .models import Testimonial
+from .models import Testimonial,Products
 
 class TestimonialForm(forms.ModelForm):
     class Meta:
         model = Testimonial
-        fields = ['message']
+        fields = ['product','message']
+
+    product = forms.ModelChoiceField(
+        queryset=Products.objects.all(),
+        label="Product",
+        widget=forms.Select(attrs={'class':'form-controm'}))
