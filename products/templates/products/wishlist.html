@@ -45,6 +45,7 @@
                         <td class="py-3">
                             <p class ="my-0"><strong>{{ item.product.name }}</strong></p>
                             <p class=" my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
+                            <p class="my-0 small text-muted">ADDED ON: {{ item.added_on|date:"F j, Y, g:i a" }}</p>
                         </td>
                         <td class="py-3">
                             <p class ="my-0">{{ item.product.price }}</p>
