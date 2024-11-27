@@ -29,7 +29,8 @@ def cache_checkout_data(request):
             'save_info':request.POST.get('save_info'),#weather user needs to save info
             'username':request.user,#username of logged in user
         })
-        #print("cache_success")
+       
+        print("cache_success")
         return HttpResponse(status=200)
     except Exception as e:
         print(f"Error in cache_checkout_data: {e}")
@@ -100,6 +101,7 @@ def payment_view(request):
                 print("Redirecting to payment_success page") 
                 
             request.session['save_info'] = 'save-info' in request.POST
+            print("save_info:",request.session['save_info'])
             return redirect(reverse('payment_success',args=[order.order_number]))
         else:
             messages.error(request,'There was  an error with your form.'
@@ -185,6 +187,7 @@ def payment_success_view(request,order_number):
             }
             print("Profile_data:",profile_data)
             user_profile_form = UserProfileForm(profile_data, instance=profile)
+            print("user profile form:",user_profile_form)
             if user_profile_form.is_valid():
                 user_profile_form.save()
 
