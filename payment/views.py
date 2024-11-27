@@ -30,7 +30,7 @@ def cache_checkout_data(request):
             'username':request.user,#username of logged in user
         })
        
-        print("cache_success")
+        #print("cache_success")
         return HttpResponse(status=200)
     except Exception as e:
         print(f"Error in cache_checkout_data: {e}")
@@ -69,11 +69,11 @@ def payment_view(request):
         }
         #creating instance of checkoutform 
         checkout_form = CheckoutForm(form_data)
-        print("checkout form:",checkout_form)
+        #print("checkout form:",checkout_form)
         if checkout_form.is_valid():
             print("form is valid")
             order=checkout_form.save(commit=False)#save the form if it is valid
-            print("order:",order)
+            #print("order:",order)
             print(f"order created with order_number:{order.order_number}")
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid

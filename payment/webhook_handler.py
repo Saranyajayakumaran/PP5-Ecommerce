@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.conf import settings
-
+from django.template.loader import render_to_string
 
 from .models import Checkout, CheckoutLineItem
 from products.models import Products
@@ -9,13 +9,12 @@ from profiles.models import UserProfile
 
 import json
 import time
-import logging
-import stripe
 
-logger = logging.getLogger(__name__)
 
 class StripeWH_Handler:
     """Handle Stripe webhooks"""
+
+    print("Enter sending email")
 
     def __init__(self, request):
         self.request = request
@@ -28,7 +27,7 @@ class StripeWH_Handler:
         send_mail (
             subject,
             body,
-            settings.DEFAULT_FROM_EMAIL
+            settings.DEFAULT_FROM_EMAIL,
             [cust_email]
         )
 
@@ -36,7 +35,7 @@ class StripeWH_Handler:
         """
         Handle a generic/unknown/unexpected webhook event
         """
-        
+        print("Enter handle event")
         return HttpResponse(
             content=f'Unhandled webhook received: {event["type"]}',
             status=200)
@@ -47,33 +46,24 @@ class StripeWH_Handler:
         """
         #Handle the payment_intent.succeeded webhook from Stripe
         """
-        
+        print("Enter webhook handle payment intent")
         intent = event.data.object
         print("webhook intent:",intent)
         pid = intent.id
         print("pid:",pid)
         shopping_bag = intent.metadata.bag
-        shipping_details = intent.shipping
+        #shipping_details = intent.shipping
         print("webhok shopping_bag:", shopping_bag)
         save_info = intent.metadata.save_info
 
         print("stripe save info:",save_info)
 
-        """billing_details = intent.charges.data[0].billing_details
+        billing_details = intent.charges.data[0].billing_details
         shipping_details = intent.shipping
         print("shipping details",shipping_details)
-        grand_total = round(intent.charges.data[0].amount / 100, 2)"""
-
-        billing_details = None
-        if hasattr(intent, "charges") and intent.charges.data:
-            billing_details = intent.charges.data[0].billing_details
-            grand_total = round(intent.charges.data[0].amount / 100, 2)
-        else:
-            print("DEBUG: No charges data available in PaymentIntent")
-            return HttpResponse(
-                content="Webhook received: No charges data",
-                status=400
-            )
+        grand_total = round(intent.charges.data[0].amount / 100, 2)
+        
+        print("webhook grand total:",grand_total)
 
         #clean data in shipping details
         for field,value in shipping_details.address.items():
@@ -138,7 +128,7 @@ class StripeWH_Handler:
                     original_bag = shopping_bag,
                     stripe_pid = pid,
                     )
-                #shopping_bag = json.loads(shopping_bag) 
+                shopping_bag = json.loads(shopping_bag) 
                 for item_id, item_data in json.loads(shopping_bag).items():
                     product=Products.objects.get(id=item_id)
                     if isinstance(item_data,int):
