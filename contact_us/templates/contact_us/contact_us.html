@@ -26,6 +26,7 @@
                     {% csrf_token %}
                     {{ form | crispy }}
                     <button type="submit" class="btn btn-primary">Submit</button>
+                    <a href="{% url 'products' %}" class="btn btn-secondary ml-2">Cancel</a>
                 </form>
             </div>
         </div>
