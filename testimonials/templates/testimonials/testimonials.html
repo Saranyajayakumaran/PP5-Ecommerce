@@ -39,7 +39,6 @@
                                         <p>{{ testimonial.message }}</p>
                                     </blockquote>
                                 </div>
-                                <p class="text-muted">Posted on {{ testimonial.created_at|date:"F j, Y, g:i a" }}</p>
                                 {% if testimonial.user == request.user or request.user.is_superuser %}
                                     <a href="{% url 'edit_testimonials' testimonial.id %}" class="btn btn-warning btn-sm">Edit</a>
                                 {% endif %}

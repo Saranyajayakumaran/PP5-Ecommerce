@@ -58,12 +58,14 @@ INSTALLED_APPS = [
     'payment',
     'profiles',
     'testimonials',
+    'contact_us',
 
     #other
     'crispy_forms',
     'crispy_bootstrap4',
     'django_countries',
     'storages' ,
+    
 
 ]
 
