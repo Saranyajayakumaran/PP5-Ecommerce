@@ -53,8 +53,8 @@ def payment_view(request):
     if request.method == 'POST':
         
         #retrives the shopping bag from user session
-        bag=request.session.get('bag',{})
-        #print("bag:",bag)
+        bag=request.session.get('shopping_bag',{})
+        print("bag:",bag)
         #collects user enters info from post data into dictionary
         form_data = {
             'full_name' : request.POST['full_name'],
@@ -68,12 +68,12 @@ def payment_view(request):
         }
         #creating instance of checkoutform 
         checkout_form = CheckoutForm(form_data)
-        #print("checkout form:",checkout_form)
+        print("checkout form:",checkout_form)
         if checkout_form.is_valid():
-            #print("form is valid")
+            print("form is valid")
             order=checkout_form.save(commit=False)#save the form if it is valid
-            #print(f"order:",order)
-            #print(f"order created with order_number:{order.order_number}")
+            print("order:",order)
+            print(f"order created with order_number:{order.order_number}")
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
@@ -114,6 +114,7 @@ def payment_view(request):
 
         current_bag = shopping_bag_contents(request)
         total=current_bag['grand_total']
+        print("total:",total)
         stripe_total=round(total * 100)
         stripe.api_key=stripe_secret_key
         #Create stripe payment intent
@@ -122,6 +123,8 @@ def payment_view(request):
             currency=settings.STRIPE_CURRENCY,
             payment_method_types=['card'],
         )
+
+        print("INtent:",intent)
 
         if request.user.is_authenticated:
             try:
