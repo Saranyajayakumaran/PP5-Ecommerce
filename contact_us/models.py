@@ -16,7 +16,7 @@ class ContactEnquiry(models.Model):
 
     full_name = models.CharField(max_length=100)
     email = models.EmailField()
-    Enquiry_type = models.CharField(max_length=25,choices=ENQUIRY_TYPE_CHIOCES,default='general',verbose_name="Type of Enquiry")
+    enquiry_type = models.CharField(max_length=25,choices=ENQUIRY_TYPE_CHIOCES,default='general',verbose_name="Type of Enquiry")
     subject = models.CharField(max_length=255)
     message = models.TextField()
     created_at = models.DateTimeField(default=now)
