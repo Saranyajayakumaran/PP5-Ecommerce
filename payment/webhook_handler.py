@@ -9,6 +9,7 @@ from profiles.models import UserProfile
 
 import json
 import time
+import stripe
 
 
 class StripeWH_Handler:
@@ -56,12 +57,16 @@ class StripeWH_Handler:
         print("webhok shopping_bag:", shopping_bag)
         save_info = intent.metadata.save_info
 
+        stripe_charge = stripe.Charge.retrieve(
+        intent.latest_charge
+        )
+
         print("stripe save info:",save_info)
 
-        billing_details = intent.charges.data[0].billing_details
+        billing_details = stripe_charge.billing_details
         shipping_details = intent.shipping
         print("shipping details",shipping_details)
-        grand_total = round(intent.charges.data[0].amount / 100, 2)
+        grand_total = round(stripe_charge.amount / 100, 2)
         
         print("webhook grand total:",grand_total)
 
@@ -91,7 +96,7 @@ class StripeWH_Handler:
             try:
                 order = Checkout.objects.get(
                     full_name__iexact = shipping_details.name,
-                    email__iexact = shipping_details.email,
+                    email__iexact = billing_details.email,
                     phone_number__iexact = shipping_details.phone,
                     street_address1__iexact = shipping_details.address.line1,
                     street_address2__iexact = shipping_details.address.line2,
