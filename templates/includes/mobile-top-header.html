@@ -1,23 +1,21 @@
-<ul class="list-inline text-center mb-4 ">
-    <li class="list-line-item d-block d-lg-none">
+<ul class="list-inline text-center">
+    <li class="list-line-item my-2 d-block d-lg-none d-md-inline">
         <a class="nav-link text-center" href="{% url 'wishlist' %}" style="color: #ffc107;">
             <i class="nav-icon-heart fa-solid fa-lg fa-heart"></i>
         </a>
     </li>
 
     <!-- My Account Dropdown -->
-    <li class="list-inline-item d-block d-lg-none">
-        <a class="nav-link dropdown-toggle my_account_padding" href="#"
-        id="navbarDropdown" role="button" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false" style="color: #ffc107;">
-      <i class="fa-solid fa-user"></i>
+    <li class="list-inline-item d-block my-2 d-lg-none">
+        <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #ffc107;">
+      <i class="fa-solid fa-user fa-lg"></i>
       </a>
         <div class="dropdown-menu border-0 shadow-sm" aria-labelledby="user-options">
             {% if request.user.is_authenticated %}
                 {% if request.user.is_superuser %}
                     <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
                 {% endif %}
-                <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                <a href="{% url 'profile' %}" class="dropdown-item">Hi,  {{user.username}}</a>
                 <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
             {% else %}
                 <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
@@ -27,7 +25,7 @@
     </li>
 
     <!-- Shopping Cart -->
-    <li class="list-inline-item d-block d-lg-none">
+    <li class="list-inline-item d-block my-2 d-lg-none">
         <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-dark{% endif %} nav-link d-block" 
             href="{% url 'shopping_bag' %}">
             <div class="">
@@ -43,8 +41,14 @@
     </li>
 
     <!-- Search Bar -->
-    <li class="list-inline-item w-100 d-block d-lg-none">
-        <div class="search-container mt-3">
+    <li class="list-inline-item w-100 my-2 d-block d-lg-none">
+        <a class="text-black nav-link d-block d-lg-none" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="text-center" style="color: #ffc107;">
+                <div><i class="fas fa-search fa-lg"></i></div>
+                <p class="my-0">Search</p>
+            </div>
+        </a>
+        <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="mobile-search">
             <form method="GET" action="{% url 'products' %}">
                 <div class="input-group">
                     <input 

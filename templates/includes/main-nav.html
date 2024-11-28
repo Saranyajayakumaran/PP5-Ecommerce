@@ -3,8 +3,8 @@
         <!--<li class="nav-item">
           <a class="nav-link text-dark" href="">New*</a>
         </li>-->
-        <li class="nav-item active">
-          <a class="nav-link" href="{% url 'home' %}"
+        <li class="nav-item active" >
+          <a class="nav-link" style="color: #ffc107" href="{% url 'home' %}"
             >Home <span class="sr-only">(current)</span></a
           >
         </li>
@@ -17,6 +17,7 @@
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
+            style="color: #ffc107"
           >
           Products
           </a>
@@ -33,10 +34,10 @@
           </div>
         </li>
         
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'testimonials' %}">Testimonials</a>
+        <li class="nav-item" >
+          <a class="nav-link" href="{% url 'testimonials' %}" style="color: #ffc107">Testimonials</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'contact_us' %}">Contact Us</a>
+        <li class="nav-item" style="color: #ffc107">
+          <a class="nav-link" href="{% url 'contact_us' %}" style="color: #ffc107">Contact Us</a>
         </li>
       </ul>

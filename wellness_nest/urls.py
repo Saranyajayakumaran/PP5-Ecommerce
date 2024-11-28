@@ -19,6 +19,8 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from .views import handler404, handler400, handler403, handler500 #noqa
+
 
 
 urlpatterns = [
@@ -34,3 +36,9 @@ urlpatterns = [
 
 
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
+
+handler404 = 'wellness_nest.views.handler404'
+handler403 = 'wellness_nest.views.handler403'
+handler400 = 'wellness_nest.views.handler400'
+handler500 = 'wellness_nest.views.handler500'
