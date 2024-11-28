@@ -142,9 +142,6 @@ a.category-badge > span.badge:hover{
     
 }
 
-
-
-
 .quantity-form{
     margin-left:-18rem;
     width:100%;
@@ -470,6 +467,16 @@ footer {
     .search-container{
         width:60%;
         margin-left:10rem;
+    }
+
+    .navbar-nav .nav-item {
+        margin-right: 1rem; /* Adjust as needed */
+        padding: 0.5rem; /* Adjust for consistent padding */
+    }
+    .nav-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 

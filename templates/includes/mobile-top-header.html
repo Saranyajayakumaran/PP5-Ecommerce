@@ -1,54 +1,64 @@
-<ul class="navbar-nav ms-auto">
-    <li class="nav-item mr-4 py-1">
-      <a class="nav-link d-flex align-items-center" href="{% url 'wishlist' %}" style="color: #ffc107;">
-        <i class="fa-solid fa-heart "></i>
-      </a>
+<ul class="list-inline text-center mb-4 ">
+    <li class="list-line-item d-block d-lg-none">
+        <a class="nav-link text-center" href="{% url 'wishlist' %}" style="color: #ffc107;">
+            <i class="nav-icon-heart fa-solid fa-lg fa-heart"></i>
+        </a>
     </li>
-    <li class="nav-item dropdown mr-2">
-      <a class="nav-link dropdown-toggle my_account_padding" href="#"
+
+    <!-- My Account Dropdown -->
+    <li class="list-inline-item d-block d-lg-none">
+        <a class="nav-link dropdown-toggle my_account_padding" href="#"
         id="navbarDropdown" role="button" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false" style="color: #ffc107;">
       <i class="fa-solid fa-user"></i>
       </a>
-      <div class="dropdown-menu" aria-labelledby="user-options">
-        {% if request.user.is_authenticated %} 
-        {% if request.user.is_superuser %}
-        <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
-        {% endif %}
-        <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-        <div class="dropdown-divider"></div>
-        <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-        {% else %}
-        <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-        <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-        {% endif %}
-      </div>
-    </li>
-    <li class="nav-item mr-4">
-      <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'shopping_bag'%}">
-        <div class="text-center">
-          <p class="my-0" style="color: #ffc107;">
-            {% if grand_total %}
-            <i class="fa-solid fa-cart-shopping"></i> €{{ grand_total|floatformat:2 }} 
+        <div class="dropdown-menu border-0 shadow-sm" aria-labelledby="user-options">
+            {% if request.user.is_authenticated %}
+                {% if request.user.is_superuser %}
+                    <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+                {% endif %}
+                <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
             {% else %}
-            <i class="fa-solid fa-cart-shopping"></i>€0.00 
+                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
             {% endif %}
-          </p>
         </div>
-      </a>
     </li>
-  </ul>
-  <div class="search-container d-lg-none mt-3 text-center">
-    <form method="GET" action="{% url 'products' %}">
-        <div class="input-group w-100">
-            <input class="form-control border bg-light border-black rounded-5 search-input" type="text" name="search_term" placeholder="Search our site">
-            <div class="input-group-append">
-                <button class="form-control btn bg-dark btn-black border border-black rounded-5" type="submit">
-                    <span class="icon border-black text-light">
-                        <i class="fas fa-search"></i>
-                    </span>
-                </button>
+
+    <!-- Shopping Cart -->
+    <li class="list-inline-item d-block d-lg-none">
+        <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-dark{% endif %} nav-link d-block" 
+            href="{% url 'shopping_bag' %}">
+            <div class="">
+                <p class="my-0" style="color: #ffc107;">
+                    {% if grand_total %}
+                    <i class="fa-solid fa-cart-shopping"></i> €{{ grand_total|floatformat:2 }} 
+                    {% else %}
+                    <i class="fa-solid fa-cart-shopping"></i>€0.00 
+                    {% endif %}
+                </p>
             </div>
+        </a>
+    </li>
+
+    <!-- Search Bar -->
+    <li class="list-inline-item w-100 d-block d-lg-none">
+        <div class="search-container mt-3">
+            <form method="GET" action="{% url 'products' %}">
+                <div class="input-group">
+                    <input 
+                        class="form-control border bg-light rounded-pill search-input" 
+                        type="text" 
+                        name="search_term" 
+                        placeholder="Search our site">
+                    <button 
+                        class="btn btn-dark rounded-pill ml-2" 
+                        type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
         </div>
-    </form>
-</div>
+    </li>
+</ul>
