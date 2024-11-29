@@ -17,17 +17,37 @@
           <div class="col-md-4 mb-4 py-4 d-flex flex-column ">
             <h5 class="text-uppercase mb-3">Quick Links</h5>
             <ul class="list-unstyled">
-              <li><a href="{% url 'home' %}" class="text-light">Home</a></li>
-              <li><a href="{% url 'products' %}" class="text-light">Products</a></li>
-              <li><a href="{% url 'testimonials' %}" class="text-light">Testimonials</a></li>
+              <li><a href="{% url 'home' %}" class="text-light ">Home</a></li>
+              <li><a href="{% url 'products' %}" class="text-light py-2">Products</a></li>
+              <li><a href="{% url 'testimonials' %}" class="text-light py-2">Testimonials</a></li>
+              <li><a href="{% url 'wishlist' %}" class="text-light py-2">Wishlist</a></li>
+              <li><a href="{% url 'contact_us' %}" class="text-light">Contact Us</a></li>
             </ul>
           </div>
-          <div class="col-md-4 py-4 d-flex flex-column mb-4 ">
-            <h5 class=" text-uppercase mb-3">Stay Updated</h5>
-            <form action="" method="POST" class="d-flex">
-              <input type="email" class="form-control me-2" placeholder="Your email" required>
-              <button type="submit" class="btn btn-warning">Subscribe</button>
-            </form>
+          <div class="col-md-4 d-flex flex-column mb-4 ">
+            <div id="mc_embed_shell">
+              <div id="mc_embed_signup">
+                  <form action="https://gmail.us17.list-manage.com/subscribe/post?u=3fca017973c84a3d54521c15c&amp;id=f5845a8da6&amp;f_id=0008c2e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+                    <h5 class=" text-uppercase mb-3">Stay Updated</h5>
+                    <p>Get exclusive offers and discount codes by subscribing to our monthly newsletter</p>
+                          <div class="mc-field-group"><label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label><input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value=""></div>
+                      <div id="mce-responses" class="clear foot">
+                          <div class="response" id="mce-error-response" style="display: none;"></div>
+                          <div class="response" id="mce-success-response" style="display: none;"></div>
+                      </div>
+                  <div aria-hidden="true" style="position: absolute; left: -5000px;">
+                      /* real people should not fill this in and expect good things - do not remove this or risk form bot signups */
+                      <input type="text" name="b_3fca017973c84a3d54521c15c_f5845a8da6" tabindex="-1" value="">
+                  </div>
+                      <div class="optionalParent">
+                          <div class="clear foot">
+                              <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe">
+                          </div>
+                      </div>
+                  </div>
+                	</form>
+              </div>
+            </div>
           </div>
         </div>
       </div>
