@@ -464,12 +464,12 @@ footer {
   }
 
   footer .container{
-    padding-left: 0;
+    padding:20px;
     padding-right: 0;
   }
 
   footer .row {
-    margin-left: 0;
+    margin: 20px;
     margin-right: 0;
   }
 
