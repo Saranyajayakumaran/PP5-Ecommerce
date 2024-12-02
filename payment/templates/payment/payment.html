@@ -54,7 +54,7 @@
                             <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                         </div>
                         <div class="col-3 text-right">
-                            <p class="my-0 small text-muted">${{ item.product.price | calc_subtotal:item.quantity }}</p>
+                            <p class="my-0 small text-muted">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
                         </div>
                     </div>
                 {% endfor %}
@@ -66,9 +66,9 @@
                         <p class="my-0">Grand Total:</p>
                     </div>
                     <div class="col-3">
-                        <p class="my-0">${{ total | floatformat:2 }}</p>
-                        <p class="my-0">${{ delivery | floatformat:2 }}</p>
-                        <p class="my-0"><strong>${{ grand_total | floatformat:2 }}</strong></p>
+                        <p class="my-0">€{{ total | floatformat:2 }}</p>
+                        <p class="my-0">€{{ delivery | floatformat:2 }}</p>
+                        <p class="my-0"><strong>€{{ grand_total | floatformat:2 }}</strong></p>
                     </div>
                 </div>
             </div>
@@ -78,21 +78,37 @@
                     {% csrf_token %}
 
                     <!-- Details Section -->
-                    <fieldset class="rounded px-3 mb-5 border">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
-                        {{ checkout_form.full_name | as_crispy_field  }}
-                        {{ checkout_form.email | as_crispy_field  }}
+                    <fieldset class="rounded p-4 mb-5 border">
+                        <legend class="fieldset-label text-primary small px-3 w-auto">Details</legend>
+                        <div class="form-group">
+                            {{ checkout_form.full_name|as_crispy_field }}
+                        </div>
+                        <div class="form-group">
+                            {{ checkout_form.email|as_crispy_field }}
+                        </div>
                     </fieldset>
-
+            
                     <!-- Delivery Section -->
-                    <fieldset class="rounded px-3 mb-5 border">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Delivery</legend>
-                        {{ checkout_form.phone_number | as_crispy_field }}
-                        {{ checkout_form.street_address1 | as_crispy_field }}
-                        {{ checkout_form.street_address2 | as_crispy_field  }}
-                        {{ checkout_form.town_or_city | as_crispy_field  }}
-                        {{ checkout_form.postcode | as_crispy_field }}
-                        {{ checkout_form.country | as_crispy_field  }}
+                    <fieldset class="rounded p-4 mb-5 border">
+                        <legend class="fieldset-label text-primary small px-3 w-auto">Delivery</legend>
+                        <div class="form-group">
+                            {{ checkout_form.phone_number|as_crispy_field }}
+                        </div>
+                        <div class="form-group">
+                            {{ checkout_form.street_address1|as_crispy_field }}
+                        </div>
+                        <div class="form-group">
+                            {{ checkout_form.street_address2|as_crispy_field }}
+                        </div>
+                        <div class="form-group">
+                            {{ checkout_form.town_or_city|as_crispy_field }}
+                        </div>
+                        <div class="form-group">
+                            {{ checkout_form.postcode|as_crispy_field }}
+                        </div>
+                        <div class="form-group">
+                            {{ checkout_form.country|as_crispy_field }}
+                        </div>
                         <div class="form-check form-check-inline float-right mr-0">
                             {% if user.is_authenticated %}
                             <label class="form-check-label" for="id-save-info" name="save-info">Save this delivery Information to my profile</label>

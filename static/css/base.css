@@ -85,6 +85,11 @@ main {
     top: 40%;
 }
 
+#delivery-banner{
+    width: 105%;
+    margin: 0;
+    padding: 0;
+}
 
 .dropdown-submenu {
     position: relative;
@@ -138,6 +143,12 @@ a.category-badge > span.badge:hover{
 }
 
 /*product detail page"*/
+.wishlist-icon{
+    background:none;
+    border:none;
+    color:red;
+    font-size:1.5rem;
+}
 
 .product-detail-container{
     width:100%;
@@ -171,6 +182,21 @@ a.category-badge > span.badge:hover{
 
 /*quantity input button*/
 
+.input-group {
+    display: flex;
+     align-items: center;
+     border: 1px solid #f2f2f2; /* Light border */
+     border-radius: 4px; /* Rounded edges */
+     overflow: hidden; /* Ensure no overflow from rounded corners */
+ }
+
+ .input-group .form-control {
+    border: 1px solid #f2f2f2; /* Remove inner borders */
+    font-size: 1rem; /* Standard font size */
+    text-align: center; /* Center-align the quantity */
+    width: 50px; /* Fixed width for consistency */
+}
+ 
 .btn-outline-black{
     background:white;
     color:black !important;
@@ -189,7 +215,8 @@ a.category-badge > span.badge:hover{
 .category-badge,
 .product-rating,
 .product-description,
-.dispatch-detail
+.dispatch-detail,
+.wishlist-icon
 {
     margin-top:20px;
     margin-left:-18rem;
@@ -260,6 +287,39 @@ input[name='search_term']::placeholder{
     right: 15px;
     z-index: 99999999999;
 }*/
+
+/* form design */
+
+.payment-form-container,
+.delivery-information-form,
+.contact-enquiry-form  {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black for subtle overlay effect */
+    color: #ffffff; /* White text for readability on dark background */
+    padding: 2rem; /* Add spacing inside the container */
+    border-radius: 10px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for a lifted appearance */
+    max-width: 800px; /* Restrict the width for better readability */
+    margin: 0 auto; /* Center the form horizontally */
+    position: relative; /* Ensures child elements align properly */
+    z-index: 1; /* Make sure it stays above background elements */
+}
+
+.payment-form-container::before ,.delivery-information-form::before{
+    content: ''; /* Decorative overlay effect */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1e1e1e, #3a3a3a); /* Gradient for depth */
+    opacity: 0.85; /* Slight transparency */
+    z-index: -1; /* Send to background */
+    border-radius: 10px; /* Match container's rounded corners */
+}
+
+/*profile page */
+/* Profile Page Container */
+
 
 .custom-toast {
     position: fixed;
@@ -613,7 +673,10 @@ footer {
     .quantity-form{
     margin-left:-3rem;
     width:100%;
-}
+    }
+    .footer-email{
+        width:200px;
+    }
 }
 
 @media (max-width: 992px) {
