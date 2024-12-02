@@ -38,6 +38,6 @@ urlpatterns = [
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
 handler404 = 'wellness_nest.views.handler404'
-handler403 = 'wellness_nest.views.handler403'
-handler400 = 'wellness_nest.views.handler400'
-handler500 = 'wellness_nest.views.handler500'
+#handler403 = 'wellness_nest.views.handler403'
+#handler400 = 'wellness_nest.views.handler400'
+#handler500 = 'wellness_nest.views.handler500'

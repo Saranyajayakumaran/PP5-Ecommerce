@@ -10,7 +10,7 @@ body{
     width:100%;
     height:calc(100vh-164px);
     color:#555;
-    font-family:'Arima';
+    font-family:'Arima',sans-serif;
     display:flex;
     flex-direction:column;
     padding-top: 70px;
@@ -459,6 +459,20 @@ footer {
   footer a:hover {
     color: #f8f9fa; /* Light color on hover */
   }
+  footer {
+    width: 105%; 
+  }
+
+  footer .container{
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  footer .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
 
   /* Malchimp Css*/
 
@@ -466,9 +480,15 @@ footer {
     background:false;
     clear:left; 
     font:14px ; 
-    width: 400px;
   }
+    .footer-email{
+        width:300px;
+        font:14px; 
+    }
 
+ .mc-subscribe{
+    background-color:#ffc107;
+ }
   /*--------------------- media query*/
 @media (min-width: 350px) and (max-width: 576px) { 
     
@@ -481,6 +501,33 @@ footer {
         margin-top:rem;
         
     }
+    .hero-section {
+        padding: 20px 10px;
+    }
+
+    .display-4-mobile {
+        font-size: 2.2rem; /* Bigger text for h2 on mobile */
+    }
+
+    .display-3-mobile {
+        font-size: 2.6rem; /* Bigger text for h1 on mobile */
+    }
+
+    .shop-now-button {
+        font-size: 1.2rem;
+        padding: 15px 20px;
+    }
+    footer {
+        text-align:left ; 
+    }
+    
+    .footer-links a {
+        margin-bottom: 10px;
+    }
+    #mc_embed_signup{
+        width: 300px;
+      }
+    
 }
 
 @media (min-width: 578px) and (max-width: 992px){

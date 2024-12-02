@@ -1,9 +1,9 @@
 {% load static %}
 <footer>
-    <footer class="bg-dark text-light py-4">
-      <div class="container">
+    <footer class="bg-dark text-light py-4 w-100">
+      <div class="container-fluid">
         <div class="row">
-          <div class="col-md-4 mb-6 py-4">
+          <div class="col-12 col-md-4 mb-6 py-4">
             <h5 class="text-uppercase mb-3"><a href="{% url 'contact_us' %}" class="text-light">Contact Us</a></h5>
             <p>Email: support@wellnessnest.com</p>
             <p>Phone: +123 456 7890</p>
@@ -14,41 +14,29 @@
               <a href="https://www.youtube.com/" class="text-light"><i class="fab fa-youtube"></i></a>
             </div>
           </div>
-          <div class="col-md-4 mb-4 py-4 d-flex flex-column ">
+          <div class="col-12 col-md-4 mb-4 py-4">
             <h5 class="text-uppercase mb-3">Quick Links</h5>
             <ul class="list-unstyled">
-              <li><a href="{% url 'home' %}" class="text-light ">Home</a></li>
-              <li><a href="{% url 'products' %}" class="text-light py-4">Products</a></li>
-              <li><a href="{% url 'testimonials' %}" class="text-light py-4">Testimonials</a></li>
-              <li><a href="{% url 'wishlist' %}" class="text-light py-4">Wishlist</a></li>
+              <li><a href="{% url 'home' %}" class="text-light">Home</a></li>
+              <li><a href="{% url 'products' %}" class="text-light">Products</a></li>
+              <li><a href="{% url 'testimonials' %}" class="text-light ">Testimonials</a></li>
+              <li><a href="{% url 'wishlist' %}" class="text-light ">Wishlist</a></li>
               <li><a href="{% url 'contact_us' %}" class="text-light py-4">Contact Us</a></li>
               <li><a href="https://www.termsfeed.com/live/3d089c88-7a62-4c71-a319-a6eba6d24a04" target="_blank" class="text-light">Privacy Policy</a></li>
             </ul>
           </div>
-          <div class="col-md-4 d-flex flex-column mb-4 ">
-            <div id="mc_embed_shell">
-              <div id="mc_embed_signup">
-                  <form action="https://gmail.us17.list-manage.com/subscribe/post?u=3fca017973c84a3d54521c15c&amp;id=f5845a8da6&amp;f_id=0008c2e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
-                    <h5 class=" text-uppercase">Stay Updated</h5>
-                    <p>Get exclusive offers and discount codes by subscribing to our monthly newsletter</p>
-                      <div class="mc-field-group"><label for="mce-EMAIL">Email Address <span class="asterisk">*</span>
-                        </label><input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value="">
-                      </div>
-                      <div id="mce-responses" class="clear foot">
-                          <div class="response" id="mce-error-response" style="display: none;"></div>
-                          <div class="response" id="mce-success-response" style="display: none;"></div>
-                      </div>
-                      <div aria-hidden="true" style="position: absolute; left: -5000px;">
-                          /* real people should not fill this in and expect good things - do not remove this or risk form bot signups */
-                          <input type="text" name="b_3fca017973c84a3d54521c15c_f5845a8da6" tabindex="-1" value="">
-                      </div>
-                      <div class="optionalParent">
-                          <div class="clear foot">
-                              <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe">
-                          </div>
-                      </div>
-                	</form>
-              </div>
+          <div class="col-12 col-md-4 mb-4 py-4 ">
+            <div class="">
+              <h5 class=" mc_embed_signup text-uppercase">Stay Updated</h5>
+              <form action="https://gmail.us17.list-manage.com/subscribe/post?u=3fca017973c84a3d54521c15c&amp;id=f5845a8da6&amp;f_id=0008c2e1f0" method="post" target="_blank">
+                  <div class="mc-field-group">
+                      <label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label>
+                      <input type="email" name="EMAIL" class="form-control footer-email mb-3" id="mce-EMAIL" required>
+                  </div>
+                  <div class="clear">
+                      <input type="submit" name="subscribe" id="mc-subscribe" class="button" value="Subscribe">
+                  </div>
+              </form>
             </div>
           </div>
         </div>

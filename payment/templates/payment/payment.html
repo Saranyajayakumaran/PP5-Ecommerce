@@ -72,7 +72,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-6 payment-form-container">
                 <p class="text-black"> Please Fill the form to complete your order </p>
                 <form action="{% url 'payment' %}" method="POST" id="payment-form" >
                     {% csrf_token %}
