@@ -292,16 +292,18 @@ input[name='search_term']::placeholder{
 
 .payment-form-container,
 .delivery-information-form,
-.contact-enquiry-form  {
+.contact-enquiry-form, .login ,.signup, .add-testimonial-form   {
     background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black for subtle overlay effect */
     color: #ffffff; /* White text for readability on dark background */
     padding: 2rem; /* Add spacing inside the container */
     border-radius: 10px; /* Rounded corners for a modern look */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for a lifted appearance */
     max-width: 800px; /* Restrict the width for better readability */
-    margin: 0 auto; /* Center the form horizontally */
+    margin-left:16rem;
+    margin-bottom:20px; /* Center the form horizontally */
     position: relative; /* Ensures child elements align properly */
     z-index: 1; /* Make sure it stays above background elements */
+    padding:40px;
 }
 
 .payment-form-container::before ,.delivery-information-form::before{
@@ -311,7 +313,7 @@ input[name='search_term']::placeholder{
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #1e1e1e, #3a3a3a); /* Gradient for depth */
+    /*background: linear-gradient(135deg, #1e1e1e, #3a3a3a); /* Gradient for depth */
     opacity: 0.85; /* Slight transparency */
     z-index: -1; /* Send to background */
     border-radius: 10px; /* Match container's rounded corners */
@@ -319,6 +321,30 @@ input[name='search_term']::placeholder{
 
 /*profile page */
 /* Profile Page Container */
+
+/*Testimonial page*/
+
+.testimonial-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px; /* Space between testimonials */
+    margin-top: 20px;
+  }
+
+  .testimonial-block {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.); /* Subtle shadow */
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .testimonial-block:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  }
+  
 
 
 .custom-toast {
