@@ -245,6 +245,10 @@ a.category-badge > span.badge:hover{
     display: block;
 }
 
+.border-line {
+    border: 1px solid #ffc107 !important;
+}
+
 /*shopping bag page*/
 .update-delete-btns{
     cursor:pointer;
@@ -277,7 +281,7 @@ input[name='search_term']::placeholder{
 
 .payment-form-container,
 .delivery-information-form,
-.contact-enquiry-form, .login ,.signup, .add-testimonial-form   {
+.contact-enquiry-form, .add-testimonial-form   {
     background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black for subtle overlay effect */
     color: #ffffff; /* White text for readability on dark background */
     padding: 2rem; /* Add spacing inside the container */
@@ -303,6 +307,16 @@ input[name='search_term']::placeholder{
     z-index: -1; /* Send to background */
     border-radius: 10px; /* Match container's rounded corners */
 }
+
+.login ,.signup{
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black for subtle overlay effect */
+    color: #ffffff; /* White text for readability on dark background */
+    padding: 2rem; /* Add spacing inside the container */
+    border-radius: 10px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for a lifted appearance */
+}
+
+
 
 /*profile page */
 /* Profile Page Container */
