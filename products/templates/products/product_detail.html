@@ -10,10 +10,11 @@
 {% endblock %}
 
 {% block content %}
-<div class="container  my-5 ">
-    <div class="card my-3 my-md-5 my-5 border-0 product-detail-container">
-        <div class="row">
-            <div class="col-12 col-md-6 col-xl-8 ">
+<div class="overlay"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+            <div class="image-container my-5">
                 {% if product.image %}
                     <a href="{{ product.image.url }}" target="_blank">
                         <img src="{{ product.image.url }}" class="img-fluid product-detail-image" alt="placeholder image">
@@ -22,9 +23,10 @@
                     <img src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}" class=" img-fluid product-detail-image">
                 {% endif %}
             </div>
-            <div class="col-12 col-md-6 col-xl-4 product-detail-contents ">
-                <div class="card-body pt-4 px-0 pl-md-5 ">
-                    <p class="card-title product-name sm-h1 h4 h2-md d-flex align-items-center">{{ product.name }}
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="product-details-container mb-5 mt-md-5">
+                    <p class="mb-0"><strong>{{ product.name }}</strong>
                         {% if user.is_authenticated %}
                             <form method="POST" action="{% url 'add_to_wishlist' product.id %}" class="mx-0" style="margin: 0;">
                                 {% csrf_token %}
@@ -34,18 +36,18 @@
                             </form>
                         {% endif %}
                     </p>
-                    <p class="card-text product-price h5 h3-md">€{{ product.price }}</p>
+                    <p class="lead mb-0 text-left font-weight-bold">€{{ product.price }}</p>
                     {% if product.category %}
-                        <p class="small mt-1 mb-0">
-                            <a class="text-muted category-badge" href="{% url 'products' %}?category={{ product.category.name }}">
-                                <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
-                            </a>
-                        </p>
+                    <p class="small mt-1 mb-0">
+                        <a class="text-muted category-badge" href="{% url 'products' %}?category={{ product.category.name }}">
+                            <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                        </a>
+                    </p>
                     {% endif %}
                     {% if product.rating %}
-                        <small class="text-muted product-rating"><i class="fas fa-star mr-1"></i>{{product.rating}}/ 5</small>
+                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{product.rating}}/ 5</small>
                     {% else %}
-                        <small class="text-muted product-rating">No Rating</small>
+                        <small class="text-muted">No Rating</small>
                     {% endif %}
                     {% if request.user.is_superuser %}
                         <small class="ml-3">
@@ -54,15 +56,15 @@
 
                         </small>
                     {% endif %}
-                    <p class="mt-3 product-description">{{ product.description }}</p>
+                    <p class="mt-3">{{ product.description }}</p>
                     <div class="pt-2">
-                        <small class="text-muted dispatch-detail">Dispatched in {{ product.expected_dispatch }}</small>
+                        <small class="text-muted">Dispatched in {{ product.expected_dispatch }}</small>
                     </div>
-                    <form class="form quantity-form" action="{% url 'add_to_bag' product.id %}" method="POST">
+                    <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                         {% csrf_token %}
                         <div class="form-row ">
                             <div class="col-12">
-                                <p class="mt-3 qty-input-button">Quantity:</p>
+                                <p class="mt-3">Quantity:</p>
                                 <div class="form-group w-50">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
@@ -86,9 +88,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 pl-0">
+                        <div class="col-12">
                             <a href="{% url 'products'%}" class="btn btn-outline-black rounded-0 mt-5 product-detail-buttons">
-                                <span class="">
+                                <span class="icon">
                                     <i class="fa fa-chevron-left"></i>
                                 </span>
                                 <span class="text-uppercase">
@@ -101,7 +103,6 @@
                     </form>
                 </div>
             </div>
-        </div>
     </div>
 </div> 
    

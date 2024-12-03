@@ -209,21 +209,6 @@ a.category-badge > span.badge:hover{
     color:white !important
 }
 
-
-.product-name,
-.product-price,
-.category-badge,
-.product-rating,
-.product-description,
-.dispatch-detail,
-.wishlist-icon
-{
-    margin-top:20px;
-    margin-left:-18rem;
-}
-
-
-
 /*add arrow to top of the page*/
 .btt-button {
     position: fixed;  /* Fixes the button on the page */
@@ -345,8 +330,6 @@ input[name='search_term']::placeholder{
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
   }
   
-
-
 .custom-toast {
     position: fixed;
     top: px;
@@ -657,20 +640,6 @@ footer {
     height:70vw;
     margin-top:0.2rem;
 }
-    .product-name,
-    .product-price,
-    .category-badge,
-    .product-rating,
-    .product-description,
-    .dispatch-detail
-    {
-        margin-bottom:2rem;
-        margin-left:2rem;
-    }
-    .quantity-form{
-    margin-left:2rem;
-    width:100%;
-}
 }
 /*@media (max-width: 992px) { /* Adjust the max-width for specific screen sizes */
     /*.navbar .form-control {
@@ -684,21 +653,6 @@ footer {
     .product-detail-image {
         width:100%;
         height:90vw;
-    }
-    .product-name,
-    .product-price,
-    .category-badge,
-    .product-rating,
-    .product-description,
-    .dispatch-detail
-    {
-        margin-bottom:2rem;
-        margin-left:-3rem;
-    }
-
-    .quantity-form{
-    margin-left:-3rem;
-    width:100%;
     }
     .footer-email{
         width:200px;
@@ -722,16 +676,6 @@ footer {
     width:100%;
     height:60vw;
 }
-        .product-name,
-    .product-price,
-    .category-badge,
-    .product-rating,
-    .product-description,
-    .dispatch-detail
-    {
-        margin-top:px;
-        margin-left:-3rem;
-    }
 
     .quantity-form{
     margin-left:-3rem;
