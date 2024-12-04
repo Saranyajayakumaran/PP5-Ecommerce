@@ -31,6 +31,10 @@ body{
 .cust-btn:hover {
     color: white;
 }
+
+.border-yellow {
+    border: 1px solid #A99166 !important;
+}
     
 /*header*/
 .navbar{
@@ -263,7 +267,15 @@ a.category-badge > span.badge:hover{
 }
 
 .border-line {
-    border: 1px solid #ffc107 !important;
+    border: 1px groove black !important;
+}
+
+.bordered-form {
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Add some padding */
+    background-color: #f0f0f0; /* Optional: light background */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+    margin-bottom:20px;
 }
 
 /*shopping bag page*/
@@ -296,33 +308,33 @@ input[name='search_term']::placeholder{
 
 /* form design */
 
-.payment-form-container,
+/*.payment-form-container,
 .delivery-information-form,
 .contact-enquiry-form, .add-testimonial-form   {
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black for subtle overlay effect */
-    color: #ffffff; /* White text for readability on dark background */
-    padding: 2rem; /* Add spacing inside the container */
-    border-radius: 10px; /* Rounded corners for a modern look */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for a lifted appearance */
-    max-width: 800px; /* Restrict the width for better readability */
-    margin-bottom:20px; /* Center the form horizontally */
-    position: relative; /* Ensures child elements align properly */
-    z-index: 1; /* Make sure it stays above background elements */
+    background-color: rgba(0, 0, 0, 0.7); 
+    color: #ffffff;
+    padding: 2rem; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+    max-width: 800px; 
+    margin-bottom:20px; 
+    position: relative;
+    z-index: 1;
     padding:40px;
 }
 
 .payment-form-container::before ,.delivery-information-form::before{
-    content: ''; /* Decorative overlay effect */
+    content: ''; 
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /*background: linear-gradient(135deg, #1e1e1e, #3a3a3a); /* Gradient for depth */
-    opacity: 0.85; /* Slight transparency */
-    z-index: -1; /* Send to background */
-    border-radius: 10px; /* Match container's rounded corners */
-}
+   
+    opacity: 0.85;
+    z-index: -1; 
+    border-radius: 10px; 
+}*/
 
 .signup,.login{
     background-color: rgb(255 255 255 / 70%); /* Semi-transparent black for subtle overlay effect */

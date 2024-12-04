@@ -7,9 +7,9 @@ class ContactEnquiryForm(forms.ModelForm):
         model = ContactEnquiry
         fields = ['full_name', 'email', 'enquiry_type', 'subject', 'message']
         widgets = {
-            'full_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Full name'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
-            'enquiry_type': forms.Select(attrs={'class': 'form-control'}),
-            'subject': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Subject'}),
-            'message': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Message'}),
+            'full_name': forms.TextInput(attrs={'class': 'border-line'}),
+            'email': forms.EmailInput(attrs={'class': 'border-line'}),
+            'enquiry_type': forms.Select(attrs={'class': 'border-line'}),
+            'subject': forms.TextInput(attrs={'class': 'border-line'}),
+            'message': forms.Textarea(attrs={'class': 'border-line'}),
         }

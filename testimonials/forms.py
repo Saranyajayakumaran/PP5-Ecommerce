@@ -9,4 +9,8 @@ class TestimonialForm(forms.ModelForm):
     product = forms.ModelChoiceField(
         queryset=Products.objects.all(),
         label="Product",
-        widget=forms.Select(attrs={'class':'form-controm'}))
+        widget=forms.Select(attrs={'class':'border-line'}))
+    message = forms.CharField(
+    label="Message",
+    widget=forms.Textarea(attrs={'class': 'border-line'})
+)

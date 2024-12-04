@@ -78,8 +78,8 @@
                     {% csrf_token %}
 
                     <!-- Details Section -->
-                    <fieldset class="rounded p-4 mb-5 border">
-                        <legend class="fieldset-label text-primary small px-3 w-auto">Details</legend>
+                    <fieldset class="rounded p-4 mb-5 border bordered-form">
+                        <legend class="fieldset-label text-black small px-3 w-auto">Details</legend>
                         <div class="form-group">
                             {{ checkout_form.full_name|as_crispy_field }}
                         </div>
@@ -89,8 +89,8 @@
                     </fieldset>
             
                     <!-- Delivery Section -->
-                    <fieldset class="rounded p-4 mb-5 border">
-                        <legend class="fieldset-label text-primary small px-3 w-auto">Delivery</legend>
+                    <fieldset class="rounded p-4 mb-5 border bordered-form">
+                        <legend class="fieldset-label text-black small px-3 w-auto">Delivery</legend>
                         <div class="form-group">
                             {{ checkout_form.phone_number|as_crispy_field }}
                         </div>

@@ -9,14 +9,17 @@
                 <hr>
             </div>
         </div>
-        <div class="row ">
-            <div class="col-12 col-lg-6 add-testimonial-form">
+        <div class="row justify-content-center ">
+            <div class="col-11 col-md-8 col-lg-6 mt-3 bordered-form">
                 <form method="post">
                     {% csrf_token %}
                     {{ form | crispy }}  
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="text-center mt-3">
+                        <button type="submit" class="btn btn-black text-white">Submit</button>
+                        <a href="{% url 'testimonials' %}" class="btn  btn-black text-white">Back to Testimonials</a>
+                    </div>
                 </form>
             </div>
         </div>
-<a href="{% url 'testimonials' %}" class="btn btn-secondary">Back to Testimonials</a>
+
 {% endblock %}

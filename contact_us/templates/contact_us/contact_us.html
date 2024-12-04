@@ -14,15 +14,15 @@
     <div class="overlay"></div>
     <div class="container mb-2">
         <div class="row">
-            <div class="col">
+            <div class="col-12">
                 <h2 class="text-center my-5"> Enquiry Form</h2>
                 <hr>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 col-lg-6 justify-content-center contact-enquiry-form">
+        <div class="row justify-content-center">
+            <div class="col-11 col-md-8 col-lg-6 mt-3">
                 <p>If you have any questions or concerns, please fill out the form below.</p>
-                <form method="post" novalidate>
+                <form method="post" novalidate class="bordered-form">
                     {% csrf_token %}
                     {{ form | crispy }}
                     <div class="text-center mt-3">
