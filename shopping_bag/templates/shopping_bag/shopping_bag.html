@@ -53,22 +53,22 @@
                                 <td class="py-3 w-25 h-25">
                                     <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
                                         {% csrf_token %} 
-                                        <div class="form-group">
-                                            <div class="input-group">
+                                        <div class="form-group mx-md-4 mx-lg-5 qty_input">
+                                            <div class="input-group input-group-sm">
                                                 <div class="input-group-prepend">
-                                                    <button class="decrement-qty-btn btn btn-small btn-black rounded-0"  data-item_id="{{ item.item_id }}" id="decrement-qty_{{item.item_id}}">
+                                                    <button class="decrement-qty-btn btn btn-sm btn-black rounded-0"  data-item_id="{{ item.item_id }}" id="decrement-qty_{{item.item_id}}">
                                                         <span>
-                                                            <i class="fa-regular fa-square-minus fa-sm"></i>    
+                                                            <i class="fas fa-minus fa-sm"></i>   
                                                         </span>
                                                     </button>
                                                 </div>
-                                                <input class="form-control form-control-sm qty_input product-detail-buttons" type="number" name="quantity" 
+                                                <input class="form-control form-control-sm text-center product-detail-buttons qty_field" type="number" name="quantity" 
                                                     value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id}}" 
                                                     id="id_qty_{{ item.item_id }}">
                                                 <div class="input-group-append">
                                                     <button class="increment-qty-btn btn btn-small btn-black rounded-0"  data-item_id="{{ item.item_id }}" id="increment-qty_{{item.item_id}}">
                                                         <span>
-                                                            <i class="fa-regular fa-square-plus fa-sm"></i>    
+                                                            <i class="fas fa-plus fa-sm"></i>
                                                         </span>
                                                     </button>
                                                 </div>
@@ -80,8 +80,8 @@
                                     <p class ="my-0">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
                                 </td>
                                 <td class="py-3 update-delete-btns">
-                                    <span class="update-link btn p-0"><small><i class="fas fa-sync"></i></small></span>
-                                    <span class="remove-item btn p-0 float-right remove_{{ item.item_id }}"><small><i
+                                    <span class=" d-md-none update-link btn p-0"><small><i class="fas fa-sync"></i></small></span>
+                                    <span class=" d-md-none  remove-item btn p-0 float-right remove_{{ item.item_id }}"><small><i
                                                 class="fas fa-trash-alt"></i></small></span>
                                 </td>
                             </tr>
@@ -100,13 +100,13 @@
                             </tr>
                             <tr>
                                 <td colspan="5" class="text-right">
-                                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg mx-3">
                                         <span class="icon">
                                             <i class="fas fa-chevron-left"></i>
                                         </span>
                                         <span class="text-uppercase">Keep Shopping</span>
                                     </a>
-                                    <a href="{% url 'payment' %}" class="btn btn-black rounded-0 btn-lg">
+                                    <a href="{% url 'payment' %}" class="btn btn-black rounded-0 btn-lg  mt-3 mt-md-0">
                                         <span class="text-uppercase">Secure Checkout</span>
                                         <span class="icon">
                                             <i class="fas fa-lock"></i>

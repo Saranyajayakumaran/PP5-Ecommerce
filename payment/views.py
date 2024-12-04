@@ -5,7 +5,7 @@ from django.conf import settings
 
 from .forms import CheckoutForm
 from .models import Checkout,CheckoutLineItem
-from products.models import Products
+from products.models import Product
 from profiles.forms import UserProfileForm
 from profiles.models import UserProfile
 from shopping_bag.contexts import shopping_bag_contents
@@ -81,7 +81,7 @@ def payment_view(request):
             order.save()
             for item_id, item_data in bag.items():
                 try:
-                    product=Products.objects.get(id=item_id)
+                    product=Product.objects.get(id=item_id)
                     if isinstance(item_data,int):
                         checkout_line_item = CheckoutLineItem(
                             order=order,
@@ -90,7 +90,7 @@ def payment_view(request):
                         )
                         checkout_line_item.save()
                         print(f"Saved line item for product ID {item_id} with quantity {item_data}")
-                except Products.DoesNotExist:
+                except Product.DoesNotExist:
                     print(f"Product ID {item_id} not found in database")
                     messages.error(request,(
                         "One of the products in your bag wasn't found in our database."

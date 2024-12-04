@@ -23,7 +23,7 @@ class Category(models.Model):
         return self.friendly_name
     
 
-class Products(models.Model):
+class Product(models.Model):
     """ Model for all products fields """
 
     class Meta:
@@ -45,7 +45,7 @@ class Products(models.Model):
     
 class Wishlist(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    product = models.ForeignKey('Products', on_delete=models.CASCADE)
+    product = models.ForeignKey('Product', on_delete=models.CASCADE)
     added_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

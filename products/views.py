@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.db.models.functions import Lower
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from.models import Products, Category, Wishlist
+from.models import Product, Category, Wishlist
 from .forms import ProductForm
 
 # Create your views here.
@@ -15,7 +15,7 @@ def all_products_view(request):
         and filter the displayed products based on search query"""
 
 
-    products = Products.objects.all()
+    products = Product.objects.all()
     query=None
     categories=None
     sort=None
@@ -81,7 +81,7 @@ def all_products_view(request):
 def product_detail_view(request,product_id):
     """ A view to display indivudual product details with description"""
 
-    product = get_object_or_404(Products,pk=product_id)
+    product = get_object_or_404(Product,pk=product_id)
 
     context={
         'product' : product,
@@ -123,7 +123,7 @@ def edit_product_view(request, product_id):
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
     
-    product = get_object_or_404(Products, pk=product_id)
+    product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
@@ -152,7 +152,7 @@ def delete_product_view(request,product_id):
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
-    product = get_object_or_404(Products, pk=product_id)
+    product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Product Deleted!')
     return redirect(reverse('products'))
@@ -172,7 +172,7 @@ def wishlist_view(request):
 @login_required
 def add_to_wishlist_view(request,product_id):
     """Add product to wishlist"""
-    product=get_object_or_404(Products,pk=product_id)
+    product=get_object_or_404(Product,pk=product_id)
     wishlist_item, created = Wishlist.objects.get_or_create(user=request.user, product=product)
     print(wishlist_item)
 
@@ -188,7 +188,7 @@ def add_to_wishlist_view(request,product_id):
 def remove_from_wishlist_view(request, product_id):
     """Remove product from wishlist"""
     # Get the product object (if it exists)
-    product = get_object_or_404(Products, pk=product_id)
+    product = get_object_or_404(Product, pk=product_id)
 
     # Try to find the wishlist item for the logged-in user and the specific product
     wishlist_item = Wishlist.objects.filter(user=request.user, product=product).first()

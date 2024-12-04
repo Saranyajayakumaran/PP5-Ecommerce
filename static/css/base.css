@@ -631,7 +631,15 @@ footer {
         height:65vw;
         margin-top:0.2rem;
     }
-    
+    .dropdown-menu {
+        position: static; 
+        display: none; 
+        width: 100%; 
+        margin-top: 0.5rem; 
+        overflow: visible; 
+        z-index: 1050; 
+        color:#ffffff;
+    }
     .hero-section h1 {
         font-size: 2rem;
     } 
@@ -643,6 +651,10 @@ footer {
     }
     .hero-section {
         padding: 20px 10px;
+    }
+
+    .decrement-qty-btn,.increment-qty-btn,.qty_btn{
+        width:50px;
     }
 
     .display-4-mobile {
@@ -681,7 +693,7 @@ footer {
         margin-left:10rem;
     }
 
-    .navbar-nav .nav-item {
+    /*.navbar-nav .nav-item {
         margin-right: 1rem; 
         padding: 0.5rem; 
     }
@@ -689,7 +701,7 @@ footer {
         display: flex;
         align-items: center;
         justify-content: center;
-    }
+    }*/
     .dropdown-menu {
         position: static; 
         display: none; 
@@ -697,15 +709,6 @@ footer {
         margin-top: 0.5rem; 
         overflow: visible; 
         z-index: 1050; 
-    }
-
-    .dropdown.show .dropdown-menu {
-        display: block; /* Show the dropdown when active */
-    }
-
-    /* Make sure the dropdown is not clipped */
-    .dropdown-menu {
-        overflow: visible;
     }
 }
 

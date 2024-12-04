@@ -1,5 +1,5 @@
 from django import forms
-from .models import Testimonial,Products
+from .models import Testimonial,Product
 
 class TestimonialForm(forms.ModelForm):
     class Meta:
@@ -7,7 +7,7 @@ class TestimonialForm(forms.ModelForm):
         fields = ['product','message']
 
     product = forms.ModelChoiceField(
-        queryset=Products.objects.all(),
+        queryset=Product.objects.all(),
         label="Product",
         widget=forms.Select(attrs={'class':'border-line'}))
     message = forms.CharField(

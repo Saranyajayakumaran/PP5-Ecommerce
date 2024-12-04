@@ -1,7 +1,7 @@
 from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
-from products.models import Products
+from products.models import Product
 
 def shopping_bag_contents(request):
 
@@ -11,7 +11,7 @@ def shopping_bag_contents(request):
     shopping_bag=request.session.get('shopping_bag',{})
 
     for item_id , quantity in shopping_bag.items():
-        product = get_object_or_404(Products,id=item_id)
+        product = get_object_or_404(Product,id=item_id)
         total += quantity *product.price
         product_count += quantity
         shopping_bag_items.append(({

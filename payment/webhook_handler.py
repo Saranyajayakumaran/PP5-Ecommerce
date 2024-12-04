@@ -4,7 +4,7 @@ from django.conf import settings
 from django.template.loader import render_to_string
 
 from .models import Checkout, CheckoutLineItem
-from products.models import Products
+from products.models import Product
 from profiles.models import UserProfile
 
 import json
@@ -137,7 +137,7 @@ class StripeWH_Handler:
                     )
                 shopping_bag = json.loads(shopping_bag) 
                 for item_id, item_data in json.loads(shopping_bag).items():
-                    product=Products.objects.get(id=item_id)
+                    product=Product.objects.get(id=item_id)
                     if isinstance(item_data,int):
                         checkout_line_item = CheckoutLineItem(
                             order=order,

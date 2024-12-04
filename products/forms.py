@@ -1,6 +1,6 @@
 from django import forms
 from .widgets import CustomClearableFileInput
-from .models import Products, Category
+from .models import Product, Category
 
 
 class SortForm(forms.Form):
@@ -20,7 +20,7 @@ class SortForm(forms.Form):
 class ProductForm(forms.ModelForm):
 
     class Meta:
-        model = Products
+        model = Product
         fields = '__all__'
 
     image = forms.ImageField(label='image', required=False, widget=CustomClearableFileInput)
