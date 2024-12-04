@@ -15,6 +15,23 @@ body{
     flex-direction:column;
     padding-top: 70px;
 }
+
+
+/* Custom button */
+
+.cust-btn{
+        background: #343a40;
+        color: black;
+        font-weight: 300 !important;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        padding: 10px;
+}
+    
+.cust-btn:hover {
+    color: white;
+}
+    
 /*header*/
 .navbar{
     position:fixed;
@@ -288,7 +305,6 @@ input[name='search_term']::placeholder{
     border-radius: 10px; /* Rounded corners for a modern look */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for a lifted appearance */
     max-width: 800px; /* Restrict the width for better readability */
-    margin-left:16rem;
     margin-bottom:20px; /* Center the form horizontally */
     position: relative; /* Ensures child elements align properly */
     z-index: 1; /* Make sure it stays above background elements */
@@ -308,14 +324,16 @@ input[name='search_term']::placeholder{
     border-radius: 10px; /* Match container's rounded corners */
 }
 
-.login ,.signup{
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black for subtle overlay effect */
+.signup,.login{
+    background-color: rgb(255 255 255 / 70%); /* Semi-transparent black for subtle overlay effect */
     color: #ffffff; /* White text for readability on dark background */
     padding: 2rem; /* Add spacing inside the container */
     border-radius: 10px; /* Rounded corners for a modern look */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for a lifted appearance */
 }
-
+.signup{
+    width:400px;
+}
 
 
 /*profile page */
@@ -445,6 +463,15 @@ input[name='search_term']::placeholder{
 }
 
 /* Allauth form */
+
+.form-check-label {
+    display: inline-block; 
+    color: #000; 
+}
+
+.form-text li{
+    display:none;
+}
 
 .allauth-form-inner-content p{
     margin-top:1.5rem; /*mt-4*/
