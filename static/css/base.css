@@ -27,13 +27,13 @@ body{
         text-transform: uppercase;
         padding: 10px;
 }
-    
+   
 .cust-btn:hover {
     color: white;
 }
 
-.border-yellow {
-    border: 1px solid #A99166 !important;
+.custom-header {
+    margin-top: -80px; /* Adjust the value to move it up */
 }
     
 /*header*/
@@ -58,7 +58,7 @@ body{
 }
 
 .search-input {
-    width: 70%; /* Ensures the search input takes full width */
+    width: 50%; /* Ensures the search input takes full width */
 }
 
 .btn {
@@ -280,9 +280,10 @@ a.category-badge > span.badge:hover{
 
 /*shopping bag page*/
 .update-delete-btns{
+    background: transparent;  
+    border: none;      
     cursor:pointer;
     z-index:5000;
-    color:#ffc107;
 }
 
 .update-delete-btns span{
@@ -343,11 +344,6 @@ input[name='search_term']::placeholder{
     border-radius: 10px; /* Rounded corners for a modern look */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for a lifted appearance */
 }
-.signup{
-    width:400px;
-}
-
-
 /*profile page */
 /* Profile Page Container */
 
@@ -621,6 +617,14 @@ footer {
     .footer-email{
         width:200px;
     }
+    .dropdown-menu {
+        position: static; 
+        display: none; 
+        width: 100%; 
+        margin-top: 0.5rem; 
+        overflow: visible; 
+        z-index: 1050; 
+    }
   }
 
 
@@ -646,8 +650,6 @@ footer {
     .search-container{
         width:50%;
         margin-left:7rem;
-        margin-top:rem;
-        
     }
     .hero-section {
         padding: 20px 10px;
@@ -679,8 +681,17 @@ footer {
     #mc_embed_signup{
         width: 300px;
       }
+
+      .custom-toast {
+        position: fixed;
+        left: auto; /* Auto-adjust the left side to prevent it from being stuck at left */
+        width: 300px; /* Default width */
+        z-index: 1050;
+        margin-right: 50px;
+    }
     
 }
+
 
 @media (min-width: 578px) and (max-width: 992px){
     .product-detail-image {
@@ -693,7 +704,7 @@ footer {
         margin-left:10rem;
     }
 
-    /*.navbar-nav .nav-item {
+    .navbar-nav .nav-item {
         margin-right: 1rem; 
         padding: 0.5rem; 
     }
@@ -701,7 +712,7 @@ footer {
         display: flex;
         align-items: center;
         justify-content: center;
-    }*/
+    }
     .dropdown-menu {
         position: static; 
         display: none; 
@@ -709,6 +720,12 @@ footer {
         margin-top: 0.5rem; 
         overflow: visible; 
         z-index: 1050; 
+    }
+    .navbar-toggler {
+        position: relative;
+        z-index: 10; /* Ensure it is above other elements */
+        margin-right: 15px; /* Add some spacing on the right to avoid cutoff */
+        padding: 5px; /* Adjust padding to make the toggler easier to click */
     }
 }
 
@@ -740,14 +757,54 @@ footer {
 }
 
 @media (max-width: 992px) {
+    .display-4.logo-font.text-black {
+        font-size: 2rem;
+    }
 
-.navbar-nav .nav-item .nav-link{
-    color:#fff;
-}
+    .nav-link {
+        padding: 0.15rem;
+    }
 
-.navbar-nav .nav-item{
-    padding: 5px 0;
-}
+    .nav-link i.fa-lg {
+        font-size: 1rem;
+    }
+
+    .navbar-toggler {
+        padding: .6rem .6rem;
+        font-size: 1rem;
+    }
+
+    #delivery-banner h4 {
+        font-size: .9rem;
+    }
+
+    .btn.btn-outline-black.rounded-0,
+    .btn.btn-black.rounded-0 {
+        padding: .375rem .375rem;
+    }
+
+    .btn.btn-outline-black.rounded-0.btn-lg,
+    .btn.btn-black.rounded-0.btn-lg {
+        padding: .375rem .375rem;
+        font-size: .75rem;
+    }
+    .increment-qty, .decrement-qty {
+        padding: .25rem .5rem !important;
+    }
+
+    .navbar-nav .nav-item .nav-link{
+        color:#fff;
+    }
+
+    .navbar-nav .nav-item{
+        padding: 5px 0;
+    }
+    .navbar-toggler {
+        position: relative;
+        z-index: 10; /* Ensure it is above other elements */
+        margin-right: 15px; /* Add some spacing on the right to avoid cutoff */
+        padding: 5px; /* Adjust padding to make the toggler easier to click */
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {

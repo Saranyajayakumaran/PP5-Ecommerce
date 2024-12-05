@@ -50,12 +50,12 @@
                         <td class="py-3">
                             <p class ="my-0">{{ item.product.price }}</p>
                         </td>
-                        <td class="py-3 px-3 update-delete-btns">
+                        <td class="py-3 px-3">
                             <!-- Remove Button -->
                             <form method="POST" action="{% url 'remove_from_wishlist' item.product.id %}">
                                 {% csrf_token %}
-                                <button type="submit"><i
-                                    class="fas fa-trash-alt"></i></button>
+                                <button type="submit"><small>
+                                    <i class="fas fa-trash-alt"></i></small></button>
                             </form>
                         </td>
                     </tr>

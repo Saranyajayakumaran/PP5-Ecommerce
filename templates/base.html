@@ -62,7 +62,7 @@
     <title>Wellness Nest {% block extra_title %}Wellness Nest | Wellness and Selfcare Products {% endblock %}</title>
   </head>
   <body>
-    <header class="header-container"> 
+    <header class="header-container">      
       <!--<div id="delivery-banner" class="row text-center">
         <div class="col text-white ">
           <h5 class="my-2 bg-dark">Free Delivery to Ireland on orders over €{{ free_delivery_threshold }} </h5>
@@ -75,17 +75,18 @@
             class="navbar-toggler"
             type="button"
             data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
+            data-target="#navbarContent"
+            aria-controls="navbarContent"
             aria-expanded="false"
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse navlink-background" id="navbarSupportedContent"> 
+          <div class="collapse navbar-collapse navlink-background" id="navbarContent"> 
             {% include 'includes/main-nav.html' %}
             {% include 'includes/larger-devices-header.html' %}
             {% include 'includes/mobile-top-header.html' %}
           </div>
+        </div>
       </nav>
       <div id="delivery-banner" class="row text-center bg-dark py-2">
         <div class="col-12 bg-black text-white">

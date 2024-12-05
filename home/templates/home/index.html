@@ -9,17 +9,17 @@
 {% endblock %}
 
 {% block content %}
-<div class="container py-0">
+<div class="container">
     <div class=" row hero-section">
         <div class="col-12">
             <!--<div class="container-fluid p-0">
                 <img src="{{ MEDIA_URL }}hero.jpg" class="img-fluid w-100" alt="" srcset="">
             </div>-->
-            <h2 class="text-capitalize text-black display-4-mobile" >Embrace Yourself</h2>
-            <h1 class="text-uppercase2 py-2 fw-bold text-black display-3-mobile">New Discoveries</h1>
+            <h2 class="text-capitalize text-light  py-0 custom-header"><strong>Embrace Yourself</strong></h2>
+            <h1 class="text-uppercase2 text-light py-2 fw-bold display-3-mobile custom-header"> <strong>New Discoveries</strong></h1>
             <div class="my-5">
                 <h4>
-                    <a href="{% url 'products' %}" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3 bg-dark ">Shop Now</a>
+                    <a href="{% url 'products' %}" class="shop-now-button btn btn-lg btn-dark rounded-3 text-uppercase custom-header py-3 ">Shop Now</a>
                 </h4>
             </div>
         </div>

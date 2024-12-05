@@ -1,12 +1,12 @@
-<ul class="list-inline text-center">
-    <li class="list-line-item my-2 d-block d-lg-none d-md-inline">
+<ul class="navbar-nav text-center">
+    <li class="nav-item my-2 d-block d-lg-none d-md-inline">
         <a class="nav-link text-center" href="{% url 'wishlist' %}" style="color: #ffc107;">
             <i class="nav-icon-heart fa-solid fa-lg fa-heart"></i>
         </a>
     </li>
 
     <!-- My Account Dropdown -->
-    <li class="list-inline-item d-block my-2 d-lg-none">
+    <li class="nav-item d-block my-2 d-lg-none">
         <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #ffc107;">
       <i class="fa-solid fa-user fa-lg"></i>
       </a>
@@ -25,7 +25,7 @@
     </li>
 
     <!-- Shopping Cart -->
-    <li class="list-inline-item d-block my-2 d-lg-none">
+    <li class="nav-item d-block my-2 d-lg-none">
         <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-dark{% endif %} nav-link d-block" 
             href="{% url 'shopping_bag' %}">
             <div class="">
@@ -41,7 +41,7 @@
     </li>
 
     <!-- Search Bar -->
-    <li class="list-inline-item w-100 my-2 d-block d-lg-none">
+    <li class="nav-item w-100 my-2 d-block d-lg-none">
         <a class="text-black nav-link d-block d-lg-none" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="text-center" style="color: #ffc107;">
                 <div><i class="fas fa-search fa-lg"></i></div>
