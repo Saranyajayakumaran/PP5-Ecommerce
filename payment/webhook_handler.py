@@ -15,8 +15,7 @@ import stripe
 class StripeWH_Handler:
     """Handle Stripe webhooks"""
 
-    print("Enter sending email")
-
+    
     def __init__(self, request):
         self.request = request
 
@@ -33,6 +32,7 @@ class StripeWH_Handler:
             settings.DEFAULT_FROM_EMAIL,
             [cust_email]
         )
+        print(f"Sending email to: {cust_email}, Subject: {subject}")
 
     def handle_event(self, event):
         """
