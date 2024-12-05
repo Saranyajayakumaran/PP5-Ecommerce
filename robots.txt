@@ -1,3 +1,6 @@
 User-agent:*
-Disallow:
-sitemap: 
+Disallow:/accounts/
+Disallow:/shopping_bag/
+Disallow:/payment/
+Disallow:/profiles/
+sitemap: https://pp5-ecommerce-7cfec9de238f.herokuapp.com/sitemap.xml
