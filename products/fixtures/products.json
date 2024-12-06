@@ -1,7 +1,7 @@
 [
     {
         "pk": 1,
-        "model": "products.products",
+        "model": "products.product",
         "fields": {
           "sku": "HC-10001",
           "name": "Argan oil hair mask",
@@ -9,15 +9,15 @@
           "price": 65.99,
           "category": 2 ,
           "rating": 4.6,
-          "image_url": "/media/argal-oil-hairmask.jpg",
-          "image": "argal-oil-hairmask.jpg",
+          "image_url": "/media/argal-oil-hairmask.webp",
+          "image": "argal-oil-hairmask.webp",
           "size":"350ml",
           "expected_dispatch": "3-5 business days"
         }
     },
     {
         "pk": 2,
-        "model": "products.products",
+        "model": "products.product",
         "fields": {
         "sku": "HC-10002",
         "name": "Argan conditioner",
@@ -25,8 +25,8 @@
         "price": 25.99,
         "category": 2 ,
         "rating": 4.1,
-        "image_url": "/media/argan-conditioner.jpg",
-        "image": "argan-conditioner.jpg",
+        "image_url": "/media/argan-conditioner.webp",
+        "image": "argan-conditioner.webp",
         "size":"200ml",
         "expected_dispatch": "4-5 business days"
         
@@ -34,7 +34,7 @@
     },
     {
         "pk": 3,
-        "model": "products.products",
+        "model": "products.product",
         "fields": {
         "sku": "HC-10003",
         "name": "Black Comb",
@@ -42,8 +42,8 @@
         "price": 6.99,
         "category": 2 ,
         "rating": 4.0,
-        "image_url": "/media/black-comb.jpg",
-        "image": "black-comb.jpg",
+        "image_url": "/media/black-comb.webp",
+        "image": "black-comb.webp",
         "size":"standard",
         "expected_dispatch": "1-2 business days"
         }
@@ -51,7 +51,7 @@
     
     {
         "pk": 5,
-        "model": "products.products",
+        "model": "products.product",
         "fields": {
         "sku": "B-10005",
         "name": "Face Cleansing Foam",
@@ -59,15 +59,15 @@
         "price": 12.99,
         "category": 1 ,
         "rating": 4.5,
-        "image_url": "/media/cleansing-foam.jpg",
-        "image": "cleansing-foam.jpg",
+        "image_url": "/media/cleansing-foam.webp",
+        "image": "cleansing-foam.webp",
         "size":"60ml",
         "expected_dispatch": "3-5 business days"
         }
     },
     {
         "pk": 6,
-        "model": "products.products",
+        "model": "products.product",
         "fields": {
         "sku": "HW-10006",
         "name": "Organic Coffee Beans",
@@ -75,15 +75,15 @@
         "price": 20.99,
         "category": 3 ,
         "rating": 3.2,
-        "image_url": "/media/coffee-beans.jpg",
-        "image": "coffee-beans.jpg",
+        "image_url": "/media/coffee-beans.webp",
+        "image": "coffee-beans.webp",
         "size":"300g",
         "expected_dispatch": "2-5 business days"
         }
     },
     {
         "pk": 7,
-        "model": "products.products",
+        "model": "products.product",
         "fields": {
         "sku": "HW-10007",
         "name": "Collagen with Vitamin-D",
@@ -91,15 +91,15 @@
         "price": 17.99,
         "category": 3 ,
         "rating": 4.2,
-        "image_url": "/media/collagen-with-vitamin-d.jpg",
-        "image": "collagen-with-vitamin-d.jpg",
+        "image_url": "/media/collagen-with-vitamin-d.webp",
+        "image": "collagen-with-vitamin-d.webp",
         "size":"50 tablets",
         "expected_dispatch": "4-5 business days"
         }
     },
     {
         "pk": 8,
-        "model": "products.products",
+        "model": "products.product",
         "fields": {
         "sku": "B-10008",
         "name": "Wellness Face Cream",
@@ -107,15 +107,15 @@
         "price": 6.99,
         "category": 1 ,
         "rating": 4.1,
-        "image_url": "/media/creams.jpg",
-        "image": "creams.jpg",
+        "image_url": "/media/creams.webp",
+        "image": "creams.webp",
         "size":"25g",
         "expected_dispatch": "1-3 business days"
         }
     },
     {
         "pk": 9,
-        "model": "products.products",
+        "model": "products.product",
         "fields": {
         "sku": "B-10009",
         "name": "Vibrant Eyeshadow Palette",
@@ -123,15 +123,15 @@
         "price": 14.99,
         "category": 1 ,
         "rating": 3.8,
-        "image_url": "/media/eye-shadow.jpg",
-        "image": "eye-shadow.jpg",
+        "image_url": "/media/eye-shadow.webp",
+        "image": "eye-shadow.webp",
         "size":"",
         "expected_dispatch": "1-3 business days"
         }
     },
     {
         "pk": 10,
-        "model": "products.products",
+        "model": "products.product",
         "fields": {
         "sku": "HW-10010",
         "name": "Nutritious Health Mix",
@@ -139,15 +139,15 @@
         "price": 16.99,
         "category": 3 ,
         "rating": 3.8,
-        "image_url": "/media/health-mix.jpg",
-        "image": "health-mix.jpg",
+        "image_url": "/media/health-mix.webp",
+        "image": "health-mix.webp",
         "size":"500g",
         "expected_dispatch": "2-4 business days"
         }
     },
     {
         "pk": 11,
-        "model": "products.products",
+        "model": "products.product",
         "fields": {
         "sku": "HC-10011",
         "name": "Keun Shampoo & Conditioner Duo",
@@ -155,15 +155,15 @@
         "price": 13.99,
         "category": 2,
         "rating": 4.3,
-        "image_url": "/media/keun-conditioner-shampoo.jpg",
-        "image": "keun-conditioner-shampoo.jpg",
+        "image_url": "/media/keun-conditioner-shampoo.webp",
+        "image": "keun-conditioner-shampoo.webp",
         "size":"400ml",
         "expected_dispatch": "1-2 business days"
         }
     },
     {
         "pk": 12,
-        "model": "products.products",
+        "model": "products.product",
         "fields": {
         "sku": "B-10012",
         "name": "Luxe Lipstick",
@@ -171,15 +171,15 @@
         "price": 7.99,
         "category": 1,
         "rating": 4.1,
-        "image_url": "/media/lipstick-red.jpg",
-        "image": "lipstick-red.jpg",
+        "image_url": "/media/lipstick-red.webp",
+        "image": "lipstick-red.webp",
         "size":"Medium",
         "expected_dispatch": "within 24 hours"
         }
     },
     {
         "pk": 13,
-        "model": "products.products",
+        "model": "products.product",
         "fields": {
         "sku": "HC-10013",
         "name": "Shampoo and Brush Combo",
@@ -187,15 +187,15 @@
         "price": 5.99,
         "category": 2,
         "rating": 3.2,
-        "image_url": "/media/soap-and-brush.jpg",
-        "image": "soap-and-brush.jpg",
+        "image_url": "/media/soap-and-brush.webp",
+        "image": "soap-and-brush.webp",
         "size":"30g and standard brush",
         "expected_dispatch": "2-4 business days"
         }
     },
     {
         "pk": 14,
-        "model": "products.products",
+        "model": "products.product",
         "fields": {
         "sku": "B-10014",
         "name": "Professional Makeup Brush",
@@ -203,15 +203,15 @@
         "price": 25.99,
         "category": 1,
         "rating": 4.5,
-        "image_url": "/media/make-up-brush.jpg",
-        "image": "make-up-brush.jpg",
+        "image_url": "/media/make-up-brush.webp",
+        "image": "make-up-brush.webp",
         "size":"standard",
         "expected_dispatch": "3-5 business days"
         }
     },
     {
         "pk": 15,
-        "model": "products.products",
+        "model": "products.product",
         "fields": {
         "sku": "HC-10015",
         "name": "Premium Milk Powder",
@@ -219,15 +219,15 @@
         "price": 30.99,
         "category": 2,
         "rating": 3.9,
-        "image_url": "/media/milk-powder.jpg",
-        "image": "milk-powder.jpg",
+        "image_url": "/media/milk-powder.webp",
+        "image": "milk-powder.webp",
         "size":"500g",
         "expected_dispatch": "1-2 business days"
         }
     },
     {
         "pk": 16,
-        "model": "products.products",
+        "model": "products.product",
         "fields": {
         "sku": "HW-10016",
         "name": "Gourmet Mixed Nuts",
@@ -235,15 +235,15 @@
         "price": 6.99,
         "category": 3,
         "rating": 3.9,
-        "image_url": "/media/mixed-nuts.jpg",
-        "image": "mixed-nuts.jpg",
+        "image_url": "/media/mixed-nuts.webp",
+        "image": "mixed-nuts.webp",
         "size":"200g",
         "expected_dispatch": "within 48 hours"
         }
     },
     {
         "pk": 17,
-        "model": "products.products",
+        "model": "products.product",
         "fields": {
         "sku": "B-10017",
         "name": "Premium Nail Gel",
@@ -251,15 +251,15 @@
         "price": 4.99,
         "category": 1,
         "rating": 3.9,
-        "image_url": "/media/nail-gel-grey.jpg",
-        "image": "nail-gel-grey.jpg",
+        "image_url": "/media/nail-gel-grey.webp",
+        "image": "nail-gel-grey.webp",
         "size":"3ml",
         "expected_dispatch": "3-4 business days"
         }
     },
     {
         "pk": 18,
-        "model": "products.products",
+        "model": "products.product",
         "fields": {
         "sku": "HW-10018",
         "name": "Organic Ginger Tea",
@@ -267,15 +267,15 @@
         "price": 3.19,
         "category": 3,
         "rating": 3.9,
-        "image_url": "wellness_nest/media/organic tea.jpg",
-        "image": "organic tea.jpg",
+        "image_url": "wellness_nest/media/organic tea.webp",
+        "image": "organic-tea.webp",
         "size":"30 packets",
         "expected_dispatch": "1-3 business days"
         }
     },
     {
         "pk": 19,
-        "model": "products.products",
+        "model": "products.product",
         "fields": {
         "sku": "HW-10019",
         "name": "Premium Saffron",
@@ -283,15 +283,15 @@
         "price": 10.59,
         "category": 3,
         "rating": 3.2,
-        "image_url": "/media/saffron.jpg",
-        "image": "saffron.jpg",
+        "image_url": "/media/saffron.webp",
+        "image": "saffron.webp",
         "size":"15g",
         "expected_dispatch": "2-4 business days"
         }
     },
     {
         "pk": 20,
-        "model": "products.products",
+        "model": "products.product",
         "fields": {
         "sku": "B-10020",
         "name": "Rejuvenating Skin Serum",
@@ -299,15 +299,15 @@
         "price": 10.59,
         "category": 1,
         "rating": 4.4,
-        "image_url": "/media/skin serum.jpg",
-        "image": "skin serum.jpg",
+        "image_url": "/media/skin-serum.webp",
+        "image": "skin-serum.webp",
         "size":"50ml",
         "expected_dispatch": "1-3 business days"
         }
     },
     {
         "pk": 21,
-        "model": "products.products",
+        "model": "products.product",
         "fields": {
         "sku": "B-10021",
         "name": "Naturals Shampoo and Conditioner",
@@ -315,8 +315,8 @@
         "price": 26.59,
         "category": 1,
         "rating": 4.4,
-        "image_url": "/media/shampoo-and-conditioner.jpg",
-        "image": "shampoo-and-conditioner.jpg",
+        "image_url": "/media/shampoo-and-conditioner.webp",
+        "image": "shampoo-and-conditioner.webp",
         "size":"200ml",
         "expected_dispatch": "3-5 business days"
         }
