@@ -1,5 +1,3 @@
-
-
 html{
     height:100%;
 }
@@ -15,10 +13,7 @@ body{
     flex-direction:column;
     padding-top: 70px;
 }
-
-
 /* Custom button */
-
 .cust-btn{
         background: #343a40;
         color: black;
@@ -26,8 +21,7 @@ body{
         letter-spacing: 1.5px;
         text-transform: uppercase;
         padding: 10px;
-}
-   
+} 
 .cust-btn:hover {
     color: white;
 }
@@ -68,7 +62,6 @@ body{
 main {
     flex: 1; /* Allow main to take up available space */
 }
-/*index-page*/
 /*carousel*/
 .hero-section {
     position: relative;
@@ -122,8 +115,7 @@ main {
     margin-top: -1px; 
     display: none; 
     position: absolute; 
-}
-  
+} 
 .dropdown-submenu:hover .dropdown-menu {
     display: block; 
 }
@@ -152,7 +144,6 @@ main {
     background:#fff;
     z-index:-1;
 }
-
 .card-img-top{
     width:100%;
     height:200px;
@@ -163,7 +154,6 @@ a.category-badge > span.badge:hover{
     background :#ffc107 !important;
     color:#000000;
 }
-
 /*product detail page"*/
 .wishlist-icon{
     background:none;
@@ -183,11 +173,6 @@ a.category-badge > span.badge:hover{
     object-fit: cover;
     min-height: 100px
 }
-
-.product-description {
-    
-}
-
 .quantity-form{
     margin-left:-18rem;
     width:100%;
@@ -203,7 +188,6 @@ a.category-badge > span.badge:hover{
 }
 
 /*quantity input button*/
-
 .input-group {
     display: flex;
      align-items: center;
@@ -230,7 +214,6 @@ a.category-badge > span.badge:hover{
     background:black;
     color:white !important
 }
-
 /*add arrow to top of the page*/
 .btt-button {
     position: fixed;  /* Fixes the button on the page */
@@ -278,7 +261,6 @@ a.category-badge > span.badge:hover{
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
     margin-bottom:20px;
 }
-
 /*shopping bag page*/
 .update-delete-btns{
     background: transparent;  
@@ -429,9 +411,7 @@ input[name='search_term']::placeholder{
     overflow-y:auto;
 
 }
-
 /* Allauth form */
-
 .form-check-label {
     display: inline-block; 
     color: #000; 
@@ -450,7 +430,6 @@ input[name='search_term']::placeholder{
     border-color: #000;
     border-radius: 0;
 }
-
 .allauth-form-inner-content label:not([for='id_remember']){
     display: none;
 }
@@ -480,7 +459,6 @@ input[name='search_term']::placeholder{
     /* standard bootstrap btn transitions */
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
-
 .allauth-form-inner-content button:hover,
 .allauth-form-inner-content input[type='submit']:hover {	
 	color: #fff;
@@ -521,8 +499,6 @@ input[name='search_term']::placeholder{
     border-radius: 0;
     
 }
-
-
 /*footer*/
 
 footer {
@@ -550,8 +526,6 @@ footer {
     margin: 20px;
     margin-right: 0;
   }
-
-
   /* Malchimp Css*/
 
   #mc_embed_signup{
@@ -585,7 +559,6 @@ footer {
         z-index: 1050; 
     }
   }
-
 
   /*--------------------- media query*/
 @media (min-width: 350px) and (max-width: 576px) { 
@@ -654,7 +627,6 @@ footer {
     
 }
 
-
 @media (min-width: 578px) and (max-width: 992px){
     .product-detail-image {
         width:100%;
@@ -689,7 +661,6 @@ footer {
         padding: 5px; /* Adjust padding to make the toggler easier to click */
     }
 }
-
 @media (min-width: 768px) and (max-width: 991px) {
     /* Tablet-specific styles */
     .product-detail-image {
@@ -756,7 +727,6 @@ footer {
         padding: 5px; /* Adjust padding to make the toggler easier to click */
     }
 }
-
 @media (min-width: 992px) and (max-width: 1199px) {
     /* Laptop-specific styles */
     .product-detail-image {

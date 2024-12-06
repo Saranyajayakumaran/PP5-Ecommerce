@@ -1,13 +1,12 @@
 from django.contrib import admin
-from .models import Product,Category,Wishlist
+from .models import Product, Category, Wishlist
 
-# Register your models here.
 
 class ProductsAdmin(admin.ModelAdmin):
-    
+
     """Display the fields in admin"""
 
-    list_display=(
+    list_display = (
         'sku',
         'name',
         'category',
@@ -17,34 +16,33 @@ class ProductsAdmin(admin.ModelAdmin):
         'size'
     )
 
-    ordering = ('sku','name')
+    ordering = ('sku', 'name')
+
 
 class CategoryAdmin(admin.ModelAdmin):
 
     """Display the fileds of categories in admin"""
 
-    list_display=(
+    list_display = (
         'name',
         'friendly_name',
         'slug'
     )
 
-    ordering=('name',)
+    ordering = ('name',)
+
 
 class WishlistAdmin(admin.ModelAdmin):
     """Display the fields of wishlist in admin"""
-    list_display=(
+    list_display = (
         'user',
         'product',
         "added_on"
-    )    
+    )
 
     ordering = ('product',)
-
-
 
 
 admin.site.register(Product, ProductsAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Wishlist, WishlistAdmin)
-

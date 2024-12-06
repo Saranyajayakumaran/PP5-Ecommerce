@@ -1,7 +1,6 @@
 from django.contrib import admin
 from .models import Checkout, CheckoutLineItem
 
-# Register your models here.
 
 class CheckoutLineItemAdmininline(admin.TabularInline):
     """ Check out line item fileds in admin"""
@@ -10,19 +9,20 @@ class CheckoutLineItemAdmininline(admin.TabularInline):
 
 
 class CheckoutAdmin(admin.ModelAdmin):
-    
+
     """Display the fields in admin"""
 
     inlines = (CheckoutLineItemAdmininline,)
 
-    readonly_fields = ('order_number','date',
-                        'delivery_cost',
-                        'order_total',
-                        'grand_total', 
-                        'original_bag', 
-                        'stripe_pid')
-    
-    fields=(
+    readonly_fields = ('order_number',
+                       'date',
+                       'delivery_cost',
+                       'order_total',
+                       'grand_total',
+                       'original_bag',
+                       'stripe_pid')
+
+    fields = (
         'order_number',
         'user_profile',
         'date',
@@ -37,17 +37,18 @@ class CheckoutAdmin(admin.ModelAdmin):
         'delivery_cost',
         'order_total',
         'grand_total',
-        'original_bag', 
+        'original_bag',
         'stripe_pid',
     )
 
-    list_display=('order_number', 
-                  'date',
-                  'full_name',
-                  'delivery_cost',
-                  'order_total',
-                  'grand_total')
+    list_display = ('order_number',
+                    'date',
+                    'full_name',
+                    'delivery_cost',
+                    'order_total',
+                    'grand_total')
 
     ordering = ('-date',)
 
-admin.site.register(Checkout,CheckoutAdmin)
+
+admin.site.register(Checkout, CheckoutAdmin)
