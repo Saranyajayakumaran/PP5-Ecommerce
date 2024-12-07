@@ -10,16 +10,16 @@
             </div>
         </div>
         <div class="row justify-content-center ">
-            <div class="col-11 col-md-8 col-lg-6 mt-3 bordered-form">
+            <div class="col-12 col-md-8 col-lg-6 mt-3 bordered-form">
                 <form method="post">
                     {% csrf_token %}
                     {{ form | crispy }}  
                     <div class="text-center mt-3">
-                        <button type="submit" class="btn btn-black text-white">Submit</button>
-                        <a href="{% url 'testimonials' %}" class="btn  btn-black text-white">Back to Testimonials</a>
+                        <a href="{% url 'testimonials' %}" class="btn  btn-outline-black text-white"><i class="fas fa-arrow-left"></i> Back to Testimonials</a>
+                        <button type="submit" class="btn btn-dark text-white">Submit</button>   
                     </div>
                 </form>
             </div>
         </div>
-
+        
 {% endblock %}

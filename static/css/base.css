@@ -182,6 +182,18 @@ a.category-badge > span.badge:hover{
     margin-left:-18rem;
     width:100%;
 }
+.btn-dark {
+    background-color: #343a40; /* Dark background */
+    color: #ffffff; /* White text */
+    border: 1px solid #343a40; /* Match background color */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.btn-dark:hover {
+    background-color: #ffffff; /* Darker shade on hover */
+    color: #000000; /* Slightly lighter text */
+    border: 1px solid #212529; /* Adjust border to match hover background */
+}
 .btn-black{
     color:#ffffff;
     background-color:black
@@ -287,11 +299,29 @@ input[name='search_term']::placeholder{
 }
 
 .signup,.login{
-    background-color: rgb(255 255 255 / 70%); /* Semi-transparent black for subtle overlay effect */
-    color: #ffffff; /* White text for readability on dark background */
+    /* White text for readability on dark background */
     padding: 2rem; /* Add spacing inside the container */
     border-radius: 10px; /* Rounded corners for a modern look */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for a lifted appearance */
+}
+.login{
+    padding-bottom:4rem;
+    padding-top:4rem;
+}
+
+.signup textarea,
+.signup select,
+.signup button,
+.login textarea,
+.login select,
+.login button ,
+.login a{
+    margin-bottom: 1.5rem; /* Same spacing as inputs */
+}
+
+.login button,
+.login a {
+    margin-right: 1.5rem; /* Horizontal spacing between buttons */
 }
 
 /*Testimonial page*/

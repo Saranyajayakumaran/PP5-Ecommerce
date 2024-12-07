@@ -16,9 +16,13 @@ def testimonials_view(request):
         HttpResponse: Renders the testimonials page with all testimonials.
     """
     testimonials = Testimonial.objects.all().order_by('-created_at')
+    context = {
+        'testimonials': testimonials,
+        'only_success_message': True,  # Explicitly include this variable
+    }
     return render(
         request, 'testimonials/testimonials.html',
-        {'testimonials': testimonials}
+        context
     )
 
 
