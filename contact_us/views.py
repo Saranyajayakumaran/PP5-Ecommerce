@@ -4,8 +4,13 @@ from .forms import ContactEnquiryForm
 
 
 def contact_enquiry_view(request):
-    """Allow user to fill the enquiry form and save the
-    enquiry
+    """
+    This view allows the user to submit
+    an enquiry through the contact form.
+    If the form is valid, it saves the enquiry
+    and displays a success message.
+    If the form is not valid, it shows an error
+    message and prompts the user to try again.
     """
     if request.method == 'POST':
         form = ContactEnquiryForm(request.POST)
