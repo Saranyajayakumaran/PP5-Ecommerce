@@ -25,4 +25,9 @@ def contact_enquiry_view(request):
     else:
         form = ContactEnquiryForm()
 
-    return render(request, 'contact_us/contact_us.html', {'form': form})
+    context = {
+        'form': form,
+        'only_success_message': True, 
+    }
+
+    return render(request, 'contact_us/contact_us.html', context)

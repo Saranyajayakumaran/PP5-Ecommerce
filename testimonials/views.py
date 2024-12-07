@@ -51,12 +51,14 @@ def add_testimonials_view(request):
             return redirect('testimonials')
     else:
         form = TestimonialForm()
-
+    context = {
+        'form': form,
+        'only_success_message': True,
+        'grand_total': None,
+    }
     return render(
         request,
-        'testimonials/add_testimonials.html',
-        {'form': form}
-    )
+        'testimonials/add_testimonials.html', context )
 
 
 @login_required
@@ -119,8 +121,15 @@ def edit_testimonials_view(request, testimonial_id):
             return redirect('testimonials')
     else:
         form = TestimonialForm(instance=testimonial)
+    
+    context = {
+        'form': form,
+        'testimonial': testimonial,
+        'only_success_message': True,
+        'grand_total': None,
+    }
     return render(
         request,
         'testimonials/update_testimonials.html',
-        {'form': form, 'testimonial': testimonial}
+        context
     )

@@ -47,7 +47,7 @@
     </div>
     <div class="row card-deck">
         {% for product in products %}
-            <div class="col-12 col-md-4 col-sm-6 col-lg-4 col-xl-3 d-flex mb-5  ">
+            <div class="col-12 col-md-4 col-sm-4 col-lg-4 col-xl-3 d-flex mb-5  ">
                 <div class="card h-100 border-0 mb-3 mx-auto mx-sm-2 d-flex flex-column">
                     {% if product.image %}
                     <a href="{% url 'product_detail' product.id %}">

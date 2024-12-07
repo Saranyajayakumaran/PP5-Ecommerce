@@ -118,6 +118,7 @@ def add_product_view(request):
     template = "products/add_product.html"
     context = {
         'form': form,
+        'only_success_message':True,
     }
 
     return render(request, template, context)
@@ -148,6 +149,7 @@ def edit_product_view(request, product_id):
     context = {
         'form': form,
         'product': product,
+        'only_success_message':True,
     }
 
     return render(request, template, context)
@@ -200,7 +202,8 @@ def wishlist_view(request):
         )
         print("wishlist_view items", wishlist_items)
         context = {
-            'wishlist_items': wishlist_items
+            'wishlist_items': wishlist_items,
+            'only_success_message':True,
         }
     return render(request, 'products/wishlist.html', context)
 

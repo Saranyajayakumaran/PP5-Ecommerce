@@ -32,18 +32,17 @@
 
 #payment-form .form-control,
 #card-element {
-    color: #000;
+    color: #aab7c4;
     border: 1px solid #000;
-    padding:10px;
 }
 select,
 select option{
-  color:#000;
+  color:#000000;
 }
 
 select:invalid,
-select option[value]{
-  color:#aab7c4;
+select option[value=""] {
+  color:#aab7c4 !important;
 }
 
 

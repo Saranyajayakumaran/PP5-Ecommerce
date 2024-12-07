@@ -29,7 +29,7 @@ def profile_view(request):
     context = {
         'form': form,
         'orders': orders,
-        'on_profile_page': True,
+        'only_success_message': True,
     }
 
     return render(request, template, context)

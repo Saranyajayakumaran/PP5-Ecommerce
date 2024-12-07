@@ -135,6 +135,11 @@ main {
 
 /*all products page*/
 
+.card {
+   width:300px; /* Adjust based on your desired card size */
+   height:300px;
+}
+
 .overlay{
     height:100%;
     width:100%;
