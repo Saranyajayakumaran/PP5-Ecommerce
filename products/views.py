@@ -201,10 +201,10 @@ def wishlist_view(request):
             f"{item.product.image.url if item.product.image else 'No Image'}"
         )
         print("wishlist_view items", wishlist_items)
-        context = {
-            'wishlist_items': wishlist_items,
-            'only_success_message':True,
-        }
+    context = {
+        'wishlist_items': wishlist_items,
+        'only_success_message':True
+    }
     return render(request, 'products/wishlist.html', context)
 
 
