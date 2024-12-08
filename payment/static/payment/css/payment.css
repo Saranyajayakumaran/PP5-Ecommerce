@@ -1,20 +1,22 @@
+
 .StripeElement,
 .stripe-style-input {
   box-sizing: border-box;
   height: 40px;
   padding: 10px 12px;
   border: 1px solid transparent;
-  border-radius: 0px;
+  border-radius: 4px;
   background-color: white;
   box-shadow: 0 1px 3px 0 #e6ebf1;
   -webkit-transition: box-shadow 150ms ease;
-  transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease border-color 150ms ease;;
 }
 
 .StripeElement--focus,
-.stripe-style-input:focus,
-.stripe-style-input:active {
-  box-shadow: 0 1px 3px 0 #cfd7df;
+.stripe-style-input:focus{
+  border-color: #80bdff; /* Highlight border */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Glow effect */
+  outline: none;
 }
 
 .StripeElement--webkit-autofill {
@@ -45,7 +47,13 @@ select option[value=""] {
   color:#aab7c4 !important;
 }
 
-
+#card-element {
+  color: #495057; /* Text color */
+  border: 1px solid #ced4da; /* Border color */
+  border-radius: 4px; /* Rounded corners */
+  padding: 10px; /* Padding inside the box */
+  background-color: #fff; /* White background */
+}
 /*Payment Success page*/
 
 #loading-overlay {
