@@ -14,7 +14,7 @@ body{
     padding-top: 70px;
 }
 /* Custom button */
-.cust-btn{
+/*.cust-btn{
         background: #343a40;
         color: black;
         font-weight: 300 !important;
@@ -24,7 +24,7 @@ body{
 } 
 .cust-btn:hover {
     color: white;
-}
+}*/
 
 .custom-header {
     margin-top: -80px; /* Adjust the value to move it up */
@@ -233,13 +233,13 @@ a.category-badge > span.badge:hover{
 }
 /*add arrow to top of the page*/
 .btt-button {
-    position: fixed;  /* Fixes the button on the page */
+    position: fixed; 
     right: 20px;  /* Positions the button 20px from the right side of the page */
     bottom: 20px;  /* Positions the button 20px from the bottom of the page */
     z-index: 1000;  /* Ensures the button stays on top of other elements */
     background-color: #f1f1f1;  /* Light background color */
-    border-radius: 50%;  /* Circular button */
-    padding: 10px;  /* Padding inside the button */
+    border-radius: 50%;  
+    padding: 10px; 
     display: none;  /* Initially hide the button */
 }
 
@@ -258,8 +258,8 @@ a.category-badge > span.badge:hover{
 }
 
 .btt-button a:hover {
-    background-color: #555;  /* Darker background on hover */
-    color: #fff;  /* Change icon color on hover */
+    background-color: #555;
+    color: #fff;  
 }
 
 /* Optional: Show the button when user scrolls down a bit */
@@ -559,17 +559,26 @@ footer {
 
   footer .row {
     margin: 20px;
-    margin-right: 0;
+    margin-left: 8rem;
   }
   /* Malchimp Css*/
-
+  .btn-yellow{
+    background-color: #ffc107;
+    color:black;
+    width:30%;
+    height:40px;
+  }
+  .btn-yellow:hover{
+    background-color: #343a40;
+    color:white;
+  }
   #mc_embed_signup{
     background:false;
     clear:left; 
     font:14px ; 
   }
     .footer-email{
-        width:300px;
+        width:400px;
         font:14px; 
     }
 
