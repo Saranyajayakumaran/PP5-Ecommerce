@@ -20,7 +20,7 @@
 }
 
 .StripeElement--webkit-autofill {
-  background-color: #fefde5 !important;
+  background-color: #aab7c4 !important;
 }
 
 .stripe-style-input::placeholder {
@@ -34,7 +34,7 @@
 
 #payment-form .form-control,
 #card-element {
-    color: #aab7c4;
+    color: #000000;
     border: 1px solid #000;
 }
 select,

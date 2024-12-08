@@ -22,7 +22,8 @@ def contact_enquiry_view(request):
             send_contact_confirmation_email(enquiry)
 
             messages.success(request, 'Thank you for contacting us!'
-                             'We have received your inquiry.')
+                             'We have received your Enquiry.'
+                             'A confirmation email has been sent to your mail id.')
             return redirect('contact_us')
         else:
             messages.error(request, 'There was an error with '
@@ -50,7 +51,7 @@ def send_contact_confirmation_email(enquiry):
             f"We have received your enquiry and will get back to you as soon as possible.\n\n"
             f"Subject: {enquiry.subject}\n"
             f"Message: {enquiry.message}\n\n"
-            f"Best regards,\nYour Company Name"
+            f"Best regards,\nWellnessnest"
         ),
         from_email=settings.DEFAULT_FROM_EMAIL,
         recipient_list=[enquiry.email],
