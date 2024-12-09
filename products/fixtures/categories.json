@@ -4,7 +4,7 @@
     "model":"products.category",
     "fields":{
         "name":"Beauty",
-        "friendly_name":"Beauty Products",
+        "friendly_name":"Beauty",
         "slug":"beauty"
         }
     },
@@ -13,7 +13,7 @@
     "model":"products.category",
     "fields":{
         "name":"Hair Care",
-        "friendly_name":"Hair care Products",
+        "friendly_name":"Hair care",
         "slug":"hair-care"
         }
     },
@@ -22,7 +22,7 @@
     "model":"products.category",
     "fields":{
         "name":"Health and Wellness",
-        "friendly_name":"Health and Wellness Products",
+        "friendly_name":"Health and Wellness",
         "slug":"health-and-wellness"
         }
     }

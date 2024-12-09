@@ -8,14 +8,17 @@
     <!-- My Account Dropdown -->
     <li class="nav-item d-block my-2 d-lg-none">
         <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #ffc107;">
-      <i class="fa-solid fa-user fa-lg"></i>
-      </a>
+            <i class="fa-solid fa-user fa-lg"></i>
+            {% if request.user.is_authenticated %}
+                    <span class="ml-2">{{ request.user.username }}</span>
+            {% endif %}
+        </a>
         <div class="dropdown-menu border-0 shadow-sm" aria-labelledby="user-options">
             {% if request.user.is_authenticated %}
                 {% if request.user.is_superuser %}
                     <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
                 {% endif %}
-                <a href="{% url 'profile' %}" class="dropdown-item">Hi,  {{user.username}}</a>
+                <a href="{% url 'profile' %}" class="dropdown-item">My profile</a>
                 <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
             {% else %}
                 <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
@@ -55,7 +58,7 @@
                         class="form-control border bg-light rounded-pill search-input" 
                         type="text" 
                         name="search_term" 
-                        placeholder="Search our site">
+                        placeholder="Search our products">
                     <button 
                         class="btn btn-dark rounded-pill ml-2" 
                         type="submit">

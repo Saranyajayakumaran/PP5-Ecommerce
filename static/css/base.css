@@ -166,6 +166,10 @@ a.category-badge > span.badge:hover{
     color:red;
     font-size:1.5rem;
 }
+.wishlist-icon:hover{
+    background:none;
+    color:#000;
+}
 
 .product-detail-container{
     width:100%;

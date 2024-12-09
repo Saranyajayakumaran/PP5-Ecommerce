@@ -5,22 +5,26 @@
       </a>
     </li>
     <li class="nav-item dropdown mr-2 ">
-      <a class="nav-link dropdown-toggle my_account_padding d-none d-lg-block" href="#"
-        id="navbarDropdown" role="button" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false" style="color: #ffc107;">
-      <i class="fa-solid fa-user"></i>
-      </a>
+        <a class="nav-link dropdown-toggle my_account_padding d-none d-lg-block" href="#"
+          id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false" style="color: #ffc107;">
+        <i class="fa-solid fa-user"></i>
+        </a>
       <div class="dropdown-menu" aria-labelledby="user-options">
-        {% if request.user.is_authenticated %} 
-        {% if request.user.is_superuser %}
-        <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
-        {% endif %}
-        <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-        <div class="dropdown-divider"></div>
-        <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+        {% if request.user.is_authenticated %}
+          <div class="dropdown-item-text font-weight-bold">
+            Hi, {{ request.user.username }}
+          </div>
+          <div class="dropdown-divider"></div> 
+          {% if request.user.is_superuser %}
+            <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+          {% endif %}
+          <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+          <div class="dropdown-divider"></div>
+          <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
         {% else %}
-        <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-        <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+          <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+          <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
         {% endif %}
       </div>
     </li>
@@ -41,7 +45,7 @@
 <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 d-none d-lg-block mt-3 ">
   <form method="GET" action="{% url 'products' %}">
       <div class="input-group w-100 ">
-          <input class="form-control border bg-light border-black rounded-5 " type="text" name="search_term" placeholder="Search our site">
+          <input class="form-control border bg-light border-black rounded-5 " type="text" name="search_term" placeholder="Search our products">
           <div class="input-group-append">
               <button class="form-control btn bg-dark btn-black border border-black rounded-5" type="submit">
                   <span class="icon border-black text-light">

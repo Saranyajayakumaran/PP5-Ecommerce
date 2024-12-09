@@ -132,8 +132,9 @@
 {% include 'products/includes/quantity_input_script.html' %}
 
 <script type="text/javascript">
-    $('.update-link').click(function(e){
-        var form=$(this).parent().siblings().children('.update-form');
+    // Update quantity on click
+    $('.update-link').click(function(e) {
+        var form = $(this).prev('.update-form');
         form.submit();
     })
 
