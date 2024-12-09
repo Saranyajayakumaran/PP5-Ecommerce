@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import TestimonialForm
 from .models import Testimonial
+from django.core.paginator import Paginator
 
 
 def testimonials_view(request):
@@ -16,9 +17,10 @@ def testimonials_view(request):
         HttpResponse: Renders the testimonials page with all testimonials.
     """
     testimonials = Testimonial.objects.all().order_by('-created_at')
+
     context = {
         'testimonials': testimonials,
-        'only_success_message': True,  # Explicitly include this variable
+        'only_success_message': True,
     }
     return render(
         request, 'testimonials/testimonials.html',

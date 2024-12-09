@@ -323,6 +323,10 @@ input[name='search_term']::placeholder{
     margin-bottom: 1.5rem; /* Same spacing as inputs */
 }
 
+.signup label{
+    color:#000;
+}
+
 .login button,
 .login a {
     margin-right: 1.5rem; /* Horizontal spacing between buttons */
@@ -553,6 +557,9 @@ footer {
     color: #f8f9fa; /* Light color on hover */
   }
   footer {
+    position: relative; /* Ensure the footer stays relative to the page */
+    bottom: 0; /* Push footer to the bottom if needed */ 
+    margin-top: auto; 
     width: 105%; 
   }
 
@@ -795,6 +802,13 @@ footer {
         height:60vh;
         object-fit:cover;
         min-height:100px
+    }
+    footer {
+        position: relative; 
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 10; /
     }
     
 }
