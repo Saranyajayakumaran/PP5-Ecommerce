@@ -159,6 +159,11 @@ a.category-badge > span.badge:hover{
     background :#ffc107 !important;
     color:#000000;
 }
+.btt-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
 /*product detail page"*/
 .wishlist-icon{
     background:none;
@@ -237,31 +242,24 @@ a.category-badge > span.badge:hover{
 }
 /*add arrow to top of the page*/
 .btt-button {
-    position: fixed; 
-    right: 20px;  /* Positions the button 20px from the right side of the page */
-    bottom: 20px;  /* Positions the button 20px from the bottom of the page */
-    z-index: 1000;  /* Ensures the button stays on top of other elements */
-    background-color: #f1f1f1;  /* Light background color */
-    border-radius: 50%;  
-    padding: 10px; 
-    display: none;  /* Initially hide the button */
-}
-
-.btt-button a {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px; /* Adjusted size */
+    height: 50px;
+    background-color: #aab7c4; /* Primary color (blue) */
+    border-radius: 50%; /* Circular shape */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50px;
-    width: 50px;
-    background-color: #f1f1f1;  /* Background of the button */
-    color: #333;  /* Icon color */
-    text-decoration: none;
-    border-radius: 50%;  /* Circular shape */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Subtle shadow */
-    transition: background-color 0.3s ease;  /* Smooth transition effect */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    cursor: pointer;
+    z-index: 1000; /* Ensure it's on top of other elements */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover animation */
 }
 
-.btt-button a:hover {
+
+.btt-button:hover {
     background-color: #555;
     color: #fff;  
 }
@@ -303,10 +301,9 @@ input[name='search_term']::placeholder{
 }
 
 .signup,.login{
-    /* White text for readability on dark background */
     padding: 2rem; /* Add spacing inside the container */
     border-radius: 10px; /* Rounded corners for a modern look */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for a lifted appearance */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
 }
 .login{
     padding-bottom:4rem;
@@ -510,8 +507,6 @@ input[name='search_term']::placeholder{
     font-size: 1rem;
     line-height: 1.5;
     border-radius: 0;
-
-    /* standard bootstrap btn transitions */
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 .allauth-form-inner-content button:hover,

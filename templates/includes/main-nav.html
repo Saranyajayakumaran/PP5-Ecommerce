@@ -12,7 +12,7 @@
           <a
             class="nav-link dropdown-toggle"
             href="#"
-            id="navbarDropdown"
+            id="navbarDropdownProducts"
             role="button"
             data-toggle="dropdown"
             aria-haspopup="true"
@@ -21,12 +21,12 @@
           >
           Products
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownUser">
             <a class="dropdown-item" href="{% url 'products' %}">All products</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{% url 'products' %}?category=Beauty">Beauty</a>
-            <a class="dropdown-item" href="{% url 'products' %}?category=Hair Care">Haircare</a>
-            <a class="dropdown-item" href="{% url 'products' %}?category=Health and Wellness">Health and wellness</a>
+            <a class="dropdown-item" href="{% url 'products' %}?category=Hair%20Care">Haircare</a>
+            <a class="dropdown-item" href="{% url 'products' %}?category=Health%20and%20Wellness">Health and wellness</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">By Price</a>
             <a class="dropdown-item" href="{% url 'products' %}?sort=rating&direction=desc">By Rating</a>

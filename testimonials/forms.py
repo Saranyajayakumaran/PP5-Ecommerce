@@ -4,7 +4,8 @@ from .models import Testimonial, Product
 
 class TestimonialForm(forms.ModelForm):
     BANNED_KEYWORDS = [
-        'disgusting', 'annoying', 'pathetic', 'terrible', 'awful', 'horrible','ridiculous',
+        'disgusting', 'annoying', 'pathetic', 
+        'terrible', 'awful', 'horrible','ridiculous',
         'absurd','lame','trivial'
     ]
     class Meta:
@@ -28,13 +29,16 @@ class TestimonialForm(forms.ModelForm):
     def clean_message(self):
         message = self.cleaned_data.get('message')
         if len(message) < 10:
-            raise forms.ValidationError("The message must be at least 10 characters long.")
+            raise forms.ValidationError(
+                "The message must be at least 10 characters long.")
         if len(message) > 500:
-            raise forms.ValidationError("The message cannot exceed 500 characters.")
+            raise forms.ValidationError(
+                "The message cannot exceed 500 characters.")
         
         for word in self.BANNED_KEYWORDS:
             if word in message.lower():
                 raise forms.ValidationError(
-                    f"The message contains inappropriate content: '{word}'. Please remove offensive words."
+                    f"The message contains inappropriate content: '{word}'." 
+                    "Please remove offensive words."
                 )
         return message

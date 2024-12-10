@@ -7,8 +7,6 @@
         <div class="col"></div>
     </div>
 </div>
-
-
 {% endblock %}
 
 {% block content %}
@@ -118,23 +116,24 @@
         {% endfor %} 
     </div>
     <!--Arrow to go to top of the page-->
-    <div class="btt-button shadow-sm rounded-0 border border-black">
-        <a class="btn-top-link d-flex h-120" href="">
+    <div class="btt-button shadow-sm rounded-0 border-black">
+        <div class="btn-top-link d-flex h-120">
             <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
-        </a>
+        </div>
     </div>
+</div>
 {% endblock %}
 
 {% block postloadjs %}
     {{ block.super }}
     <!--functionlity for clicking the arrow using jquery-->
-    <script type="text/javascript">
-		$('.btn-top-link').click(function(e) {
-			window.scrollTo(0,0)
-		})
+    <script>
+            $('.btn-top-link').click(function(e) {
+                window.scrollTo(0,0)
+            })
 	</script>
     <!--sorting functionality to change sort and direction when each click-->
-    <script type="text/javascript">
+    <script>
         $('#sort-selector').change(function() {
             var selector = $(this);
             var currentUrl = new URL(window.location);
