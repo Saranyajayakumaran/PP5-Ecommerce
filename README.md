@@ -6,13 +6,39 @@ The payment system uses Stripe. Please note that this website is for educational
 
 The website is responsive on all screens
 
-# Am i responsive image
+![Responsive image](image_url)
 
 
 # Technologies used 
+**Frontend**
+- HTML, CSS, JavaScript, Bootstrap for responsive design.
+
+**Backend**
+- Django framework for server-side logic and database management.
+
+**Database**-
+- PostgreSQL for storing user and reservation data.
+
+**Payment Gateway**
+- Stripe: Used for secure and seamless payment processing. Integrated for handling payments, subscriptions, and invoicing.
+
+**Cloud Storage**
+- AWS S3 (Amazon Simple Storage Service): Used for storing and serving static files (CSS, JS, images) and media files (user uploads). Ensures scalability, reliability, and reduced server load.
+
+**Deployment**
+- Deployed on a cloud platform Heroku for accessibility.
+
+**GitHub**
+- Web-based platform providing hosting services for Git repositories and collaboration tools.
+
+**Git**
+- A distributed version control system for tracking changes in source code
+
+**SMTP Email Integration**
+- Configured with SMTP servers to send email notifications for user registration, password resets, and more.
+
 
 # Features
-
 ## NavBar
 
 - **Logo and Website Title**:  
@@ -477,7 +503,35 @@ Why Use Bootstrap?
 - **Leverage Bootstrap Grid System**
     - Utilize Bootstrap’s grid system to create responsive layouts. The grid system uses a series of containers, rows, and columns to layout and align content.
 
-### Deployment
+## AWS S3 Bucket
+Django with AWS S3 integration allows seamless storage and retrieval of static files (CSS, JavaScript, images) and media files (user uploads) using Amazon's Simple Storage Service (S3). This approach is highly scalable, cost-effective, and ensures reliable access to files.
+
+- **Static and Media File Storage:** Store all static files and user-uploaded media in S3 buckets.
+- **Scalability:** S3 handles large volumes of data effortlessly, making it ideal for scaling Django applications.
+- **Security:** Secure your files with AWS IAM policies and bucket permissions.
+- **Performance:** Reduce server load and latency by serving files directly from S3, often combined with AWS CloudFront (CDN) for faster content delivery.
+
+## AWS Set Up
+
+- **AWS S3 Bucket Creation:**
+  - Create an S3 bucket on AWS.
+  - Configure bucket policies and CORS for secure access.
+
+- **Django Configuration:**
+  - Install boto3 and django-storages packages.
+  - Update Django settings ( **settings.py** )  to use S3 for static and media files:
+
+***AWS_ACCESS_KEY_ID = 'your-access-key-id'***
+***AWS_SECRET_ACCESS_KEY = 'your-secret-access-key'***
+***AWS_STORAGE_BUCKET_NAME = 'your-bucket-name'***
+***AWS_S3_REGION_NAME = 'your-region'  # e.g., 'us-east-1'***
+
+***STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'***
+
+***DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'***
+
+
+### Heroku Deployment
 
 The app was deployed through Heroku. The steps are as follows:
 
@@ -499,10 +553,11 @@ The app was deployed through Heroku. The steps are as follows:
     - Navigate to the "Config Vars" section.
         - Add the following Config Vars in Heroku:
         |Variable name|Value|
-        |AWS_ACCESS_KEY_ID| AWS CSV file|
-        |AWS_SECRET_ACCESS_KEY| AWS CSV file|
-        |DATABASE_URL|Postgres generated|
-        |EMAIL_HOST_PASS| Password from email client |
+        |-------------|-----|
+        |AWS_ACCESS_KEY_ID| From AWS CSV file|
+        |AWS_SECRET_ACCESS_KEY| From AWS CSV file|
+        |DATABASE_URL|Postgres generated URL|
+        |EMAIL_HOST_PASS| Password from the email client |
         |EMAIL_HOST_USER| Site's email address|
         |SECRET_KEY|Random key generated and used in django|
         |STRIPE_PUBLIC_KEY| Stripe Dashboard > Developers tab > API Keys > Publishable key |
@@ -521,6 +576,29 @@ The app was deployed through Heroku. The steps are as follows:
     - Optionally, enable automatic deployment if you want your Heroku app to update automatically whenever changes are pushed to the connected GitHub repository.
     - Click the "Deploy Branch" button to manually deploy your application for the first time.
 
-## AWS Set Up
+## SMTP Email Integration
 
-### AWS S3 Bucket
+### Configuration
+
+To configure SMTP for this project, follow the steps below:
+
+- **Add Email Settings:**
+
+Configure the following variables in your settings.py file or use environment variables for sensitive information:
+
+***EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'***
+
+# SMTP Server Configuration
+***EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'***
+***EMAIL_HOST = 'smtp.gmail.com'***  
+***EMAIL_PORT = 587***              
+***EMAIL_USE_TLS = True***           
+***EMAIL_USE_SSL = False***         
+
+***EMAIL_HOST_USER = 'your-email@example.com'***
+***EMAIL_HOST_PASSWORD = 'your-email-password'*** 
+# Default "From" Email Address
+
+***DEFAULT_FROM_EMAIL = 'Your Website Name <your-email@example.com>'***
+
+***Important!*** Use environment variables to store sensitive credentials.
