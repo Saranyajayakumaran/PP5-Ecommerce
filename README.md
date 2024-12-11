@@ -2,11 +2,11 @@
 
 Welcome to Wellness Nest, your one-stop online destination for wellness products. A E-commerce Drogerie Store is designed to provide users with a seamless and intuitive shopping experience for all their wellness needs. With a range of features for personalized shopping, secure transactions, and customer engagement, Wellness Nest offers a comprehensive digital solution for health-conscious shoppers.
 
-The payment system uses Stripe. Please note that this website is for educational purposes do not enter any personal credit/debit card details when using the site.
+The payment system uses Stripe. Please note that this website is for educational purposes do not enter any personal credit/debit card details when using the site. [Wellnessnest]()
 
 The website is responsive on all screens
 
-![Responsive image](image_url)
+![Responsive image](https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/documentation/Screenshots/wireframes/am%20i%20responsive.png)
 
 
 # Technologies used 
@@ -59,7 +59,7 @@ The website is responsive on all screens
   - A search bar is integrated into the navbar, allowing users to search for products or specific information across the website.  
   - Users can type their query and press enter or click the search icon to view search results.
 
-![Navbar image](image_url)
+![Navbar image](https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/documentation/Screenshots/features/nav%20bar.jpg)
 
 ## Home Page
 
@@ -67,7 +67,7 @@ The website is responsive on all screens
 - A prominently displayed "Shop Now" button encourages users to start exploring products immediately.
 - It shows the delivery cost information below the nav bar.
 
-![Home page](image_url)
+![Home page](https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/documentation/Screenshots/features/home%20page.jpg)
 
 ## Product Page
 
@@ -83,7 +83,7 @@ The website is responsive on all screens
     - Each product image is clickable.
     - Clicking the image redirects the user to the Product Detail Page, where more detailed information about the selected product is displayed.
 
-![Product page](image_url)
+![Product page](https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/documentation/Screenshots/features/product%20page.png)
 
 ## Product Detail Page
 
@@ -108,7 +108,7 @@ The website is responsive on all screens
 - **Keep Shopping Button:**
     - Provides an option for users to return to the product listing or category page without adding the current product to their bag.
 
-![Product detail page](image_url)
+![Product detail page](https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/documentation/Screenshots/features/product%20detail%20page.png)
 
 ## Testimonial Page
 
@@ -128,7 +128,7 @@ The website is responsive on all screens
     - Review actions (edit/delete) are displayed only for the logged-in user who authored the review.
     - Other users can view testimonials but cannot modify or delete them.
 
-![Testimonial page](image_url)
+![Testimonial page](https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/documentation/Screenshots/features/testimonial%20page.png)
 ![Add testimonial page](image_url)
 
 ## Shopping Bag Page
@@ -173,7 +173,7 @@ The website is responsive on all screens
 - After successfully submitting the form, users receive a confirmation email.
 - The form ensures that all required fields are completed before submission, helping to prevent incomplete enquiries.
 
-![Contact Us Page](image_url)
+![Contact Us Page](https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/documentation/Screenshots/features/contact%20us%20page.png)
 
 ## Wishlist Page
 
@@ -195,7 +195,7 @@ The website is responsive on all screens
     - Users have the option to remove products from their wishlist.
     - A "Delete" button is available for each product to quickly manage the wishlist.
 
-![Wish List Page](image_url)
+![https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/documentation/Screenshots/features/wishlist%20page.png](image_url)
 
 ## User Authentication
 
@@ -355,6 +355,12 @@ The website is responsive on all screens
     - Social media platforms (e.g., Facebook, Instagram, WhatsApp).
     - Direct links or email.
 
+
+## Testing
+Find the testing page in the below link
+
+[Testing page](https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/test.md)
+
 ## Business Model
 
 Our e-commerce website operates on a direct-to-consumer model, offering a seamless platform for users to browse, shop, and purchase products. Below are the key components of our business model:
@@ -416,7 +422,10 @@ We have created a dedicated Facebook page for Drogerie Store - Wellness Nest to 
 - **Health and Wellness Tips:** Share valuable content like tips for healthy living, DIY wellness hacks, and product use guides.
 - **Social Proof:** Highlight customer testimonials, reviews, and success stories.
 
-![Facebook page image](image_url)
+![Facebook page image](https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/documentation/Screenshots/facebook/wellnessnest1.png)
+
+# ER Diagram
+![ER diagram](https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/documentation/Screenshots/ER%20diagram/er%20diagrma%20screenshot.jpg)
 
 ### Content marketing
 
