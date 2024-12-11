@@ -213,7 +213,7 @@
         "pk": 15,
         "model": "products.product",
         "fields": {
-        "sku": "HC-10015",
+        "sku": "HW-10015",
         "name": "Premium Milk Powder",
         "description": "Discover the rich and creamy goodness of our Premium Milk Powder, made from high-quality, whole milk. Perfect for cooking, baking, and enjoying a delicious drink, this versatile ingredient is a pantry essential for every household.",
         "price": 30.99,
