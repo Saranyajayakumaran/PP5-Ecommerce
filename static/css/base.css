@@ -6,31 +6,18 @@ body{
     background: url("/media/hero.webp")no-repeat center center fixed;
     background-size: cover;
     width:100%;
-    height:calc(100vh-164px);
+    height:calc(100vh - 164px);
     color:#555;
     font-family:'Arima',sans-serif;
     display:flex;
     flex-direction:column;
     padding-top: 70px;
 }
-/* Custom button */
-/*.cust-btn{
-        background: #343a40;
-        color: black;
-        font-weight: 300 !important;
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-        padding: 10px;
-} 
-.cust-btn:hover {
-    color: white;
-}*/
-
 .custom-header {
-    margin-top: -80px; /* Adjust the value to move it up */
+    margin-top: -80px; /*move it up */
 }
     
-/*header*/
+/*--------------------------------------------------------------------header*/
 .navbar{
     position:fixed;
     padding:2em;
@@ -48,7 +35,7 @@ body{
 }
 
 .search-container {
-    margin-top: 15px; /* Adjust based on your layout */
+    margin-top: 15px; 
 }
 
 .search-input {
@@ -62,7 +49,7 @@ body{
 main {
     flex: 1; /* Allow main to take up available space */
 }
-/*carousel*/
+/*----------------------------------------------------------------------carousel*/
 .hero-section {
     position: relative;
     width: 100%;
@@ -133,10 +120,13 @@ main {
     outline: none; 
 }
 
-/*all products page*/
+/*---------------------------------------------------------------------all products page*/
 
+.card-footer {
+    margin-top: 0; 
+}
 .card {
-   width:300px; /* Adjust based on your desired card size */
+   width:300px; /* Card size changed for mobile devices" */
    height:300px;
 }
 
@@ -164,7 +154,8 @@ a.category-badge > span.badge:hover{
 .remove-item {
     cursor: pointer;
 }
-/*product detail page"*/
+
+/*-----------------------------------------------------------product detail page"*/
 .wishlist-icon{
     background:none;
     border:none;
@@ -192,16 +183,16 @@ a.category-badge > span.badge:hover{
     width:100%;
 }
 .btn-dark {
-    background-color: #343a40; /* Dark background */
-    color: #ffffff; /* White text */
-    border: 1px solid #343a40; /* Match background color */
+    background-color: #343a40; 
+    color: #ffffff; 
+    border: 1px solid #343a40; 
     transition: all 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .btn-dark:hover {
     background-color: #ffffff; /* Darker shade on hover */
     color: #000000; /* Slightly lighter text */
-    border: 1px solid #212529; /* Adjust border to match hover background */
+    border: 1px solid #212529; 
 }
 .btn-black{
     color:#ffffff;
@@ -217,14 +208,14 @@ a.category-badge > span.badge:hover{
 .input-group {
     display: flex;
      align-items: center;
-     border: 1px solid #f2f2f2; /* Light border */
+     border: 1px solid #f2f2f2; 
      border-radius: 4px; /* Rounded edges */
      overflow: hidden; /* Ensure no overflow from rounded corners */
  }
 
  .input-group .form-control {
-    border: 1px solid #f2f2f2; /* Remove inner borders */
-    font-size: 1rem; /* Standard font size */
+    border: 1px solid #f2f2f2;
+    font-size: 1rem; 
     text-align: center; /* Center-align the quantity */
     width: 50px; /* Fixed width for consistency */
 }
@@ -245,26 +236,25 @@ a.category-badge > span.badge:hover{
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 50px; /* Adjusted size */
+    width: 50px; 
     height: 50px;
-    background-color: #aab7c4; /* Primary color (blue) */
+    background-color: #aab7c4; 
     border-radius: 50%; /* Circular shape */
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
     cursor: pointer;
-    z-index: 1000; /* Ensure it's on top of other elements */
+    z-index: 1000; /* Ensures it's on top of other elements */
     transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover animation */
 }
-
 
 .btt-button:hover {
     background-color: #555;
     color: #fff;  
 }
 
-/* Optional: Show the button when user scrolls down a bit */
+/*Show the button when user scrolls down a bit */
 .btt-button.show {
     display: block;
 }
@@ -280,7 +270,7 @@ a.category-badge > span.badge:hover{
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
     margin-bottom:20px;
 }
-/*shopping bag page*/
+/*----------------------------------------------------------shopping bag page*/
 .update-delete-btns{
     background: transparent;  
     border: none;      
@@ -301,7 +291,7 @@ input[name='search_term']::placeholder{
 }
 
 .signup,.login{
-    padding: 2rem; /* Add spacing inside the container */
+    padding: 2rem; /*spacing inside the container */
     border-radius: 10px; /* Rounded corners for a modern look */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
 }
@@ -341,7 +331,7 @@ input[name='search_term']::placeholder{
     margin-right: 1.5rem; /* Horizontal spacing between buttons */
 }
 
-/*Testimonial page*/
+/*------------------------------------------------------------Testimonial page*/
 
 .testimonial-container {
     display: grid;
@@ -355,7 +345,7 @@ input[name='search_term']::placeholder{
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.); /* Subtle shadow */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0); /* Subtle shadow */
     transition: transform 0.3s, box-shadow 0.3s;
   }
   
@@ -366,9 +356,7 @@ input[name='search_term']::placeholder{
   
 .custom-toast {
     position: fixed;
-    top: px;
     right: 1px;
-    left:px;
     width: 450px;
     z-index: 1050;
     margin-right:50px;
@@ -425,6 +413,7 @@ input[name='search_term']::placeholder{
     right: 36px;
 }
 
+/*---------------------------------------------------------toast messages arrow*/
 .arrow-primary{
     border-bottom-color: #007bff !important;
 }
@@ -463,7 +452,7 @@ input[name='search_term']::placeholder{
     overflow-y:auto;
 
 }
-/* Allauth form */
+/*---------------------------------------------------------------------- Allauth form */
 .form-check-label {
     display: inline-block; 
     color: #000; 
@@ -485,7 +474,7 @@ input[name='search_term']::placeholder{
 .allauth-form-inner-content label:not([for='id_remember']){
     display: none;
 }
-.allauth-form-inner-content input:placeholder {
+.allauth-form-inner-content input::placeholder {
     color:#aab7c4;
 }
 
@@ -502,7 +491,6 @@ input[name='search_term']::placeholder{
     -ms-user-select: none;
     user-select: none;
     background-color: #000;
-    border: 1px solid #000;
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
@@ -513,14 +501,13 @@ input[name='search_term']::placeholder{
 .allauth-form-inner-content input[type='submit']:hover {	
 	color: #fff;
     background-color: #222;
-    border-color: #222;
 }
 
 .allauth-form-inner-content a {
 	color: #17a2b8; /* text-info */
 }
 
-/* Product Form*/
+/* --------------------------------------------------------------------------------------Product Form*/
 
 .btn-file{
     position: relative;
@@ -545,15 +532,15 @@ input[name='search_term']::placeholder{
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
     background-color:  #dc3545;
-    border-color: #dc3545;
+    border-color: #000000;
     border-radius: 0;
     
 }
-/*footer*/
+/*-------------------------------------------------------------------------------------footer*/
 
 footer {
-    background-color: #343a40; /* Dark background */
-    color: #f8f9fa; /* Light text */
+    background-color: #343a40; 
+    color: #f8f9fa; 
   }
   
   footer a {
@@ -591,20 +578,22 @@ footer {
     color:white;
   }
   #mc_embed_signup{
-    background:false;
+    background-color:transparent;
     clear:left; 
     font:14px ; 
   }
-    .footer-email{
-        width:400px;
-        font:14px; 
-    }
+
+  .footer-email{
+    width:400px;
+    font:14px; 
+  }
 
  .mc-subscribe{
     background-color:#ffc107;
  }
 
  @media (min-width:280px)  {
+    /*-------------------------samller screen*/
     .product-detail-image {
         width:100%;
         height:65vw;
@@ -622,8 +611,9 @@ footer {
     }
   }
 
-  /*--------------------- media query*/
+  /*--------------------- -----------------------media query*/
 @media (min-width: 350px) and (max-width: 576px) { 
+    /*----------------------------------------------------------modile specific*/
     .product-detail-image {
         width:100%;
         height:65vw;
@@ -690,6 +680,7 @@ footer {
 }
 
 @media (min-width: 578px) and (max-width: 992px){
+    /*--------------------------------------------------modile specific styles*/
     .product-detail-image {
         width:100%;
         height:65vw;
@@ -724,7 +715,7 @@ footer {
     }
 }
 @media (min-width: 768px) and (max-width: 991px) {
-    /* Tablet-specific styles */
+    /*------------------------------------------------- Tablet-specific styles */
     .product-detail-image {
         width:100%;
         height:75vw;
@@ -790,7 +781,7 @@ footer {
     }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
-    /* Laptop-specific styles */
+    /* ------------------------------------------------------------Laptop-specific styles */
     .product-detail-image {
     width:100%;
     height:50vw;
@@ -803,7 +794,7 @@ footer {
 }
 
 @media (min-width: 1200px) {
-    /* Desktop-specific styles */
+    /*-------------------------------------------------------------- Desktop-specific styles */
     .product-detail-image {
         width:100%;
         height:60vh;
@@ -815,7 +806,7 @@ footer {
         bottom: 0;
         left: 0;
         right: 0;
-        z-index: 10; /
+        z-index: 10;
     }
     
 }

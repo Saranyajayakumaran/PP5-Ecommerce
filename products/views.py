@@ -123,7 +123,6 @@ def add_product_view(request):
 
     return render(request, template, context)
 
-
 @login_required
 def edit_product_view(request, product_id):
     """ Edit a product in the store """
@@ -144,6 +143,7 @@ def edit_product_view(request, product_id):
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')
+
 
     template = 'products/edit_product.html'
     context = {
@@ -168,7 +168,10 @@ def delete_product_view(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Product Deleted!')
-    return redirect(reverse('products'))
+    context = {
+        'only_success_message':True
+    }
+    return redirect(reverse('products'),context)
 
 
 @login_required
