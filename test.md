@@ -28,6 +28,8 @@ Python testing was done using Pycodestyle to ensure there were no syntax errors.
 The only errors displayed (as per below screenshot) can be ignored. The majority are within automatically generated files with the exception of env.py and webhooks.py.
 
 I have ignored the the formatting errors related to env.py as they relate to my Secret Keys and Database URL being to long. This file is not committed to github.
+
+
 ![Edit product page error](https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/documentation/Screenshots/html%20validation/pylint%20error%20final.png)
 
 # Functional Testing
@@ -90,7 +92,7 @@ I have ignored the the formatting errors related to env.py as they relate to my 
 |Click "Add to bag" button|Add specific product to shopping bag and display success message "Product added to shopping bag successfully" with product details |PASS|
 |Click Quantity '+' button in quantity input|Increase the number of qunatity max "99" disable '+' button when quanttiy reaches 99|PASS|
 |Click Quantity '-' button in quantity input|Decrease the number of qunatity min "1" disable '-' button when quanttiy reaches 1|PASS|
-|Click Category badge||Display all products in specific category|PASS|
+|Click Category badge|Display all products in specific category|PASS|
 |Click secure Checkout button in success message|Go to shopping bag page with grand total|PASS|
 
 # Shopping bag Page

@@ -43,7 +43,7 @@ Wireframes are visual representations of the application's layout and structure.
 
 You can find the wirefarems of the project with the below link:
 
-wireframes [wireframes]()
+wireframes [wireframes](https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/wireframes.md)
 
 # Features
 ## NavBar
