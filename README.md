@@ -38,6 +38,13 @@ The website is responsive on all screens
 - Configured with SMTP servers to send email notifications for user registration, password resets, and more.
 
 
+# wireframes
+Wireframes are visual representations of the application's layout and structure. They serve as a blueprint for designing the user interface (UI) and help to communicate the app's functionality and user flow.
+
+You can find the wirefarems of the project with the below link:
+
+wireframes [wireframes]()
+
 # Features
 ## NavBar
 
@@ -129,7 +136,6 @@ The website is responsive on all screens
     - Other users can view testimonials but cannot modify or delete them.
 
 ![Testimonial page](https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/documentation/Screenshots/features/testimonial%20page.png)
-![Add testimonial page](image_url)
 
 ## Shopping Bag Page
 
@@ -353,7 +359,6 @@ The website is responsive on all screens
     - Social media platforms (e.g., Facebook, Instagram, WhatsApp).
     - Direct links or email.
 
-
 ## Testing
 Find the testing page in the below link
 
@@ -426,6 +431,7 @@ We have created a dedicated Facebook page for Drogerie Store - Wellness Nest to 
 
 ![Facebook page image](https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/documentation/Screenshots/facebook/wellnessnest1.png)
 
+
 # ER Diagram
 ![ER diagram](https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/documentation/Screenshots/ER%20diagram/er%20diagrma%20screenshot.jpg)
 
@@ -455,7 +461,7 @@ Our e-commerce platform development follows the Agile methodology, a flexible an
 - Focused delivery on customer priorities.
 
 
-## Django framework
+# Django framework
 Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. Here are the steps outlining how Django works:
 
 - **Project Setup**
@@ -495,7 +501,7 @@ Django is a high-level Python web framework that encourages rapid development an
 - **Deployment**
 - **Prepare for Deployment:** Configure settings for production (e.g., DEBUG=False), collect static files with python manage.py collectstatic, and use a WSGI server for deployment.
 
-### Using Bootstrap  
+# Using Bootstrap  
 
 Bootstrap is a powerful front-end framework for developing responsive and mobile-first websites. It includes HTML, CSS, and JavaScript components for creating common UI elements and layouts quickly and efficiently.
 
@@ -514,7 +520,8 @@ Why Use Bootstrap?
 - **Leverage Bootstrap Grid System**
     - Utilize Bootstrap’s grid system to create responsive layouts. The grid system uses a series of containers, rows, and columns to layout and align content.
 
-## AWS S3 Bucket
+# AWS S3 Bucket
+
 Django with AWS S3 integration allows seamless storage and retrieval of static files (CSS, JavaScript, images) and media files (user uploads) using Amazon's Simple Storage Service (S3). This approach is highly scalable, cost-effective, and ensures reliable access to files.
 
 - **Static and Media File Storage:** Store all static files and user-uploaded media in S3 buckets.
@@ -522,7 +529,7 @@ Django with AWS S3 integration allows seamless storage and retrieval of static f
 - **Security:** Secure your files with AWS IAM policies and bucket permissions.
 - **Performance:** Reduce server load and latency by serving files directly from S3, often combined with AWS CloudFront (CDN) for faster content delivery.
 
-## AWS Set Up
+# AWS Set Up
 
 - **AWS S3 Bucket Creation:**
   - Create an S3 bucket on AWS.
@@ -533,16 +540,43 @@ Django with AWS S3 integration allows seamless storage and retrieval of static f
   - Update Django settings ( **settings.py** )  to use S3 for static and media files:
 
 ***AWS_ACCESS_KEY_ID = 'your-access-key-id'***
+
 ***AWS_SECRET_ACCESS_KEY = 'your-secret-access-key'***
+
 ***AWS_STORAGE_BUCKET_NAME = 'your-bucket-name'***
+
 ***AWS_S3_REGION_NAME = 'your-region'  # e.g., 'us-east-1'***
 
 ***STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'***
 
 ***DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'***
 
+# Stripe Integration
 
-### Heroku Deployment
+This project integrates Stripe, a leading online payment processing platform, to handle secure and seamless payment transactions. Stripe enables businesses to accept payments via credit cards, debit cards, and various other payment methods.
+
+**How It’s Used:**
+
+**Payment Gateway:** The application utilizes Stripe as the primary gateway for processing payments.
+**Checkout Process:** Secure and customizable Stripe Checkout is implemented for user transactions.
+**Webhooks:** Stripe webhooks are used to handle events like payment success, failure, and refunds.
+
+## Stripe API Keys
+
+Stripe uses two types of API keys:
+
+**Publishable Key:** Used on the frontend for client-side operations.
+**Secret Key:** Used on the backend for server-side operations.
+
+It’s recommended to store API keys securely in environment variables. [stripe dashboard](https://dashboard.stripe.com/login?redirect=%2Fapikeys)
+
+STRIPE_PUBLISHABLE_KEY=pk_test_51HXYZabc...
+
+STRIPE_SECRET_KEY=sk_test_51HXYZdef...
+
+![stripe functinality](https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/documentation/Screenshots/stripe%20integration/stripe%20payment%20integration.png)
+
+# Heroku Deployment
 
 The app was deployed through Heroku. The steps are as follows:
 
@@ -563,18 +597,20 @@ The app was deployed through Heroku. The steps are as follows:
     - Go to your newly created app's settings.
     - Navigate to the "Config Vars" section.
         - Add the following Config Vars in Heroku:
-        |Variable name|Value|
-        |-------------|-----|
-        |AWS_ACCESS_KEY_ID| From AWS CSV file|
-        |AWS_SECRET_ACCESS_KEY| From AWS CSV file|
-        |DATABASE_URL|Postgres generated URL|
-        |EMAIL_HOST_PASS| Password from the email client |
-        |EMAIL_HOST_USER| Site's email address|
-        |SECRET_KEY|Random key generated and used in django|
-        |STRIPE_PUBLIC_KEY| Stripe Dashboard > Developers tab > API Keys > Publishable key |
-        |STRIPE_SECRET_KEY| Stripe Dashboard > Developers tab > API Keys > Secret key|
-        |STRIPE_WH_SECRET| Stripe Dashboard > Developers tab > Webhooks > site endpoint > Signing secret|
-        |USE_AWS| True|
+        
+        
+|Variable name|Value|
+|-------------|-----|
+|AWS_ACCESS_KEY_ID| From AWS CSV file|
+|AWS_SECRET_ACCESS_KEY| From AWS CSV file|
+|DATABASE_URL|Postgres generated URL|
+|EMAIL_HOST_PASS| Password from the email client |
+|EMAIL_HOST_USER| Site's email address|
+|SECRET_KEY|Random key generated and used in django|
+|STRIPE_PUBLIC_KEY| Stripe Dashboard > Developers tab > API Keys > Publishable key |
+|STRIPE_SECRET_KEY| Stripe Dashboard > Developers tab > API Keys > Secret key|
+|STRIPE_WH_SECRET| Stripe Dashboard > Developers tab > Webhooks > site endpoint > Signing secret|
+|USE_AWS| True|
 
     - Add any necessary environment variables that your application requires.
     - Postgres database link and secret key as same as in the django app
@@ -587,7 +623,7 @@ The app was deployed through Heroku. The steps are as follows:
     - Optionally, enable automatic deployment if you want your Heroku app to update automatically whenever changes are pushed to the connected GitHub repository.
     - Click the "Deploy Branch" button to manually deploy your application for the first time.
 
-## SMTP Email Integration
+# SMTP Email Integration
 
 ### Configuration
 
@@ -600,16 +636,29 @@ Configure the following variables in your settings.py file or use environment va
 ***EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'***
 
 # SMTP Server Configuration
-***EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'***
-***EMAIL_HOST = 'smtp.gmail.com'***  
-***EMAIL_PORT = 587***              
-***EMAIL_USE_TLS = True***           
-***EMAIL_USE_SSL = False***         
 
-***EMAIL_HOST_USER = 'your-email@example.com'***
-***EMAIL_HOST_PASSWORD = 'your-email-password'*** 
-# Default "From" Email Address
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-***DEFAULT_FROM_EMAIL = 'Your Website Name <your-email@example.com>'***
+EMAIL_HOST = 'smtp.gmail.com'  
+EMAIL_PORT = 587              
+EMAIL_USE_TLS = True          
+EMAIL_USE_SSL = False        
+
+EMAIL_HOST_USER = 'your-email@example.com'
+EMAIL_HOST_PASSWORD = 'your-email-password'
+
+**Default "From" Email Address**
+
+DEFAULT_FROM_EMAIL = 'Your Website Name <your-email@example.com>'
 
 ***Important!*** Use environment variables to store sensitive credentials.
+
+
+# Credits
+- I would thank many sources and people who supported to complete my project.
+    - Thank my mentor Dick vlaanderen who guided me and his ideas and corrections were very helpful.
+    - W3schools and Stackoverflow plays a major role in learning the concepts.[W3C schools](https://www.w3schools.com/) 
+    - Authenication,signup and product management ,deployment methods are followed from blog project[boutique ado](https://github.com/Code-Institute-Solutions/boutique_ado_v1/tree/933797d5e14d6c3f072df31adf0ca6f938d02218) 
+    - Bootstrap classes Utilized from the Bootstrap documentation[Bootstrap](https://getbootstrap.com/) 
+    - Some more youtube channels too get idea of e commerce project[desphis](https://www.youtube.com/@desphixs) 
+      [codemy](https://www.youtube.com/watch?v=A0mSfYDH-nY)
