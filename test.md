@@ -117,6 +117,11 @@ click complete order|  Order should complete and display order details and send 
 |--------|----------|-----------------|---------|
 |Case 1|Fill the valid username and password|Render homepage of the website and success message"You are logged in as with username"|PASS|
 |Case 2|Enter valid email address and password|Render homepage of the website and success message"You are logged in as with username"|PASS|
+|Case 3|Click home button|go to home page|PASS|
+|Case 4|Click forgot password|Ask the user to enter email address to recover password|PASS|
+|Case 5|Enter email id and click reset my password|Send email to the user with link to recover password|PASS|
+|Case 6|Click back to login|Go to login page|PASS|
+
 
 ## Invalid input
 
@@ -125,11 +130,12 @@ click complete order|  Order should complete and display order details and send 
 |Case 1|Fill the username not password and click sign in|Prompt user to fill the passowrd field|PASS|
 |Case 2|Leave the username and fill password and click sign in|Prompt user to fill the username field|PASS|
 |Case 3|Fill the Wrong username and password and click sign in|Error message"The username or password you entered are incorrect|PASS|
-|Case 4|Click home button|go to home page|PASS|
-|Case 5|Click forgot password|Ask the user to enter email address to recover password|PASS|
-|Case 6|Enter email id and click reset my password|Send email to the user with link to recover password|PASS|
-|Case 7|Click back to login|Go to login page|PASS|
 
+# Signup Form
+
+|Testcase|User Input|Expected behavior|PASS/FAIL|
+|--------|----------|-----------------|---------|
+|
 
 
 
