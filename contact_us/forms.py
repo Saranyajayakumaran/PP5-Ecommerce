@@ -54,5 +54,6 @@ class ContactEnquiryForm(forms.ModelForm):
         for word in self.BANNED_KEYWORDS:
             if word in message.lower():
                 raise forms.ValidationError(
-                    f"Your message contains inappropriate content: '{word}'.")
+                    f"Your message contains inappropriate content: '{word}'."
+                    "Please remove it")
         return message
