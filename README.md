@@ -211,7 +211,7 @@ The website is responsive on all screens
 - **Redirects After Login**:  
   - Users are redirected to the homepage or their last visited page after successful login.
 
-  ![Login Page](image_url)
+  ![Login Page](https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/documentation/Screenshots/features/login%20page.png)
 
 ## Sign-Up Form
 
@@ -225,7 +225,7 @@ The website is responsive on all screens
   - Ensures all required fields are filled in and valid.  
   - Password strength is validated to ensure security.
 
-![SignUp Page](image_url)
+![SignUp Page](https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/documentation/Screenshots/features/signup%20page.png)
 
 ## Checkout Page
 
@@ -262,7 +262,7 @@ The website is responsive on all screens
 - **Adjust Bag Button**:  
   - Allows users to return to the Shopping Bag page to make modifications to their order before proceeding with payment.
 
-![Checkout Page](image_url)
+![Checkout Page](https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/documentation/Screenshots/features/checkout%20page.png)
 
 ## My Profile Page
 
@@ -287,7 +287,7 @@ The website is responsive on all screens
 - **Pre-Filled Checkout Form**:  
   - When placing new orders, the information from the profile page is automatically pre-filled in the checkout form for convenience.  
 
-![My Profile Page](image_url)
+![My Profile Page](https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/documentation/Screenshots/features/my%20profile%20page.png)
 
 ## Features
 
@@ -321,7 +321,7 @@ The website is responsive on all screens
     - A **Subscribe** button allows users to confirm their subscription.  
     - After subscribing, users receive a confirmation message or email.
 
-![Footer image](image_url)
+![Footer image](https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/documentation/Screenshots/features/footer.png)
 
 
 ## Future Development Features
@@ -410,6 +410,10 @@ SEO (Search Engine Optimization) is the process of improving a website’s visib
     15. natural
     16. healthy
     17. wellness essentials
+    18. Self-love
+    19. Personal Care
+    20. Health hacks
+
 
 ### Social Media Marketing
 - Promoting products and engaging users through platforms like Instagram, Facebook, and Twitter.

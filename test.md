@@ -80,16 +80,16 @@
 
 |Testcase|User Input|Expected behavior|PASS/FAIL|
 |--------|----------|-----------------|---------|
-|Case 1|Enter valid inputs in checkout form 
-"name:Test",
-"email:test@test.com",
-"Phone neumber:01234567890",
-"streetaddress1: test street1",
-"streetaddress2: test street2",
-"town or city: stuttgart",
-"Postalcode:123456",
-"country:Germany" and "Payment:42424242424242424"
-click complete order|  Order should complete and display order details and send email to the email address specified in the form"|PASS|
+|Case 1| Enter valid inputs in checkout form"name:Test", | Order should complete and display order details and send email to the email address specified in the form" |PASS|
+        "email:test@test.com",
+        "Phone neumber:01234567890",
+        "streetaddress1: test street1",
+        "streetaddress2: test street2",
+        "town or city: stuttgart",
+        "Postalcode:123456",
+        "country:Germany" and "Payment:42424242424242424" 
+        
+        click complete order 
 |Case 2| Click save the info field to save the informations(logged in user)|save the information to my profile|PASS|
 |Case 3| Click create account if user dont have an account|Go to sign up page|PASS|
 |Case 4| Click login if user already have an account|Go to login page|PASS|
