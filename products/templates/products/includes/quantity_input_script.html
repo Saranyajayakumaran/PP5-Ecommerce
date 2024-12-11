@@ -6,7 +6,8 @@
         var plusDisabled = currentValue > 98;
         $(`#decrement-qty_${itemId}`).prop('disabled', minusDisabled);
         $(`#increment-qty_${itemId}`).prop('disabled', plusDisabled);
-
+        console.log(`Item ${itemId} - Decrement Disabled: ${minusDisabled}, Increment Disabled: ${plusDisabled}`);
+    
     }
 
     var allQtyInputs = $('.qty_input');
@@ -24,6 +25,7 @@
     // increment the quanitiy of product when click '+' button
     $('.increment-qty-btn').click(function(e){
         e.preventDefault();
+        console.log('Increment button clicked for item:', $(this).data('item_id')); 
         var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
         var currentValue = parseInt($(closestInput).val());
         $(closestInput).val(currentValue + 1);
@@ -33,6 +35,7 @@
      // decrement the quanitiy of product when click '-' button
     $('.decrement-qty-btn').click(function(e){
         e.preventDefault();
+        console.log('Decrement button clicked for item:', $(this).data('item_id')); 
         var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
         var currentValue = parseInt($(closestInput).val());
         $(closestInput).val(currentValue - 1);
