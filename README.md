@@ -158,7 +158,7 @@ The website is responsive on all screens
 - **Keep Shopping Button**:  
   - Allows users to navigate back to the product listing page or homepage to continue shopping.
 
-![Shopping Page](image_url)
+![Shopping Page](https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/documentation/Screenshots/features/shopping%20bag%20page.png)
 
 
 ## Contact us Page
@@ -195,7 +195,7 @@ The website is responsive on all screens
     - Users have the option to remove products from their wishlist.
     - A "Delete" button is available for each product to quickly manage the wishlist.
 
-![https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/documentation/Screenshots/features/wishlist%20page.png](image_url)
+![wishlist page](https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/documentation/Screenshots/features/wishlist%20page.png)
 
 ## User Authentication
 
@@ -288,8 +288,6 @@ The website is responsive on all screens
   - When placing new orders, the information from the profile page is automatically pre-filled in the checkout form for convenience.  
 
 ![My Profile Page](https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/documentation/Screenshots/features/my%20profile%20page.png)
-
-## Features
 
 ### Footer
 - **Quick Links**:  
