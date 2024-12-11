@@ -3,7 +3,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import TestimonialForm
 from .models import Testimonial
-from django.core.paginator import Paginator
 
 
 def testimonials_view(request):
@@ -64,7 +63,7 @@ def add_testimonials_view(request):
     }
     return render(
         request,
-        'testimonials/add_testimonials.html', context )
+        'testimonials/add_testimonials.html', context)
 
 
 @login_required
@@ -127,7 +126,7 @@ def edit_testimonials_view(request, testimonial_id):
             return redirect('testimonials')
     else:
         form = TestimonialForm(instance=testimonial)
-    
+
     context = {
         'form': form,
         'testimonial': testimonial,

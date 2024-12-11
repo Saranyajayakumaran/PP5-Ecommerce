@@ -23,7 +23,8 @@ def contact_enquiry_view(request):
 
             messages.success(request, 'Thank you for contacting us!'
                              'We have received your Enquiry.'
-                             'A confirmation email has been sent to your mail id.')
+                             'A confirmation email has'
+                             'been sent to your mail id.')
             return redirect('contact_us')
         else:
             messages.error(request, 'There was an error with '
@@ -33,7 +34,7 @@ def contact_enquiry_view(request):
 
     context = {
         'form': form,
-        'only_success_message': True, 
+        'only_success_message': True,
     }
 
     return render(request, 'contact_us/contact_us.html', context)
@@ -41,14 +42,17 @@ def contact_enquiry_view(request):
 
 def send_contact_confirmation_email(enquiry):
     """
-    Send a confirmation email to the user after a successful enquiry.
+    Send a confirmation email to the
+    user after a successful enquiry.
     """
     send_mail(
         subject=f"Thank You for Your Enquiry: {enquiry.subject}",
         message=(
             f"Dear {enquiry.full_name},\n\n"
-            f"Thank you for reaching out to us regarding: {enquiry.get_enquiry_type_display()}.\n"
-            f"We have received your enquiry and will get back to you as soon as possible.\n\n"
+            "Thank you for reaching out to us regarding:"
+                f"{enquiry.get_enquiry_type_display()}.\n"
+            f"We have received your enquiry and will "
+                "get back to you as soon as possible.\n\n"
             f"Subject: {enquiry.subject}\n"
             f"Message: {enquiry.message}\n\n"
             f"Best regards,\nWellnessnest"

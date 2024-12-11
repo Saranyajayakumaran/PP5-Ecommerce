@@ -3,15 +3,18 @@ from .models import ContactEnquiry
 
 
 class ContactEnquiryForm(forms.ModelForm):
+    """Enquiry submission form for user to
+    submit the feedback or issues"""
 
     BANNED_KEYWORDS = [
-        'disgusting', 'annoying', 'pathetic', 
-        'terrible', 'awful', 'horrible','ridiculous',
-        'absurd','lame','trivial'
+        'disgusting', 'annoying', 'pathetic',
+        'terrible', 'awful', 'horrible', 'ridiculous',
+        'absurd', 'lame', 'trivial'
     ]
+
     class Meta:
         model = ContactEnquiry
-        fields = ['full_name', 'email', 
+        fields = ['full_name', 'email',
                   'enquiry_type', 'subject', 'message']
         widgets = {
             'full_name': forms.TextInput(attrs={'class': 'border-line'}),
@@ -41,15 +44,15 @@ class ContactEnquiryForm(forms.ModelForm):
         return subject
 
     def clean_message(self):
-            """ validate message to minimum 20 character
-                and to eliminate banned keywords
-            """
-            message = self.cleaned_data.get('message')
-            if len(message) < 20:
+        """ validate message to minimum 20 character
+            and to eliminate banned keywords
+        """
+        message = self.cleaned_data.get('message')
+        if len(message) < 20:
+            raise forms.ValidationError(
+                "Message must be at least 20 characters long.")
+        for word in self.BANNED_KEYWORDS:
+            if word in message.lower():
                 raise forms.ValidationError(
-                    "Message must be at least 20 characters long.")
-            for word in self.BANNED_KEYWORDS:
-                if word in message.lower():
-                    raise forms.ValidationError(
-                        f"Your message contains inappropriate content: '{word}'.")
-            return message
+                    f"Your message contains inappropriate content: '{word}'.")
+        return message

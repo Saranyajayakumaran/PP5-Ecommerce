@@ -8,6 +8,7 @@ class StaticStorage(S3Boto3Storage):
     """
     location = settings.STATICFILES_LOCATION
 
+
 class MediaStorage(S3Boto3Storage):
     """
     Custom storage for media files, stored in a specific S3 location.

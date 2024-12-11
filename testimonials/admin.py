@@ -18,7 +18,7 @@ class TestimonialAdmin(admin.ModelAdmin):
         Testimonial model in the admin.
     """
     list_display = (
-        'user',     
+        'user',
         'message',
         'created_at'
     )
