@@ -646,6 +646,17 @@ footer {
         width:50px;
     }
 
+    .btn-increment.disabled,
+    .btn-decrement.disabled {
+        opacity: 0.5; /* Fading effect */
+        cursor: not-allowed;
+    }
+
+    .btn-increment,
+    .btn-decrement {
+        transition: opacity 0.3s ease;
+    }
+
     .display-4-mobile {
         font-size: 2.2rem; /* Bigger text for h2 on mobile */
     }

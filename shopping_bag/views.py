@@ -49,12 +49,18 @@ def adjust_bag_view(request, item_id):  # item_id=Product_id
 
     if quantity > 99:
         messages.error(
-            request, 'Quantity must be less than or equal to 99.')
+            request, 'Quantity must be between 1 and 99.')
     elif quantity > 0:
         shopping_bag[item_id] = quantity
         messages.success(
             request,
             f'Updated {product.name} quantity to {shopping_bag[item_id]}'
+        )
+    elif quantity <= 0:
+        # Handle negative or zero values with an error message
+        messages.error(
+            request,
+            'Quantity must be between 1 and 99.'
         )
     else:
         shopping_bag.pop(item_id)
