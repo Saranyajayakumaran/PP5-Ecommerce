@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import TestimonialForm
 from .models import Testimonial
+from django.http import HttpResponse
 
 
 def testimonials_view(request):
@@ -43,6 +44,8 @@ def add_testimonials_view(request):
         HttpResponse: Redirects to the testimonials page upon successful
                       submission or re-renders the add testimonial form.
     """
+    request.session['IsShoppingBagUpdated'] = False
+
     if request.method == 'POST':
         form = TestimonialForm(request.POST)
         if form.is_valid():
@@ -58,8 +61,6 @@ def add_testimonials_view(request):
         form = TestimonialForm()
     context = {
         'form': form,
-        'only_success_message': True,
-        'grand_total': None,
     }
     return render(
         request,
@@ -82,6 +83,8 @@ def delete_testimonials_view(request, testimonial_id):
         HttpResponse: Redirects to the testimonials page upon deletion
                       or permission denial.
     """
+    request.session['IsShoppingBagUpdated'] = False
+
     testimonial = get_object_or_404(Testimonial, id=testimonial_id)
 
     if testimonial.user != request.user and not request.user.is_superuser:
@@ -110,6 +113,9 @@ def edit_testimonials_view(request, testimonial_id):
         HttpResponse: Redirects to the testimonials page upon successful update
                       or re-renders the edit testimonial form.
     """
+
+    request.session['IsShoppingBagUpdated'] = False
+
     testimonial = get_object_or_404(Testimonial, id=testimonial_id)
 
     if testimonial.user != request.user and not request.user.is_superuser:
@@ -130,11 +136,16 @@ def edit_testimonials_view(request, testimonial_id):
     context = {
         'form': form,
         'testimonial': testimonial,
-        'only_success_message': True,
-        'grand_total': None,
     }
     return render(
         request,
         'testimonials/update_testimonials.html',
         context
     )
+
+
+def reset_shopping_bag_flag(request):
+    """Reset the 'IsShoppingBagUpdated' session flag."""
+    request.session['IsShoppingBagUpdated'] = False
+    return HttpResponse(status=200)  # Empty response with 200 OK status
+

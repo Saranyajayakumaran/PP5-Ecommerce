@@ -23,19 +23,24 @@ def add_to_bag_view(request, item_id):  # item_id=Product_id
     shopping_bag = request.session.get('shopping_bag', {})
     if item_id in list(shopping_bag.keys()):
         shopping_bag[item_id] += quantity
+        request.session['IsShoppingBagUpdated'] = True
         messages.success(
             request,
             f'Added {product.name} quantity to {shopping_bag[item_id]}'
         )
     else:
         shopping_bag[item_id] = quantity
+        request.session['IsShoppingBagUpdated'] = True
         messages.success(
             request,
             f'Added {product.name} quantity to your bag'
-        )
-
+        )    
+    
     request.session['shopping_bag'] = shopping_bag
+    
     print(request.session['shopping_bag'])
+
+    
     return redirect(redirect_url)
 
 
@@ -52,6 +57,7 @@ def adjust_bag_view(request, item_id):  # item_id=Product_id
             request, 'Quantity must be between 1 and 99.')
     elif quantity > 0:
         shopping_bag[item_id] = quantity
+        request.session['IsShoppingBagUpdated'] = True
         messages.success(
             request,
             f'Updated {product.name} quantity to {shopping_bag[item_id]}'
@@ -65,11 +71,13 @@ def adjust_bag_view(request, item_id):  # item_id=Product_id
         )
     else:
         shopping_bag.pop(item_id)
+        request.session['IsShoppingBagUpdated'] = True
         messages.success(
             request,
             f'Removed {product.name} from your shopping bag')
 
     request.session['shopping_bag'] = shopping_bag
+
     print(request.session['shopping_bag'])
     return redirect(reverse('shopping_bag'))
 
@@ -81,9 +89,12 @@ def remove_item_view(request, item_id):
         shopping_bag = request.session.get('shopping_bag', {})
 
         shopping_bag.pop(item_id)
+        request.session['IsShoppingBagUpdated'] = True
         messages.success(request, f'Removed {product.name} from your bag')
 
         request.session['shopping_bag'] = shopping_bag
+
+        
         return HttpResponse(status=200)
     except Exception as e:
         messages.error(request, f'Error removing items:{e}')

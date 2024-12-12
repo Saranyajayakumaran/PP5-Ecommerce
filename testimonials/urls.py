@@ -1,5 +1,6 @@
 from django.urls import path
 from .import views
+from .views import reset_shopping_bag_flag
 
 
 urlpatterns = [
@@ -15,5 +16,7 @@ urlpatterns = [
     path(
         'testimonials/edit/<int:testimonial_id>',
         views.edit_testimonials_view, name='edit_testimonials'
-    )
+    ),
+    path('reset-shopping-bag-flag/', reset_shopping_bag_flag, name='reset_shopping_bag_flag'),
+
 ]

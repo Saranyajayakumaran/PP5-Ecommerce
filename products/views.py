@@ -98,6 +98,8 @@ def add_product_view(request):
     only the super user , owner of the product
     or store maangement can add the product
     """
+    request.session['IsShoppingBagUpdated'] = False
+
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -118,7 +120,6 @@ def add_product_view(request):
     template = "products/add_product.html"
     context = {
         'form': form,
-        'only_success_message': True,
     }
 
     return render(request, template, context)
@@ -127,11 +128,13 @@ def add_product_view(request):
 @login_required
 def edit_product_view(request, product_id):
     """ Edit a product in the store """
+    request.session['IsShoppingBagUpdated'] = False
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
     product = get_object_or_404(Product, pk=product_id)
+
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
@@ -149,7 +152,6 @@ def edit_product_view(request, product_id):
     context = {
         'form': form,
         'product': product,
-        'only_success_message': True,
     }
 
     return render(request, template, context)
@@ -160,6 +162,7 @@ def delete_product_view(request, product_id):
     """
     Delete a product from the store
     """
+    request.session['IsShoppingBagUpdated'] = False
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -167,10 +170,8 @@ def delete_product_view(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Product Deleted!')
-    context = {
-        'only_success_message': True,
-    }
-    return redirect(reverse('products'), context)
+
+    return redirect(reverse('products'))
 
 
 @login_required
@@ -205,7 +206,6 @@ def wishlist_view(request):
         print("wishlist_view items", wishlist_items)
     context = {
         'wishlist_items': wishlist_items,
-        'only_success_message': True
     }
     return render(request, 'products/wishlist.html', context)
 
@@ -228,6 +228,7 @@ def add_to_wishlist_view(request, product_id):
         HttpResponse: A redirect to the wishlist page
         after adding the product.
     """
+    request.session['IsShoppingBagUpdated'] = False
     product = get_object_or_404(Product, pk=product_id)
     wishlist_item, created = (
         Wishlist.objects.get_or_create(user=request.user, product=product)
@@ -261,6 +262,7 @@ def remove_from_wishlist_view(request, product_id):
         HttpResponse: A redirect to the wishlist
         page after the removal action.
     """
+    request.session['IsShoppingBagUpdated'] = False
     #  Get the product object (if it exists)
     product = get_object_or_404(Product, pk=product_id)
 

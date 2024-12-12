@@ -15,7 +15,8 @@
                 {{ message }}
             </div>
         </div>
-        {% if not only_success_message and grand_total %}
+        
+        {% if request.session.IsShoppingBagUpdated %}
             <p class="bg-white text-dark py-2">Your Bag has ({{ product_count }} items)</p>
             <div class="shopping-bag-notification-wrapper">
                 {% for item in shopping_bag_items %}
