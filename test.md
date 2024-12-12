@@ -333,3 +333,15 @@ I have ignored the the formatting errors related to env.py as they relate to my 
 |Test Case|Expected behavior|PASS/FAIL|
 |---------|-----------------|---------|
 |Enter email address and click subscribe|Render mailchimp subscription confirmation page|PASS|
+
+
+# Fixed Bugs
+
+|Bug found|Problem|Solution|
+|---------|-------|--------|
+|Handling increase and decrease quantity in shopping bag|The quantity input field on the shopping page allowed negative values.|Updated the quantity-input.js file to enforce minimum and maximum value checks for the input field.|
+|Handling the update button on the shopping bag page|The update button was not reflecting changes made to the increased or decreased quantity values.| Identified a mismatch between the class names used in the JavaScript and HTML, then corrected the class name.|
+|Handling media file storage in AWS S3| Media files were not being stored in the S3 bucket after deploying the project.|Resolved the issue by reviewing and fixing bucket permissions.|
+|Handling "Save Info" in the profile page|User information was not being saved in the "My Profile" page when the "Save Info" checkbox was selected during checkout.|Corrected a typo in the _save_info class in the HTML.|
+|Handling Stripe payment integration|Payments were failing, and order details were not being created.|Found that the webhook event link was incorrect. Debugged the issue using print statements and fixed the URL.|
+|Handling email notifications on successful payment| Emails were not being sent to users after a successful payment.|Discovered that the email backend was not properly configured in settings.py and corrected the configuration.|

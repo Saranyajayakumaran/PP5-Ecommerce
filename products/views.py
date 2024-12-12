@@ -168,7 +168,7 @@ def delete_product_view(request, product_id):
     product.delete()
     messages.success(request, 'Product Deleted!')
     context = {
-        'only_success_message': True
+        'only_success_message': True,
     }
     return redirect(reverse('products'), context)
 

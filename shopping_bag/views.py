@@ -56,6 +56,7 @@ def adjust_bag_view(request, item_id):  # item_id=Product_id
             request,
             f'Updated {product.name} quantity to {shopping_bag[item_id]}'
         )
+        request.session['success_message_context'] = 'update_bag'
     elif quantity <= 0:
         # Handle negative or zero values with an error message
         messages.error(
