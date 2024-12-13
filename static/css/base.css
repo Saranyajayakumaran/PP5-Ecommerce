@@ -676,6 +676,10 @@ footer {
     .footer-links a {
         margin-bottom: 10px;
     }
+    
+    footer .row {
+    margin-left:0;
+    }
     #mc_embed_signup{
         width: 300px;
       }
