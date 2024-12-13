@@ -121,40 +121,35 @@
             
             console.log('Navbar item clicked: ' + this.href);
             
-            // Prevent the default action of the link
-            //event.preventDefault();
-    
             // Send the request to reset the shopping bag flag
             fetch("{% url 'reset_shopping_bag_flag' %}")
               .then(response => {
                 if (response.ok) {
                     //console.log('Shopping bag flag reset successfully');
                     // After resetting the flag, navigate to the link
-                  //window.location.href = this.href;  // Navigate to the link after calling the API
+                  window.location.href = this.href;  // Navigate to the link after calling the API
                 } else {
-                    console.log('Failed to reset the flag. Status:', response.status);
                     // Optionally, navigate even if the API fails
-                    //window.location.href = this.href;
+                    window.location.href = this.href;
                 }
               })
               .catch(error => {
-                //console.error('Error resetting shopping bag flag:', error);
                 // Optionally, navigate even if the API fails
-                 //window.location.href = this.href;
+                window.location.href = this.href;
               });
           });
         });
       });
     </script>
     
-
     {% block postloadjs %}
+    
     <script>
       $('.toast').toast('show');
     </script>
 
-   
     <!--Mailchimp-->
+  
     <script  src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
           <script>
             (function($) {window.fnames = new Array(); 
