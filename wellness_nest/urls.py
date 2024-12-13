@@ -33,7 +33,6 @@ urlpatterns = [
     path('testimonials/', include('testimonials.urls')),
     path('contact_us/', include('contact_us.urls')),
 
-
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'wellness_nest.views.handler404'

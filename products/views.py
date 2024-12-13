@@ -98,7 +98,7 @@ def add_product_view(request):
     only the super user , owner of the product
     or store maangement can add the product
     """
-    #request.session['IsShoppingBagUpdated'] = False
+    request.session['IsShoppingBagUpdated'] = False
 
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
@@ -128,7 +128,7 @@ def add_product_view(request):
 @login_required
 def edit_product_view(request, product_id):
     """ Edit a product in the store """
-    #request.session['IsShoppingBagUpdated'] = False
+    request.session['IsShoppingBagUpdated'] = False
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -162,7 +162,7 @@ def delete_product_view(request, product_id):
     """
     Delete a product from the store
     """
-    #request.session['IsShoppingBagUpdated'] = False
+    request.session['IsShoppingBagUpdated'] = False
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))

@@ -144,8 +144,8 @@ def edit_testimonials_view(request, testimonial_id):
     )
 
 
+# Reset flag for success message in login page
 def reset_shopping_bag_flag(request):
     """Reset the 'IsShoppingBagUpdated' session flag."""
     request.session['IsShoppingBagUpdated'] = False
     return HttpResponse(status=200)  # Empty response with 200 OK status
-

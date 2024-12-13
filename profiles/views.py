@@ -9,11 +9,12 @@ from payment.models import Checkout
 
 @login_required
 def profile_view(request):
-    
-    # Clear the flag at the start of the view to prevent unwanted flag persistence
+    """Display User profile """
+
+    # Clear the flag at the start of the
+    # view to prevent unwanted flag persistence
     request.session['IsShoppingBagUpdated'] = False
 
-    """Display User profile """
     profile = get_object_or_404(UserProfile, user=request.user)
 
     if request.method == 'POST':
@@ -33,7 +34,6 @@ def profile_view(request):
     context = {
         'form': form,
         'orders': orders,
-        'only_success_message': True,
     }
 
     return render(request, template, context)
@@ -58,4 +58,3 @@ def order_history_view(request, order_number):
     }
 
     return render(request, template, context)
-

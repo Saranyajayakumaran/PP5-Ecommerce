@@ -14,7 +14,8 @@ def contact_enquiry_view(request):
     If the form is not valid, it shows an error
     message and prompts the user to try again.
     """
-    # Clear the flag at the start of the view to prevent unwanted flag persistence
+    # Clear the flag at the start of the
+    # view to prevent unwanted flag persistence
     request.session['IsShoppingBagUpdated'] = False
 
     if request.method == 'POST':
@@ -37,10 +38,11 @@ def contact_enquiry_view(request):
 
     context = {
         'form': form,
-        'IsShoppingBagUpdated': False  # Ensure the flag is reset in the context
+        'IsShoppingBagUpdated': False
     }
 
-    return render(request, 'contact_us/contact_us.html', context)
+    return render(request,
+                  'contact_us/contact_us.html', context)
 
 
 def send_contact_confirmation_email(enquiry):

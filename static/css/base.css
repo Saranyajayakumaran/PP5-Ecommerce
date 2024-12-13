@@ -741,7 +741,7 @@ footer {
         width: 40px; /* Slightly reduce size on smaller devices */
         height: 40px;
         right: 60px;
-    
+    } 
 }
 @media (min-width: 768px) and (max-width: 991px) {
     /*------------------------------------------------- Tablet-specific styles */

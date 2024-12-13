@@ -17,6 +17,7 @@ urlpatterns = [
         'testimonials/edit/<int:testimonial_id>',
         views.edit_testimonials_view, name='edit_testimonials'
     ),
-    path('reset-shopping-bag-flag/', reset_shopping_bag_flag, name='reset_shopping_bag_flag'),
+    path('reset-shopping-bag-flag/',
+         reset_shopping_bag_flag, name='reset_shopping_bag_flag'),
 
 ]
