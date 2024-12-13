@@ -432,6 +432,9 @@ Our e-commerce website operates on a direct-to-consumer model, offering a seamle
 ## Marketing Strategy
 Our marketing strategy focuses on building brand awareness, engaging users, and driving traffic to the website through multiple channels. Key components include:
 
+### E-Commerce Business Model
+This application follows a B2C (Business to Consumer) model, directly offering wellness and personal care products to individual customers. Our platform caters to customers seeking health, beauty, and self-care solutions, with an emphasis on high-quality, organic products. The goal is to provide a seamless, user-friendly shopping experience for wellness-conscious consumers.
+
 ### SEO Strategy
 SEO (Search Engine Optimization) is the process of improving a website’s visibility on search engines like Google, Bing, or Yahoo. The goal is to drive more organic (non-paid) traffic to a website by optimizing its content, structure, and performance to align with search engine algorithms.
 
