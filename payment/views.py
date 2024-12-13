@@ -17,7 +17,7 @@ import json
 
 @require_POST
 def cache_checkout_data(request):
-    print("Entered Cache checkout data")
+    """Caching checkout user data"""
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -32,7 +32,7 @@ def cache_checkout_data(request):
                                     })
         return HttpResponse(status=200)
     except Exception as e:
-        print(f"Error in cache_checkout_data: {e}")
+
         messages.error(request, 'Sorry, your payment cannot be \
                        processed right now.Please try again later ')
         return HttpResponse(content=e, status=400)
@@ -67,7 +67,7 @@ def payment_view(request):
         checkout_form = CheckoutForm(form_data)
 
         if checkout_form.is_valid():
-            print("form is valid")
+            
             order = checkout_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
@@ -83,10 +83,8 @@ def payment_view(request):
                             quantity=item_data,
                         )
                         checkout_line_item.save()
-                        print(f"Saved line item for product"
-                              f"ID {item_id} with quantity {item_data}")
                 except Product.DoesNotExist:
-                    print(f"Product ID {item_id} not found in database")
+                    
                     messages.error(request, (
                         "One of the products in your bag"
                         "wasn't found in our database."
@@ -104,7 +102,7 @@ def payment_view(request):
     else:
         bag = request.session.get('shopping_bag', {})
         if not bag:
-            print("Shopping bag is empty")
+            
             messages.error(request, "Your Bag is empty at the moment")
             return redirect(reverse('products'))
 
@@ -156,8 +154,9 @@ def payment_success_view(request, order_number):
     """
     Handling successful payment
     """
+    request.session['IsShoppingBagUpdated'] = False
     save_info = request.session.get('save_info')
-    print("save_info:", save_info)
+    
     order = get_object_or_404(Checkout, order_number=order_number)
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
@@ -174,11 +173,10 @@ def payment_success_view(request, order_number):
                 'default_country': order.country,
             }
             user_profile_form = UserProfileForm(profile_data, instance=profile)
-            print("user profile form:", user_profile_form)
+            
             if user_profile_form.is_valid():
                 user_profile_form.save()
 
-            print(f"Order found with order_number: {order_number}")
     messages.success(request, f'Order successfully processed! \
                      Your order number is {order_number}. A confirmation \
                     email will be sent to {order.email}')

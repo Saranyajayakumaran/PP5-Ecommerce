@@ -38,8 +38,6 @@ def add_to_bag_view(request, item_id):  # item_id=Product_id
 
     request.session['shopping_bag'] = shopping_bag
 
-    print(request.session['shopping_bag'])
-
     return redirect(redirect_url)
 
 
@@ -77,7 +75,6 @@ def adjust_bag_view(request, item_id):  # item_id=Product_id
 
     request.session['shopping_bag'] = shopping_bag
 
-    print(request.session['shopping_bag'])
     return redirect(reverse('shopping_bag'))
 
 
