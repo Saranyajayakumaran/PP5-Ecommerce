@@ -1,29 +1,39 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block content %}
+    <!-- Main Container for the 404 Page -->
     <div class="container header-container">
-        <div class="row">
+        <div class="row justify-content-center align-items-center">
             <hr>
-            <div class="col">404 PAGE</div>
+            <div class="col-12 text-center">
+                <h2 class="text-danger">404</h2>
+                <p class="lead">Oops! The page you are looking for isn't available.</p>
+            </div>
             <hr>
         </div>
     </div>
+
+    <!-- Overlay for extra visual effect -->
     <div class="overlay"></div>
+
+    <!-- Centered content inside the full-height container -->
     <div class="container h-100 d-flex justify-content-center align-items-center">
-        <div class="row bordered-form">
-            <div class="col-12 col-md-6 text-center">
-                <h1 class="display-4 logo-font text-black">
-                    The page you are looking for isn't available
+        <div class="row w-100 justify-content-center">
+            <!-- Main content -->
+            <div class="col-12 col-md-6 text-center bordered-form py-5 px-4 bg-light shadow-lg rounded">
+                <h1 class="display-4 logo-font text-primary mb-4">
+                    Sorry, we couldn't find that page.
                 </h1>
+                <p class="mb-4">It seems like the page you're looking for is no longer available or never existed.</p>
                 <div class="my-5">
-                    <h4>
-                        <a href="{% url 'home' %}" 
-                            class="shop-now-button btn btn-dark btn-lg rounded-0 text-uppercase py-3">
-                            Return to website
-                        </a>
-                    </h4>
+                    <a href="{% url 'home' %}" 
+                       class="shop-now-button btn btn-dark btn-lg rounded-0 text-uppercase py-3 px-5">
+                        Return to Homepage
+                    </a>
                 </div>
             </div>
         </div>
     </div>
+
 {% endblock %}

@@ -242,6 +242,11 @@ For now, the project meets functional requirements and prioritizes delivering a 
 |Case 2| Enter only 5 characters in message input eg:testi |Error: "The messsage must be atleast 10 characters long| PASS|
 |Case 3| Enter Banned keywords eg:"ridiculous"|Error: "The message contains inappropriate content 'ridiculous',Please remove it|PASS|
 
+**Banned Keywords**
+'disgusting', 'annoying', 'pathetic',
+'terrible', 'awful', 'horrible', 'ridiculous',
+'absurd', 'lame', 'trivial'
+
 
 ## Edit Testimonial
 
@@ -281,6 +286,11 @@ For now, the project meets functional requirements and prioritizes delivering a 
         message: 'Do the product available in the logger?'
         and click submit
 |Case 2|Click cancel button|Render products page|PASS|
+
+**Banned Keywords**
+'disgusting', 'annoying', 'pathetic',
+'terrible', 'awful', 'horrible', 'ridiculous',
+'absurd', 'lame', 'trivial'
 
 
 ## Invalid Input
