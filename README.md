@@ -100,6 +100,15 @@ You can find the wirefarems of the project with the below link:
 
 wireframes [wireframes](https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/wireframes.md)
 
+
+# User Experience (UX)
+
+## User Stories
+
+User stories are a key component of the development process as they help define the features and functionality from the perspective of the end user. They are concise, clear descriptions of a feature or functionality that will deliver value to the user. All the user stories for this project is created in github repository which can be viewed with the link  [Github link](https://github.com/Saranyajayakumaran/PP5-Ecommerce.git)
+
+
+
 # Features
 ## NavBar
 
@@ -272,7 +281,7 @@ wireframes [wireframes](https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob
 - **Redirects After Login**:  
   - Users are redirected to the homepage or their last visited page after successful login.
 
-  ![Login Page](https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/documentation/Screenshots/features/login%20page.png)
+![Login Page](https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/documentation/Screenshots/features/login%20page.png)
 
 ## Sign-Up Form
 
@@ -577,7 +586,7 @@ Why Use Bootstrap?
 
 # AWS S3 Bucket
 
-Django with AWS S3 integration allows seamless storage and retrieval of static files (CSS, JavaScript, images) and media files (user uploads) using Amazon's Simple Storage Service (S3). This approach is highly scalable, cost-effective, and ensures reliable access to files.
+Django with AWS S3 integration allows seamless storage and retrieval of static files (CSS, JavaScript, images) and media files (user uploads) using Amazon's Simple Storage Service (S3). This approach is highly scalable, cost-effective, and ensures reliable access to files. [aws](https://aws.amazon.com/)
 
 - **Static and Media File Storage:** Store all static files and user-uploaded media in S3 buckets.
 - **Scalability:** S3 handles large volumes of data effortlessly, making it ideal for scaling Django applications.
@@ -629,7 +638,58 @@ STRIPE_PUBLISHABLE_KEY=pk_test_51HXYZabc...
 
 STRIPE_SECRET_KEY=sk_test_51HXYZdef...
 
+**Testing with Stripe** 
+
+When testing your integration, Stripe provides a variety of test credit card numbers to simulate different scenarios. Below is an example of a commonly used test card:
+
+**Default Test Card**
+
+- **Card Number:** 4242 4242 4242 4242
+- **Expiration Date:** Any valid future date (e.g., 12/34)
+- **CVC:** Any 3-digit number (e.g., 123)
+
+
 ![stripe functinality](https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/documentation/Screenshots/stripe%20integration/stripe%20payment%20integration.png)
+
+
+# Mailchimp Integration for Newsletter Subscription
+
+The newsletter subscription feature in this application is powered by Mailchimp, a leading email marketing service. Mailchimp allows us to efficiently manage and send newsletters to subscribers, keeping them updated on the latest news, promotions, and updates related to our product offerings.
+
+## How it Works
+
+**Subscription Form:**
+
+Users can subscribe to the newsletter by entering their email address in the subscription form available on the website.
+The subscription form is integrated with Mailchimp, where the email addresses submitted are securely stored and managed.
+
+**Create a Mailchimp Account**
+
+- Go to [Mailchimp](https://mailchimp.com/) and sign up for a new account or log into an existing account.
+- After signing in, you'll be directed to the Dashboard.
+
+**Create a Mailchimp Audience** 
+- Once logged in, click Audience from the dashboard.
+- If you don't have a list, click Create Audience and follow the prompts to create one.
+
+**Get Your Mailchimp API Key**
+- Click your profile icon in the top-right corner.
+- Go to Account > Extras > API Keys.
+- Click Create A Key and copy the key that’s generated.
+
+**Add Signup Form to Your Website**
+
+- Create a simple signup form where users can enter their email to subscribe. Example:
+
+<form id="newsletter-form">
+  <input type="email" id="email" placeholder="Enter your email" required />
+  <button type="submit">Subscribe</button>
+</form>
+
+**Test the Subscription**
+
+ Test the form by entering an email address and click subscription A page should open with confirmation
+
 
 # Heroku Deployment
 

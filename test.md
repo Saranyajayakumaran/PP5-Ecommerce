@@ -22,8 +22,8 @@ No errors were found when passing my CSS files through the official W3C CSS Vali
 ![Edit product page error](https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/documentation/Screenshots/html%20validation/css%20validation.png)
 
 
-Python Validation - Pycodestyle
-Python testing was done using Pycodestyle to ensure there were no syntax errors.
+## Python Validation 
+Python testing was done using Pylint to ensure there were no syntax errors.
 
 The only errors displayed (as per below screenshot) can be ignored. The majority are within automatically generated files with the exception of env.py and webhooks.py.
 
@@ -31,6 +31,28 @@ I have ignored the the formatting errors related to env.py as they relate to my 
 
 
 ![Edit product page error](https://github.com/Saranyajayakumaran/PP5-Ecommerce/blob/main/documentation/Screenshots/html%20validation/pylint%20error%20final.png)
+
+## Lighthouse Validation
+
+![lighthouse validation](Image_url)
+
+**Performance and Best Practices in Lighthouse Testing**
+
+Due to the tight project deadlines, we were unable to fully optimize the performance and best practices scores in Lighthouse testing for all pages. A key reason for this limitation is the reliance on third-party integrations that impact performance metrics, such as:
+
+Bigger images
+Third-party ( payment gateways, aws storage, mailchimp).
+While these integrations are essential for the project’s functionality, they introduce performance trade-offs that require additional time to optimize. Given the project’s time constraints, my focus was on delivering a fully functional application that meets core requirements.
+
+Future Improvements:
+- Optimize loading of third-party resources using techniques like lazy loading, deferred scripts, and asynchronous loading.
+- Minify and bundle assets to reduce payload size.
+- Implement advanced caching strategies for third-party content.
+
+These improvements can be addressed in future iterations to enhance performance and compliance with best practices.
+
+For now, the project meets functional requirements and prioritizes delivering a robust user experience within the given timeline. 
+
 
 # Functional Testing
 # NavBar
@@ -52,16 +74,16 @@ I have ignored the the formatting errors related to env.py as they relate to my 
 
 |Testcase|Expected behavior|PASS/FAIL|
 |--------|-----------------|---------|
-|click shop now button| successfully render All products page|PASS|
+|click shop now button| Successfully render All products page|PASS|
 
 # Products nav item
 
 |Testcase|Expected behavior|PASS/FAIL|
 |--------|-----------------|---------|
 |Click all products dropdown item|Successfully render all products page|PASS|
-|Click "Beauty" dropdown item|Successfully display only products in beauty category in product page|PASS|
-|Click "Haircare" dropdown item|Successfully display only products in haircare category in product page|PASS|
-|Click "Health and Wellness|Successfully display only products in health and wellness category in product page|PASS|
+|Click "Beauty" dropdown item|Successfully display only beauty category product |PASS|
+|Click "Haircare" dropdown item|Successfully display only haircare category products|PASS|
+|Click "Health and Wellness|Successfully display only health and wellness category products|PASS|
 |Click "by Price"|Sort produts by price in ascending order|PASS|
 |Click "by Rating"|Sort products by rating in ascending order|PASS|
 |Click "by Category"|Sort Products by category from A-Z|PASS|
@@ -77,7 +99,7 @@ I have ignored the the formatting errors related to env.py as they relate to my 
 |Click price(high to low)|Sort all the products price in descending order|PASS|
 |Click Rating (low to high)|Sort all the products rating in ascending order|PASS|
 |Click Rating( high to low) |Sort all the products rating in descending order|PASS|
-|Click Name(A-Z)|sort all the products name A-Z|PASS|
+|Click Name(A-Z)|Sort all the products name A-Z|PASS|
 |Click Name(Z-A)|Sort all the products name (Z-A)|PASS|
 |Click category(A-Z)|Sort all the products by category name A-Z|PASS|
 |Click category(Z-A)|Sort all the products by category name Z-A|PASS|
@@ -89,11 +111,11 @@ I have ignored the the formatting errors related to env.py as they relate to my 
 |Testcase|Expected behavior|PASS/FAIL|
 |--------|-----------------|---------|
 |Click "Keep shopping" Button| Redirect products page|PASS|
-|Click "Add to bag" button|Add specific product to shopping bag and display success message "Product added to shopping bag successfully" with product details |PASS|
-|Click Quantity '+' button in quantity input|Increase the number of qunatity max "99" disable '+' button when quanttiy reaches 99|PASS|
-|Click Quantity '-' button in quantity input|Decrease the number of qunatity min "1" disable '-' button when quanttiy reaches 1|PASS|
+|Click "Add to bag" button|Add specific product to the shopping bag and display success message "Product added to shopping bag successfully" |PASS|
+|Click Quantity '+' button in quantity input|Increase the number of qunatity maximum "99" disable '+' button when quanttiy reaches 99|PASS|
+|Click Quantity '-' button in quantity input|Decrease the number of qunatity minimum "1" disable '-' button when quanttiy reaches 1|PASS|
 |Click Category badge|Display all products in specific category|PASS|
-|Click secure Checkout button in success message|Go to shopping bag page with grand total|PASS|
+|Click Secure Checkout button in success message|Go to shopping bag page with grand total|PASS|
 
 # Shopping bag Page
 
@@ -106,7 +128,7 @@ I have ignored the the formatting errors related to env.py as they relate to my 
 |Click Quantity '-' button in quantity input|Decrease the number of qunatity min "1" disable '-' button when quanttiy reaches 1||
 |Click update icon after increse or decrease quantity|Update the quantity in shopping bag|PASS|
 |Click delete icon |Delete the specific product from shopping bag|PASS|
-|When no products added in shopping bag|Display no products in shopping bag|PASS|
+|When no products added in shopping bag|Display "No products in shopping bag"|PASS|
 
 
 # Checkout Page
@@ -115,7 +137,8 @@ I have ignored the the formatting errors related to env.py as they relate to my 
 
 |Testcase|User Input|Expected behavior|PASS/FAIL|
 |--------|----------|-----------------|---------|
-|Case 1| Enter valid inputs in checkout form"name:Test", | Order should complete and display order details and send email to the email address specified in the form" |PASS|
+|Case 1| Enter valid inputs in checkout form, | Order should complete and display order details and send email to the email address specified in the form" |PASS|
+         "name:Test"
         "email:test@test.com",
         "Phone neumber:01234567890",
         "streetaddress1: test street1",
@@ -150,8 +173,8 @@ I have ignored the the formatting errors related to env.py as they relate to my 
 
 |Testcase|User Input|Expected behavior|PASS/FAIL|
 |--------|----------|-----------------|---------|
-|Case 1|Fill the valid username and password|Render homepage of the website and success message"You are logged in as with username"|PASS|
-|Case 2|Enter valid email address and password|Render homepage of the website and success message"You are logged in as with username"|PASS|
+|Case 1|Fill the valid username and password|Render homepage of the website and success message "You are logged in as with username"|PASS|
+|Case 2|Enter valid email address and password|Render homepage of the website and success message "You are logged in as with username"|PASS|
 |Case 3|Click home button|go to home page|PASS|
 |Case 4|Click forgot password|Ask the user to enter email address to recover password|PASS|
 |Case 5|Enter email id and click reset my password|Send email to the user with link to recover password|PASS|
@@ -335,13 +358,70 @@ I have ignored the the formatting errors related to env.py as they relate to my 
 |Enter email address and click subscribe|Render mailchimp subscription confirmation page|PASS|
 
 
-# Fixed Bugs
+# Bug Fixes
 
-|Bug found|Problem|Solution|
-|---------|-------|--------|
-|Handling increase and decrease quantity in shopping bag|The quantity input field on the shopping page allowed negative values.|Updated the quantity-input.js file to enforce minimum and maximum value checks for the input field.|
-|Handling the update button on the shopping bag page|The update button was not reflecting changes made to the increased or decreased quantity values.| Identified a mismatch between the class names used in the JavaScript and HTML, then corrected the class name.|
-|Handling media file storage in AWS S3| Media files were not being stored in the S3 bucket after deploying the project.|Resolved the issue by reviewing and fixing bucket permissions.|
-|Handling "Save Info" in the profile page|User information was not being saved in the "My Profile" page when the "Save Info" checkbox was selected during checkout.|Corrected a typo in the _save_info class in the HTML.|
-|Handling Stripe payment integration|Payments were failing, and order details were not being created.|Found that the webhook event link was incorrect. Debugged the issue using print statements and fixed the URL.|
-|Handling email notifications on successful payment| Emails were not being sent to users after a successful payment.|Discovered that the email backend was not properly configured in settings.py and corrected the configuration.|
+
+- #### Handling Increase and Decrease Quantity in Shopping Bag
+
+**Problem:** The quantity input field allowed negative values.
+**Solution:** Updated the quantity-input.js file to enforce minimum and maximum value checks for the input field.
+
+- #### Handling the Update Button on the Shopping Bag Page
+
+**Problem:** The update button was not reflecting changes made to the increased or decreased quantity values.
+**Solution:** Corrected the class name mismatch between JavaScript and HTML.
+
+- #### Handling Media File Storage in AWS S3
+
+**Problem:** Media files were not being stored in the S3 bucket after deployment.
+**Solution:** Fixed S3 bucket permissions.
+
+- #### Handling "Save Info" in the Profile Page
+
+**Problem:** User information was not being saved when the "Save Info" checkbox was selected during checkout.
+**Solution:** Corrected a typo in the _save_info class in the HTML.
+
+- #### Handling Stripe Payment Integration
+
+**Problem:** Payments were failing, and order details were not being created.
+**Solution:** Fixed the webhook event link and debugged the issue using print statements.
+
+- #### Handling Email Notifications on Successful Payment
+
+**Problem:** Emails were not being sent after a successful payment.
+**Solution:** Reconfigured email backend in settings.py.
+
+# Success message bug fixing
+
+**Bug Description:**
+A bug was identified where the success message displayed along with shopping bag details on all pages when items were present in the shopping bag. This behavior persisted even on pages where shopping bag details were irrelevant, leading to a confusing user experience.
+
+**Solution Implemented:**
+To resolve the issue, the following approach was implemented:
+
+**Flag-Based Control:**
+
+Introduced a flag IsShoppingBagUpdated to manage the display of shopping bag details in the success message.
+
+**In Views:**
+
+- Set IsShoppingBagUpdated = True in the views for shopping bag and product details pages, where shopping bag details are relevant.
+- Set IsShoppingBagUpdated = False in all other views to ensure shopping bag details are not displayed with the success message.
+
+**Condition for Success Message:**
+- Modified the toast success message logic to check the value of IsShoppingBagUpdated.
+- If the flag is True, the success message is displayed with shopping bag details.
+- If the flag is False, only the success message is displayed without shopping bag details.
+
+**Special Case for Login Page:**
+
+- Noticed that the issue persisted on the login page when logging in with items in the shopping bag.
+**Solution for Login Page:**
+- Created a new IsShoppingBagUpdated view to handle this scenario.
+- Added a custom class to the login navbar item and implemented a JavaScript function to clear shopping bag details in the success message each time a login action occurs.
+- This ensures that the success message on the login page does not display shopping bag details, even if the shopping bag contains products.
+
+This approach successfully resolved the issue across all pages, including the login page. The success message now behaves as intended:
+
+- Displays shopping bag details only on relevant pages.
+- Displays a clean success message without bag details on other pages.
