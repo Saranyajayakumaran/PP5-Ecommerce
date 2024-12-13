@@ -599,6 +599,18 @@ footer {
         height:65vw;
         margin-top:0.2rem;
     }
+    .custom-btn {
+        font-size: 11px; /* Smaller text */
+        padding: 8px 12px; /* Smaller padding */
+    }
+    .footer {
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+    footer {
+        text-align:left ; 
+    }
     .footer-email{
         width:200px;
     }
@@ -641,7 +653,11 @@ footer {
     .hero-section {
         padding: 20px 10px;
     }
-
+    .custom-btn {
+        font-size: 11px; /* Smaller text */
+        padding: 8px 12px; /* Smaller padding */
+    }
+   
     .decrement-qty-btn,.increment-qty-btn,.qty_btn{
         width:50px;
     }
@@ -705,7 +721,10 @@ footer {
         width:60%;
         margin-left:10rem;
     }
-
+    .custom-btn {
+        font-size: 11px; /* Smaller text */
+        padding: 8px 12px; /* Smaller padding */
+    }
     .navbar-nav .nav-item {
         margin-right: 1rem; 
         padding: 0.5rem; 
@@ -820,6 +839,10 @@ footer {
     margin-left:-3rem;
     width:100%;
 }
+.custom-btn {
+    font-size: 20px; /* Smaller text */
+    padding: 8px 12px; /* Smaller padding */
+}
 }
 
 @media (min-width: 1200px) {
@@ -836,6 +859,10 @@ footer {
         left: 0;
         right: 0;
         z-index: 10;
+    }
+    .custom-btn {
+        font-size: 20px; /* Smaller text */
+        padding: 8px 12px; /* Smaller padding */
     }
     
 }
