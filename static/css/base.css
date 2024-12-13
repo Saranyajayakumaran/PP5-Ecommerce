@@ -728,6 +728,20 @@ footer {
         margin-right: 15px; /* Add some spacing on the right to avoid cutoff */
         padding: 5px; /* Adjust padding to make the toggler easier to click */
     }
+    footer .row {
+        margin-left:2rem;
+    }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    .card {
+        margin: 10px auto;
+    }
+    .btt-button {
+        bottom: 10px; /* Adjust vertical position for smaller screens */
+        width: 40px; /* Slightly reduce size on smaller devices */
+        height: 40px;
+        right: 60px;
+    
 }
 @media (min-width: 768px) and (max-width: 991px) {
     /*------------------------------------------------- Tablet-specific styles */
