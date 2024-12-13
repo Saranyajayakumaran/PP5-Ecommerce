@@ -10,16 +10,8 @@ The website is responsive on all screens
 
 
 # Table of Contents
-- [Introduction](#introduction)
+- [Introduction](#wellnessnest)
 - [Technologies Used](#technologies-used)
-  - [Frontend](#frontend)
-  - [Backend](#backend)
-  - [Database](#database)
-  - [Payment Gateway](#payment-gateway)
-  - [Cloud Storage](#cloud-storage)
-  - [Deployment](#deployment)
-  - [Git and GitHub](#git-and-github)
-  - [SMTP Email Integration](#smtp-email-integration)
 - [Wireframes](#wireframes)
 - [Features](#features)
   - [NavBar](#navbar)
@@ -39,26 +31,13 @@ The website is responsive on all screens
 - [Future Development Features](#future-development-features)
 - [Testing](#testing)
 - [Business Model](#business-model)
-  - [Revenue Streams](#revenue-streams)
-  - [Value Proposition](#value-proposition)
-  - [Channels](#channels)
-  - [Customer Relationships](#customer-relationships)
 - [Marketing Strategy](#marketing-strategy)
-  - [SEO Strategy](#seo-strategy)
-  - [Social Media Marketing](#social-media-marketing)
-  - [Content Marketing](#content-marketing)
 - [Agile Methodology](#agile-methodology)
-  - [Benefits of Agile](#benefits-of-agile)
-- [Django Framework Overview](#django-framework-overview)
-  - [Project Setup](#project-setup)
-  - [Project Structure](#project-structure)
-  - [Models](#models)
-  - [Views](#views)
-  - [Static Files](#static-files)
-  - [Admin Interface](#admin-interface)
+- [Django Framework Overview](#django-framework)
 - [Using Bootstrap](#using-bootstrap)
 - [AWS S3 Bucket](#aws-s3-bucket)
 - [Stripe Integration](#stripe-integration)
+- [Mailchimp Integration for Newsletter Subscription](#Mailchimp-Integration-for-Newsletter-Subscription)
 - [Heroku Deployment](#heroku-deployment)
 - [SMTP Email Integration](#smtp-email-integration)
 - [Credits](#credits)
@@ -71,7 +50,7 @@ The website is responsive on all screens
 **Backend**
 - Django framework for server-side logic and database management.
 
-**Database**-
+**Database**
 - PostgreSQL for storing user and reservation data.
 
 **Payment Gateway**
@@ -93,7 +72,7 @@ The website is responsive on all screens
 - Configured with SMTP servers to send email notifications for user registration, password resets, and more.
 
 
-# wireframes
+# Wireframes
 Wireframes are visual representations of the application's layout and structure. They serve as a blueprint for designing the user interface (UI) and help to communicate the app's functionality and user flow.
 
 You can find the wirefarems of the project with the below link:
@@ -775,5 +754,5 @@ DEFAULT_FROM_EMAIL = 'Your Website Name <your-email@example.com>'
     - W3schools and Stackoverflow plays a major role in learning the concepts.[W3C schools](https://www.w3schools.com/) 
     - Authenication,signup and product management ,deployment methods are followed from blog project[boutique ado](https://github.com/Code-Institute-Solutions/boutique_ado_v1/tree/933797d5e14d6c3f072df31adf0ca6f938d02218) 
     - Bootstrap classes Utilized from the Bootstrap documentation[Bootstrap](https://getbootstrap.com/) 
-    - Some more youtube channels too get idea of e commerce project[desphis](https://www.youtube.com/@desphixs) 
+    - Some more youtube channels to get idea of e commerce project[desphis](https://www.youtube.com/@desphixs) 
       [codemy](https://www.youtube.com/watch?v=A0mSfYDH-nY)
